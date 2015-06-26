@@ -1,0 +1,10 @@
+ {
+    "name":"wifiSsid",
+    "class":"UZModuleWifi",
+    "methods":["getSsid"]
+ },
+ {
+    "name":"micoBind",
+    "class":"UZModuleBind",
+    "methods":["getDevip","stopFtc"]
+ }
