@@ -1,4 +1,0 @@
-		{
-		    name:'micoMqtt',
-		    class:'com.mico.jsmethod.MicoMqtt'
-		}

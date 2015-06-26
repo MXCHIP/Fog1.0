@@ -1,8 +1,0 @@
-		{
-		    name:'micoBind',
-		    class:'com.mico.jsmethod.MicoBind'
-		},
-		{
-		    name:'wifiSsid',
-		    class:'com.mico.jsmethod.WifiSsid'
-		}
