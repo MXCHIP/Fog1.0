@@ -1,9 +1,9 @@
-亲，加个星吧！
+﻿亲，加个星吧！
 
 #**MiCOSDK**
 这里是最终的版本
 #**EasyLink**<div id="1"></div>
-	包含EasyLinkDemo，三个jar包和一个接口调用说明
+	包含EasyLink开发事例"EasyLinkDemo",三个jar包和一个接口调用说明
 	1)easylink_ftc_out.jar
 	2)dd-plist.jar
 	3)jetty-8.1.15.jar
