@@ -1,3 +1,5 @@
+亲，加个星吧！
+
 #**MiCOSDK**
 这里是最终的版本
 #**EasyLink**<div id="1"></div>
