@@ -21,7 +21,7 @@ v2+v3
 	1.2、micoBind_ios V1.2,支持V-Plus(V2+V3)模式发包
 ##2)micoMdns
 	2.1、micoMdns_Android V1.1
-	2.2、micoMdns_iOS V1.0
+	2.2、micoMdns_iOS V1.1
 ##3)micoMqtt
 	3.1、micoMqtt_android V1.2：mqtt的原始功能和关闭mqtt数据接收的功能,解决了锁屏后再打开连接不上的问题
 	3.2、micoMqtt_ios V1.4解决了iOS系统锁屏后，再打开mqtt连接不上的问题
