@@ -13,9 +13,11 @@ Description: EasyLink配网连接和获取本地SSID，以及设备的配网和�
 
 [getDevip](#2)<br/>
 
-[getDevid](#3)<br/>
+[stopFtc](#3)<br/>
 
-[bindDevCloud](#4)
+[getDevid](#4)<br/>
+
+[bindDevCloud](#5)
 </div>
 
 #**概述**
@@ -80,7 +82,7 @@ iOS系统，Android系统
 
 #**getDevip**<div id="2"></div>
 
-发送ssid和psw给WIFI设备，并等待返回设备的ip
+发送ssid和psw给WIFI设备，并等待返回设备的ip，此过程其实是发送数据包为路由器，会一直发送，直到得到ip或者主动调用stopFtc的方法后才会停止
 
 getDevip({params}, callback(ret, err))
 
@@ -150,6 +152,53 @@ iOS系统，Android系统
 
 可提供的1.0.0及更高版本
 
+
+#**stopFtc**<div id="3"></div>
+
+停止发送数据包
+
+micobindobj.stopFtc(function(ret, err){});
+
+##callback(ret, err)
+ret：
+
+- 类型：JSON对象
+
+内部字段：
+
+```js
+{
+}
+```
+
+err：
+
+- 类型：JSON对象
+
+内部字段：
+
+```js
+{
+	msg:""    //错误描述
+}
+```
+##示例代码
+
+```js
+micobindobj = api.require('micoBind');
+micobindobj.stopFtc(function(ret, err) {
+});
+```
+
+##补充说明
+
+无
+
+##可用性
+
+iOS系统，Android系统
+
+可提供的1.0.0及更高版本
 
 
 #**getDevid**<div id="3"></div>
