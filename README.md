@@ -8,7 +8,7 @@
 	2)dd-plist.jar
 	3)jetty-8.1.15.jar
 
-#**MicoMqtt2**<div id="1"></div>
+#**MicoMqtt**<div id="1"></div>
 	包含MQTT开发事例"MicoMqtt_Demo",5个jar包和一个接口调用说明
 	
 #**MiCO**<div id="2"></div>
