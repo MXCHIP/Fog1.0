@@ -93,8 +93,8 @@ err：
 ##示例代码
 
 ```js
-var micoMqtt = api.require("micoMqtt");
-var host = "http://api.easycc.io";
+var micoMqtt = api.require("micoMqtt2");
+var host = "api.easycc.io";
 var username = "";
 var password = "";
 var clientID = "aca213caec5c";
@@ -161,7 +161,7 @@ err：
 ##示例代码
 
 ```js
-var micoMqtt = api.require("micoMqtt");
+var micoMqtt = api.require("micoMqtt2");
 micoMqtt.recvMqttMsg(function(ret, err) {
 	if(ret){
 		api.alert({msg:JSON.stringify(ret.subs)});
@@ -191,7 +191,7 @@ stopRecvMqttMsg()
 ##示例代码
 
 ```js
-var micoMqtt = api.require("micoMqtt");
+var micoMqtt = api.require("micoMqtt2");
 micoMqtt.stopRecvMqttMsg();
 ```
 
@@ -253,7 +253,7 @@ err：
 ##示例代码
 
 ```js
-var micoMqtt = api.require("micoMqtt");
+var micoMqtt = api.require("micoMqtt2");
 var topic = "d64f517c/in/read/app1";
 var command = "{}";
 micoMqtt.publish({
@@ -313,7 +313,7 @@ err：
 ##示例代码
 
 ```js
-var micoMqtt = api.require("micoMqtt");
+var micoMqtt = api.require("micoMqtt2");
 micoMqtt.stopMqtt(function(ret, err) {
 	if(ret.status){
 		api.alert({msg:'stop success'});

@@ -21,7 +21,7 @@ function micoPublish(topicStr, payloadStr) {
 
 //subscribe的功能
 function micoSubscribe(host, username, password, topicStr, clientID) {
-	micoMqtt = api.require("micoMqtt");
+	micoMqtt = api.require("micoMqtt2");
 	var host = host;
 	var username = username;
 	var password = password;

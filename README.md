@@ -8,7 +8,7 @@
 	2)dd-plist.jar
 	3)jetty-8.1.15.jar
 
-#**MicoMqtt**<div id="1"></div>
+#**MicoMqtt2**<div id="1"></div>
 	包含MQTT开发事例"MicoMqtt_Demo",5个jar包和一个接口调用说明
 	
 #**MiCO**<div id="2"></div>
@@ -27,6 +27,6 @@ v2+v3
 ##2)micoMdns
 	2.1、micoMdns_Android V1.1
 	2.2、micoMdns_iOS V1.1 可以获取binding信息，知道此模块是否已经被激活
-##3)micoMqtt
-	3.1、micoMqtt_android V1.2：mqtt的原始功能和关闭mqtt数据接收的功能,解决了锁屏后再打开连接不上的问题
-	3.2、micoMqtt_ios V1.05解决了iOS系统锁屏后，再打开mqtt,能Publish却不能Subscribe的问题
+##3)micoMqtt2
+	3.1、micoMqtt2_android V1.2：mqtt的原始功能和关闭mqtt数据接收的功能,解决了锁屏后再打开连接不上的问题
+	3.2、micoMqtt2_ios V1.05解决了iOS系统锁屏后，再打开mqtt,能Publish却不能Subscribe的问题
