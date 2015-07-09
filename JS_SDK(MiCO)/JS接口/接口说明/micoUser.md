@@ -1,44 +1,36 @@
-/*
-Title: micoUser
-Description: 注册、登录、修改密码、邮箱等基础用户管理
-*/
+##micoUser
+	注册、登录、修改密码、邮箱等基础用户管理
 
-<ul id="tab" class="clearfix">
-	<li class="active"><a href="#method-content">Method</a></li>
-</ul>
-<div id="method-content">
+* [isExist](#1)<br/>
 
-<div class="outline">
-[isExist](#1)<br/>
+* [getSmsCode](#2)<br/>
 
-[getSmsCode](#2)<br/>
+* [signUpOrlogInByPhone](#3)<br/>
 
-[signUpOrlogInByPhone](#3)<br/>
+* [setPassword](#4)<br/>
 
-[setPassword](#4)<br/>
+* [loginWithPhone](#5)<br/>
 
-[loginWithPhone](#5)<br/>
+* [resetPassword](#6)<br/>
 
-[resetPassword](#6)<br/>
+* [updatePassword](#7)<br/>
 
-[updatePassword](#7)<br/>
+* [updateEmail](#8)<br/>
 
-[updateEmail](#8)<br/>
+* [getCurrentUserInfo](#9)<br/>
 
-[getCurrentUserInfo](#9)<br/>
+* [loginOut](#10)<br/>
 
-[loginOut](#10)<br/>
-</div>
 
 #**概述**
 
-micoUser模块封装了用户注册、登录、发送验证码、验证验证码、密码修改、邮箱修改等方法
+	micoUser模块封装了用户注册、登录、发送验证码、验证验证码、密码修改、邮箱修改等方法
 
 #**isExist**<div id="1"></div>
 
-判断此用户是否存在，如果已存在，不允许进行注册，如果用户不存在则不允许重置密码。
+	判断此用户是否存在，如果已存在，不允许进行注册，如果用户不存在则不允许重置密码。
 
-$mxuser.isExist(phone, callback(ret, err))
+	$mxuser.isExist(phone, callback(ret, err))
 
 ##phone
 
@@ -53,13 +45,13 @@ phone：
 ret：
 
 - 类型：json数组
-- ret.length	//获取用户个数，1为存在，0为不存在，(正常情况只会得到0或者1)
-- ret[0].get("userToken") //获取UserToken
-- ret[0].get("email") //获取email
-- ret[0].get("username") //获取username
-- ret[0].get("mobilePhoneNumber") //获取手机号
+	- ret.length	//获取用户个数，1为存在，0为不存在，(正常情况只会得到0或者1)
+	- ret[0].get("userToken") //获取UserToken
+	- ret[0].get("email") //获取email
+	- ret[0].get("username") //获取username
+	- ret[0].get("mobilePhoneNumber") //获取手机号
 
-内部字段：
+- 内部字段：
 ```js
  [{
  	"userToken":"cb33339e-2222-4377-1111-8043040",
@@ -85,20 +77,20 @@ $mxuser.isExist(phone, function(ret, err) {
 
 ##补充说明
 
-无
+	无
 
 ##可用性
 
-iOS系统，Android系统
-
-可提供的1.0.0及更高版本
+	iOS系统，Android系统
+	
+	可提供的1.0.0及更高版本
 
 
 #**getSmsCode**<div id="2"></div>
 
-发送验证码给用户（每帐号前100条免费超出后0.1元/条）
+	发送验证码给用户（每帐号前100条免费超出后0.1元/条）
 
-$mxuser.getSmsCode(phone, callback(ret, err))
+	$mxuser.getSmsCode(phone, callback(ret, err))
 
 ##phone
 
@@ -113,10 +105,11 @@ ret：
 
 - 类型：int对象
 
-内部字段：
+- 内部字段：
 
- 0 //返回0 操作成功
-
+```js
+ 	0 //返回0 操作成功
+```
 err：
 
 - 类型：JSON对象
@@ -134,20 +127,20 @@ $mxuser.getSmsCode(username, function(ret) {
 
 ##补充说明
 
-无
+	无
 
 ##可用性
 
-iOS系统，Android系统
+	iOS系统，Android系统
 
-可提供的1.0.0及更高版本
+	可提供的1.0.0及更高版本
 
 
 #**signUpOrlogInByPhone**<div id="3"></div>
 
-验证发送给用户的验证码
+	验证发送给用户的验证码
 
-$mxuser.signUpOrlogInByPhone(phone, identify, callback(ret, err))
+	$mxuser.signUpOrlogInByPhone(phone, identify, callback(ret, err))
 
 ##phone
 
@@ -163,7 +156,7 @@ ret：
 
 - 类型：JSON对象
 
-内部字段：
+- 内部字段：
 
 ```js
 {
@@ -201,19 +194,19 @@ $mxuser.signUpOrlogInByPhone(phone, identify, function(ret, err) {
 
 ##补充说明
 
-无
+	无
 
 ##可用性
 
-iOS系统，Android系统
+	iOS系统，Android系统
 
-可提供的1.0.0及更高版本
+	可提供的1.0.0及更高版本
 
 #**setPassword**<div id="4"></div>
 
-用户首次注册时候，设置用户初始密码，并完成注册
+	用户首次注册时候，设置用户初始密码，并完成注册
 
-$mxuser.setPassword(phone, password,app_id, callback(ret, err))
+	$mxuser.setPassword(phone, password,app_id, callback(ret, err))
 
 ##phone
 
@@ -245,7 +238,7 @@ ret：
 
 - 类型：JSON对象
 
-内部字段：
+- 内部字段：
 ```js
 {
 	"login_id":"", //用户ID，及手机号
@@ -257,8 +250,8 @@ ret：
 err：
 
 - 类型：JSON对象
-- 
-内部字段：
+- 内部字段：
+
 ```js
 {
 	"code":403,	//错误代码
@@ -279,20 +272,20 @@ $mxuser.setPassword(phone, password, function(ret, err) {
 
 ##补充说明
 
-无
+	无
 
 ##可用性
 
-iOS系统，Android系统
-
-可提供的1.0.0及更高版本
+	iOS系统，Android系统
+	
+	可提供的1.0.0及更高版本
 
 
 #**loginWithPhone**<div id="5"></div>
 
-通过用户名和密码登录
+	通过用户名和密码登录
 
-$mxuser.loginWithPhone(phone, password, callback(ret, err))
+	$mxuser.loginWithPhone(phone, password, callback(ret, err))
 
 ##phone
 
@@ -315,7 +308,7 @@ ret：
 
 - 类型：JSON对象
 
-内部字段：
+- 内部字段：
 ```js
 {
   "mobilePhoneNumber": "", //手机号
@@ -350,20 +343,20 @@ $mxuser.loginWithPhone(phone, password, function(ret, err) {
 
 ##补充说明
 
-无
+	无
 
 ##可用性
 
-iOS系统，Android系统
+	iOS系统，Android系统
 
-可提供的1.0.0及更高版本
+	可提供的1.0.0及更高版本
 
 
 #**resetPassword**<div id="6"></div>
 
-忘记密码后重置密码，一般是在验证短信通过后执行
+	忘记密码后重置密码，一般是在验证短信通过后执行
 
-$mxuser.resetPassword(password, callback(ret, err))
+	$mxuser.resetPassword(password, callback(ret, err))
 
 ##phone
 
@@ -378,7 +371,7 @@ ret：
 
 - 类型：JSON对象
 
-内部字段：
+- 内部字段：
 ```js
 {
   "mobilePhoneNumber": "", //手机号
@@ -391,7 +384,7 @@ err：
 
 - 类型：JSON对象
 - 
-- - 内部字段：
+- 内部字段：
 ```js
 {
 	"code":2, //错误代码
@@ -412,20 +405,20 @@ $mxuser.resetPassword(password, function(ret, err) {
 
 ##补充说明
 
-无
+	无
 
 ##可用性
 
-iOS系统，Android系统
+	iOS系统，Android系统
 
-可提供的1.0.0及更高版本
+	可提供的1.0.0及更高版本
 
 
 #**updatePassword**<div id="7"></div>
 
-修改用户的密码，可以验证老密码是否正确
+	修改用户的密码，可以验证老密码是否正确
 
-$mxuser.updatePassword(oldpsw, password, callback(ret, err))
+	$mxuser.updatePassword(oldpsw, password, callback(ret, err))
 
 ##oldpsw
 
@@ -448,7 +441,7 @@ ret：
 
 - 类型：JSON对象
 
-内部字段：
+- 内部字段：
 
 ```js
 {
@@ -484,20 +477,20 @@ $mxuser.updatePassword(oldpsw, password, function(ret, err) {
 
 ##补充说明
 
-无
+	无
 
 ##可用性
 
-iOS系统，Android系统
+	iOS系统，Android系统
 
-可提供的1.0.0及更高版本
+	可提供的1.0.0及更高版本
 
 
 #**updateEmail**<div id="8"></div>
 
-修改用户的邮箱
+	修改用户的邮箱
 
-$mxuser.updateEmail(email,  callback(ret, err))
+	$mxuser.updateEmail(email,  callback(ret, err))
 
 ##email
 
@@ -512,7 +505,7 @@ ret：
 
 - 类型：JSON对象
 
-内部字段：
+- 内部字段：
 ```js
 {
   	"mobilePhoneNumber": "", //手机号
@@ -546,26 +539,26 @@ $mxuser.updateEmail(email, function(ret, err) {
 
 ##补充说明
 
-无
+	无
 
 ##可用性
 
-iOS系统，Android系统
+	iOS系统，Android系统
 
-可提供的1.0.0及更高版本
+	可提供的1.0.0及更高版本
 
 #**getCurrentUserInfo**<div id="8"></div>
 
-获取当前用户的信息
+	获取当前用户的信息
 
-$mxuser.getCurrentUserInfo(callback(ret))
+	$mxuser.getCurrentUserInfo(callback(ret))
 
 ##callback(ret, err)
 ret：
 
 - 类型：JSON对象
 
-内部字段：
+- 内部字段：
 ```js
 {
   	"mobilePhoneNumber": "", //手机号
@@ -585,20 +578,20 @@ $mxuser.getCurrentUserInfo(function(ret) {
 
 ##补充说明
 
-无
+	无
 
 ##可用性
 
-iOS系统，Android系统
+	iOS系统，Android系统
 
-可提供的1.0.0及更高版本
+	可提供的1.0.0及更高版本
 
 
 #**loginOut**<div id="8"></div>
 
-注销当前用户
+	注销当前用户
 
-$mxuser.loginOut();
+	$mxuser.loginOut();
 
 ##示例代码
 
@@ -608,10 +601,10 @@ $mxuser.loginOut();
 
 ##补充说明
 
-无
+	无
 
 ##可用性
 
-iOS系统，Android系统
+	iOS系统，Android系统
 
-可提供的1.0.0及更高版本
+	可提供的1.0.0及更高版本

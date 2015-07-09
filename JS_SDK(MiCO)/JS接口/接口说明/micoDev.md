@@ -1,39 +1,33 @@
-/*
-Title: micoDev
-Description: 设备配置绑定成功后，可以对设备进行基础操作，包含获取设备列表、获取能授权的设备，修改设备名称，授权设备给其他用户，删除用户
-*/
+##micoDev
+	getDevid和bindDevCloud是在micoBind对设备进行绑定，
+	设备配置绑定成功后，可以对设备进行基础操作，包含获取设备列表、获取能授权的设备，
+	修改设备名称，授权设备给其他用户，删除用户
 
-<ul id="tab" class="clearfix">
-	<li class="active"><a href="#method-content">Method</a></li>
-</ul>
-<div id="method-content">
+* [getDevid](#1)
 
-<div class="outline">
-[getDevid](#1)<br/>
+* [bindDevCloud](#2)
 
-[bindDevCloud](#2)
+* [getDevList](#3)
 
-[getDevList](#3)<br/>
+* [getAuthDev](#4)
 
-[getAuthDev](#4)<br/>
+* [editDevName](#5)
 
-[editDevName](#5)<br/>
+* [authDev](#6)
 
-[authDev](#6)<br/>
+* [deleteDev](#7)
 
-[deleteDev](#7)
 
-</div>
 
-#**概述**
+##**概述**
 
-micoDev用于对设备的管理
+	micoDev用于对设备的管理
 
 #**getDevid**<div id="1"></div>
 
-设备会启动一个server，app调用此接口连接服务并获取设备的Deviceid
+	设备会启动一个server，app调用此接口连接服务并获取设备的Deviceid
 
-$mico.getDevid(dev_ip, dev_psw, dev_token, callback(ret, err))
+	$mico.getDevid(dev_ip, dev_psw, dev_token, callback(ret, err))
 
 ##dev_ip
 
@@ -62,7 +56,7 @@ ret：
 
 - 类型：JSON对象
 
-内部字段：
+- 内部字段：
 
 ```js
 {
@@ -74,7 +68,7 @@ err：
 
 - 类型：JSON对象
 
-内部字段：
+- 内部字段：
 
 ```js
 	网络通信的错误代码
@@ -93,21 +87,21 @@ $mico.getDevid(dev_ip, dev_psw, dev_token, function(ret, err) {
 
 ##补充说明
 
-无
+	无
 
 ##可用性
 
-iOS系统，Android系统
+	iOS系统，Android系统
 
-可提供的1.0.0及更高版本
+	可提供的1.0.0及更高版本
 
 
 
 #**bindDevCloud**<div id="2"></div>
 
-获取到deviceid后去云端与设备绑定
+	获取到deviceid后去云端与设备绑定
 
-$mico.bindDevCloud(APP_ID, userToken, dev_token, callback(ret, err))
+	$mico.bindDevCloud(APP_ID, userToken, dev_token, callback(ret, err))
 
 ##APP_ID
 APP_ID：
@@ -137,7 +131,7 @@ ret：
 
 - 类型：JSON对象
 
-内部字段：
+- 内部字段：
 
 ```js
 {
@@ -149,7 +143,7 @@ err：
 
 - 类型：JSON对象
 
-内部字段：
+- 内部字段：
 
 ```js
 "error": 
@@ -169,20 +163,20 @@ $mico.bindDevCloud(APP_ID, userToken, dev_token, function(ret, err) {
 ```
 
 ##补充说明
-无
+	无
 
 ##可用性
 
-iOS系统，Android系统
+	iOS系统，Android系统
 
-可提供的1.0.0及更高版本
+	可提供的1.0.0及更高版本
 
 
 #**getDevList**<div id="3"></div>
 
-获取名下能控制的所有设备
+	获取名下能控制的所有设备
 
-$mico.getDevList(userToken, callback(ret, err))
+	$mico.getDevList(userToken, callback(ret, err))
 
 ##userToken
 
@@ -198,7 +192,7 @@ ret：
 
 - 类型：JSON对象
 
-内部字段：
+- 内部字段：
 
 ```js
 [
@@ -222,7 +216,7 @@ err：
 
 - 类型：JSON对象
 
-内部字段：
+- 内部字段：
 
 ```js
 
@@ -239,19 +233,19 @@ $mico.getDevList(userToken, function(ret, err) {
 
 ##补充说明
 
-无
+	无
 
 ##可用性
 
-iOS系统，Android系统
+	iOS系统，Android系统
 
-可提供的1.0.0及更高版本
+	可提供的1.0.0及更高版本
 
 #**getAuthDev**<div id="4"></div>
 
-获取名下能控制的所有设备
+	获取名下能控制的所有设备
 
-$mico.getAuthDev(userToken, callback(ret, err))
+	$mico.getAuthDev(userToken, callback(ret, err))
 
 ##userToken
 
@@ -267,7 +261,7 @@ ret：
 
 - 类型：JSON对象
 
-内部字段：
+- 内部字段：
 
 ```js
 [
@@ -291,7 +285,7 @@ err：
 
 - 类型：JSON对象
 
-内部字段：
+- 内部字段：
 
 ```js
 
@@ -308,19 +302,19 @@ $mico.getAuthDev(userToken, function(ret, err) {
 
 ##补充说明
 
-无
+	无
 
 ##可用性
 
-iOS系统，Android系统
+	iOS系统，Android系统
 
-可提供的1.0.0及更高版本
+	可提供的1.0.0及更高版本
 
 #**editDevName**<div id="5"></div>
 
-发送ssid和psw给WIFI设备，并等待返回设备的ip
+	发送ssid和psw给WIFI设备，并等待返回设备的ip
 
-$mico.editDevName(APP_ID, userToken, inputname, devid, callback(ret, err))
+	$mico.editDevName(APP_ID, userToken, inputname, devid, callback(ret, err))
 
 ##APP_ID
 
@@ -337,7 +331,7 @@ userToken：
 - 类型：字符串
 - 默认值：无
 - 描述：用户的userToken
-- 
+
 ##inputname
 
 inputname：
@@ -345,7 +339,7 @@ inputname：
 - 类型：字符串
 - 默认值：无
 - 描述：需要修改的名字
-- 
+
 ##devid
 
 devid：
@@ -359,7 +353,7 @@ ret：
 
 - 类型：JSON对象
 
-内部字段：
+- 内部字段：
 
 ```js
 {
@@ -371,7 +365,7 @@ err：
 
 - 类型：JSON对象
 
-内部字段：
+- 内部字段：
 
 ```js
 "error": 
@@ -390,21 +384,21 @@ $mico.editDevName(APP_ID, userToken, inputname, devid, function(ret, err) {
 
 ##补充说明
 
-无
+	无
 
 ##可用性
 
-iOS系统，Android系统
-
-可提供的1.0.0及更高版本
+	iOS系统，Android系统
+	
+	可提供的1.0.0及更高版本
 
 
 
 #**authDev**<div id="6"></div>
 
-授权设备
+	授权设备
 
-$mico.authDev(APP_ID, userToken, phone, devid, callback(ret, err))
+	$mico.authDev(APP_ID, userToken, phone, devid, callback(ret, err))
 
 ##APP_ID
 
@@ -421,7 +415,7 @@ userToken：
 - 类型：字符串
 - 默认值：无
 - 描述：用户的userToken
-- 
+
 ##phone
 
 phone：
@@ -429,7 +423,7 @@ phone：
 - 类型：字符串
 - 默认值：无
 - 描述：授权给此用户，phone是用户的用户名(此处为手机号)
-- 
+
 ##devid
 
 devid：
@@ -443,7 +437,7 @@ ret：
 
 - 类型：JSON对象
 
-内部字段：
+- 内部字段：
 
 ```js
 
@@ -453,7 +447,7 @@ err：
 
 - 类型：JSON对象
 
-内部字段：
+- 内部字段：
 
 ```js
 "error": 
@@ -472,19 +466,19 @@ $mico.autDev(APP_ID, userToken, phone, devid, function(ret, err) {
 
 ##补充说明
 
-无
+	无
 
 ##可用性
 
-iOS系统，Android系统
+	iOS系统，Android系统
 
-可提供的1.0.0及更高版本
+	可提供的1.0.0及更高版本
 
 #**deleteDev**<div id="7"></div>
 
-删除名下能控制的设备
+	删除名下能控制的设备
 
-$mico.deleteDev(APP_ID, userToken, devid, callback(ret, err))
+	$mico.deleteDev(APP_ID, userToken, devid, callback(ret, err))
 
 ##APP_ID
 APP_ID：
@@ -513,7 +507,7 @@ ret：
 
 - 类型：JSON对象
 
-内部字段：
+- 内部字段：
 
 ```js
 {
@@ -525,7 +519,7 @@ err：
 
 - 类型：JSON对象
 
-内部字段：
+- 内部字段：
 
 ```js
 "error": 
@@ -543,10 +537,10 @@ $mico.deleteDev(APP_ID, userToken, devid, function(ret, err) {
 ```
 
 ##补充说明
-无
+	无
 
 ##可用性
 
-iOS系统，Android系统
+	iOS系统，Android系统
 
-可提供的1.0.0及更高版本
+	可提供的1.0.0及更高版本

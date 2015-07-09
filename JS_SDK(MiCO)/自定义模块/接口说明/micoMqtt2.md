@@ -1,34 +1,26 @@
-/*
-Title: micoMqtt
-Description: MQTT连接
-*/
+##micoMqtt
+	MQTT连接
 
-<ul id="tab" class="clearfix">
-	<li class="active"><a href="#method-content">Method</a></li>
-</ul>
-<div id="method-content">
+* [startMqtt](#1)
 
-<div class="outline">
-[startMqtt](#1)
+* [recvMqttMsg](#2)
 
-[recvMqttMsg](#2)
+* [stopRecvMqttMsg](#3)
 
-[stopRecvMqttMsg](#3)
+* [publish](#4)
 
-[publish](#4)
+* [stopMqtt](#5)
 
-[stopMqtt](#5)
-</div>
 
 #**概述**
 
-micoMqtt模块封装了标准的mqtt方法，可实现订阅，publish和停止订阅
+	micoMqtt模块封装了标准的mqtt方法，可实现订阅，publish和停止订阅
 
 #**startMqtt**<div id="1"></div>
 
-打开MQTT，如果未连接成功，则自动重连直到连接上为止。
+	打开MQTT，如果未连接成功，则自动重连直到连接上为止。
 
-startMqtt({params}, callback(ret, err))
+	startMqtt({params}, callback(ret, err))
 
 ##params
 
@@ -70,7 +62,7 @@ ret：
 
 - 类型：JSON对象
 
-内部字段：
+- 内部字段：
 
 ```js
 {
@@ -82,7 +74,7 @@ err：
 
 - 类型：JSON对象
 
-内部字段：
+- 内部字段：
 
 ```js
 {
@@ -117,20 +109,20 @@ micoMqtt.startMqtt({
 
 ##补充说明
 
-打开MQTT连接
+	打开MQTT连接
 
 ##可用性
 
-iOS系统，Android系统
+	iOS系统，Android系统
 
-可提供的1.0.0及更高版本
+	可提供的1.0.0及更高版本
 
 
 #**recvMqttMsg**<div id="2"></div>
 
-接收消息
+	接收消息
 
-recvMqttMsg(callback(ret, err))
+	recvMqttMsg(callback(ret, err))
 
 ##callback(ret, err)
 
@@ -138,7 +130,7 @@ ret：
 
 - 类型：JSON对象
 
-内部字段：
+- 内部字段：
 
 ```js
 {
@@ -150,7 +142,7 @@ err：
 
 - 类型：JSON对象
 
-内部字段：
+- 内部字段：
 
 ```js
 {
@@ -173,20 +165,20 @@ micoMqtt.recvMqttMsg(function(ret, err) {
 
 ##补充说明
 
-无
+	无
 
 ##可用性
 
-iOS系统，Android系统
+	iOS系统，Android系统
 
-可提供的1.0.0及更高版本
+	可提供的1.0.0及更高版本
 
 
 #**stopRecvMqttMsg**<div id="3"></div>
 
-停止接收消息。
+	停止接收消息。
 
-stopRecvMqttMsg()
+	stopRecvMqttMsg()
 
 ##示例代码
 
@@ -197,20 +189,20 @@ micoMqtt.stopRecvMqttMsg();
 
 ##补充说明
 
-无
+	无
 
 ##可用性
 
-iOS系统，Android系统
+	iOS系统，Android系统
 
-可提供的1.0.0及更高版本
+	可提供的1.0.0及更高版本
 
 
 #**publish**<div id="4"></div>
 
-向服务发送消息并获取回执
+	向服务发送消息并获取回执
 
-publish({params}, callback(ret, err))
+	publish({params}, callback(ret, err))
 
 ##params
 
@@ -231,7 +223,7 @@ ret：
 
 - 类型：JSON对象
 
-内部字段：
+- 内部字段：
 
 ```js
 {
@@ -243,7 +235,7 @@ err：
 
 - 类型：JSON对象
 
-内部字段：
+- 内部字段：
 
 ```js
 {
@@ -270,20 +262,20 @@ micoMqtt.publish({
 
 ##补充说明
 
-发送消息
+	发送消息
 
 ##可用性
 
-iOS系统，Android系统
+	iOS系统，Android系统
 
-可提供的1.0.0及更高版本
+	可提供的1.0.0及更高版本
 
 
 #**stopMqtt**<div id="5"></div>
 
-关闭MQTT连接
+	关闭MQTT连接
 
-stopMqtt(callback(ret, err))
+	stopMqtt(callback(ret, err))
 
 ##callback(ret, err)
 
@@ -291,7 +283,7 @@ ret：
 
 - 类型：JSON对象
 
-内部字段：
+- 内部字段：
 
 ```js
 {
@@ -303,7 +295,7 @@ err：
 
 - 类型：JSON对象
 
-内部字段：
+- 内部字段：
 
 ```js
 {
@@ -325,10 +317,10 @@ micoMqtt.stopMqtt(function(ret, err) {
 
 ##补充说明
 
-关闭MQTT连接
+	关闭MQTT连接
 
 ##可用性
 
-iOS系统，Android系统
+	iOS系统，Android系统
 
-可提供的1.0.0及更高版本
+	可提供的1.0.0及更高版本

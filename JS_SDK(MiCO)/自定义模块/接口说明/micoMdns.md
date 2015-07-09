@@ -1,28 +1,20 @@
-/*
-Title: micoMdns
-Description:MDNS控制
-*/
+##micoMdns
+	MDNS控制
 
-<ul id="tab" class="clearfix">
-	<li class="active"><a href="#method-content">Method</a></li>
-</ul>
-<div id="method-content">
+* [startMdns](#1)
 
-<div class="outline">
-[startMdns](#1)<br/>
+* [stopMdns](#2)
 
-[stopMdns](#2)
-</div>
 
 #**概述**
 
-micoMdns
+	micoMdns
 
 #**startMdns**<div id="1"></div>
 
-打开mdns，一直查找此局域网的设备，查到一个返回一个，如果有重复，则不返回
+	打开mdns，一直查找此局域网的设备，查到一个返回一个，如果有重复，则不返回
 
-startMdns({params}, callback(ret, err))
+	startMdns({params}, callback(ret, err))
 
 ##params
 
@@ -38,7 +30,7 @@ ret：
 
 - 类型：JSON对象
 
-内部字段：
+- 内部字段：
 
 ```js
 {
@@ -53,7 +45,7 @@ err：
 
 - 类型：JSON对象
 
-内部字段：
+- 内部字段：
 
 ```js
 {
@@ -78,20 +70,20 @@ micoMmdns.startMdns({
 
 ##补充说明
 
-打开mdns连接
+	打开mdns连接
 
 ##可用性
 
-iOS系统，Android系统
+	iOS系统，Android系统
 
-可提供的1.0.0及更高版本
+	可提供的1.0.0及更高版本
 
 
 #**stopMdns**<div id="5"></div>
 
-关闭mdns服务
+	关闭mdns服务
 
-stopMdns(callback(ret, err))
+	stopMdns(callback(ret, err))
 
 ##callback(ret, err)
 
@@ -99,7 +91,7 @@ ret：
 
 - 类型：JSON对象
 
-内部字段：
+- 内部字段：
 
 ```js
 {
@@ -111,7 +103,7 @@ err：
 
 - 类型：JSON对象
 
-内部字段：
+- 内部字段：
 
 ```js
 {
@@ -133,10 +125,10 @@ micoMmdns.stopMdns(function(ret, err) {
 
 ##补充说明
 
-关闭MDNS连接
+	关闭MDNS连接
 
 ##可用性
 
-iOS系统，Android系统
+	iOS系统，Android系统
 
-可提供的1.0.0及更高版本
+	可提供的1.0.0及更高版本
