@@ -18,11 +18,18 @@
 
 ##params
 
-serviceInfo：
+serviceType：
 
 - 类型：字符串
 - 默认值：无
-- 描述：服务名称，不可为空
+- 描述：服务名称的头，不可为空
+
+
+inDomain：
+
+- 类型：字符串
+- 默认值：无
+- 描述：服务名称的内容，不可为空
 
 ##callback(ret, err)
 
@@ -57,9 +64,11 @@ err：
 
 ```js
 var micoMmdns = api.require("micoMmdns");
-var serviceInfo = "_easylink._tcp.local.";
+var serviceType = "_easylink._tcp";
+var inDomain = "local";
 micoMmdns.startMdns({
-	serviceInfo : serviceInfo
+	serviceType : serviceType,
+	inDomain : inDomain
 }, function(ret, err){
 	$.each(ret.status, function(n, value) {
 		var trs = value.deviceMac + " " + value.deviceMacbind + " " + value.deviceIP + "<br/>";
