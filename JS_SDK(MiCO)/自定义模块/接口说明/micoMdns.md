@@ -63,10 +63,10 @@ err：
 ##示例代码
 
 ```js
-var micoMmdns = api.require("micoMmdns");
+var micoMdns = api.require("micoMdns");
 var serviceType = "_easylink._tcp";
 var inDomain = "local";
-micoMmdns.startMdns({
+micoMdns.startMdns({
 	serviceType : serviceType,
 	inDomain : inDomain
 }, function(ret, err){
@@ -122,8 +122,8 @@ err：
 ##示例代码
 
 ```js
-var micoMmdns = api.require("micoMmdns");
-micoMmdns.stopMdns(function(ret, err) {
+var micoMdns = api.require("micoMdns");
+micoMdns.stopMdns(function(ret, err) {
 	if(ret.status){
 		api.alert({msg:'stop success'});
     }else{
