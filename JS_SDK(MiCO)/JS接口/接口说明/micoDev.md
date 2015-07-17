@@ -17,7 +17,9 @@
 
 * [deleteDev](#7)
 
+* [devUserQuery](#8)
 
+* [deleteOneUser](#9)
 
 ##**概述**
 
@@ -532,6 +534,159 @@ err：
 
 ```js
 $mico.deleteDev(APP_ID, userToken, devid, function(ret, err) {
+
+});
+```
+
+##补充说明
+	无
+
+##可用性
+
+	iOS系统，Android系统
+
+	可提供的1.0.0及更高版本
+
+#**devUserQuery**<div id="8"></div>
+
+	列出此设备下的所有用户
+
+	$mico.devUserQuery(APP_ID, userToken, devid, function(ret, err))
+
+##APP_ID
+APP_ID：
+
+- 类型：字符串
+- 默认值：无
+- 描述：APP_ID:8323c298-adc2-40ae-bb9d-30098c4dc42f
+
+##userToken
+userToken：
+
+- 类型：字符串
+- 默认值：无
+- 描述：用户注册时候得到的usertoken，可以通过以下方法获取
+- getUserInfo().get("userToken");
+
+##devid
+devid：
+
+- 类型：字符串
+- 默认值：无
+- 描述：设备的DeviceID
+
+##callback(ret, err)
+ret：
+
+- 类型：JSON对象
+
+- 内部字段：
+
+```js
+[
+  {
+    "id": "",	//用户ID
+    "username": "1312200XXXX",	//用户手机号
+    "role": "owner"	//用户权限
+  }
+]
+```
+
+err：
+
+- 类型：JSON对象
+
+- 内部字段：
+
+```js
+"error": 
+{
+    "code": 403,	//错误代码
+    "message": "Forbidden: active_token is not found!"	//错误描述
+}
+```
+##示例代码
+
+```js
+$mico.devUserQuery(APP_ID, userToken, devid, function(ret, err) {
+
+});
+```
+
+##补充说明
+	无
+
+##可用性
+
+	iOS系统，Android系统
+
+	可提供的1.0.0及更高版本
+
+#**deleteOneUser**<div id="9"></div>
+
+	删除此设备下的某个sharer权限的用户，owner权限的用户无法删除
+
+	$mico.deleteOneUser(APP_ID,userToken, userid, devid, function(ret, err))
+
+##APP_ID
+APP_ID：
+
+- 类型：字符串
+- 默认值：无
+- 描述：APP_ID:8323c298-adc2-40ae-bb9d-30098c4dc42f
+
+##userToken
+userToken：
+
+- 类型：字符串
+- 默认值：无
+- 描述：用户注册时候得到的usertoken，可以通过以下方法获取
+- getUserInfo().get("userToken");
+
+##userid
+userid：
+
+- 类型：字符串
+- 默认值：无
+- 描述：用户的ID，devUserQuery方法得到的id
+
+##devid
+devid：
+
+- 类型：字符串
+- 默认值：无
+- 描述：设备的DeviceID
+
+##callback(ret, err)
+ret：
+
+- 类型：JSON对象
+
+- 内部字段：
+
+```js
+{
+  "result": "success"
+}
+```
+
+err：
+
+- 类型：JSON对象
+
+- 内部字段：
+
+```js
+"error": 
+{
+    "code": 403,	//错误代码
+    "message": "Forbidden: active_token is not found!"	//错误描述
+}
+```
+##示例代码
+
+```js
+$mico.deleteOneUser(APP_ID,userToken, userid, devid, function(ret, err) {
 
 });
 ```

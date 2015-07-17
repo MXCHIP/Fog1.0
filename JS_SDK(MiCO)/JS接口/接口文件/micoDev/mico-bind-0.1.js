@@ -67,6 +67,55 @@
 		});
 	};
 
+	//列出设备下所有用户
+	m.devUserQuery = function(appid, usertoken, devid, callback) {
+		var sucm;
+		var errm;
+		$.ajax({
+			url : "http://www.easylink.io/v1/device/user/query",
+			type : 'POST',
+			data : JSON.stringify({
+				device_id : devid
+			}),
+			headers : {
+				"Content-Type" : "application/json",
+				"X-Application-Id" : appid,
+				"Authorization" : "token " + usertoken
+			},
+			success : function(ret) {
+				callback(ret, errm);
+			},
+			error : function(err) {
+				callback(sucm, err);
+			}
+		});
+	};
+
+	//删除设备下的某个用户
+	m.deleteOneUser = function(appid,usertoken, userid, devid, callback) {
+		var sucm;
+		var errm;
+		$.ajax({
+			url : "http://www.easylink.io/v1/device/user/delete",
+			type : 'POST',
+			data : JSON.stringify({
+				device_id : devid,
+				user_id : userid
+			}),
+			headers : {
+				"Content-Type" : "application/json",
+				"X-Application-Id" : appid,
+				"Authorization" : "token " + usertoken
+			},
+			success : function(ret) {
+				callback(ret, errm);
+			},
+			error : function(err) {
+				callback(sucm, err);
+			}
+		});
+	};
+
 	//删除设备
 	m.deleteDev = function(appid, usertoken, devid, callback) {
 		var sucm;
