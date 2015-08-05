@@ -184,7 +184,8 @@ micoMqtt.recvMqttMsg(function(ret, err) {
 
 ```js
 var micoMqtt = api.require("micoMqtt2");
-micoMqtt.stopRecvMqttMsg();
+micoMqtt.stopRecvMqttMsg(function(ret, err) {
+});
 ```
 
 ##补充说明
