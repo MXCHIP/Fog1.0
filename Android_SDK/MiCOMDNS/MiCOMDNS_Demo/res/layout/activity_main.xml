@@ -1,0 +1,32 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/mdnsserv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" 
+        android:text="_easylink._tcp.local.">
+    </EditText>
+
+    <Button
+        android:id="@+id/startmdns"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="打开MDNS" />
+
+    <Button
+        android:id="@+id/stopmdns"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="关闭MDNS" />
+
+    <TextView
+        android:id="@+id/showdev"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="已发现的设备：" />
+
+</LinearLayout>
