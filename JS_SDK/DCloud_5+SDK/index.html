@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Generator" content="EditPlus®">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<title>Document</title>
+	<script type="text/javascript" src="./js/mico-bind-dc-0.1.js"></script>
+
+	<script>
+
+		// 打开MDNS
+		function openmDNS() {
+			var servName = "_easylink._tcp.local.";
+			$mico.startmDNS(servName, function(ret, err) {
+				alert("ret = "+ret);
+			});			
+		}
+		
+		// 关闭MDNS
+		function stopmDNS() {
+			$mico.stopmDNS(function(ret, err) {
+				alert("if = "+ret);
+			});
+		}	
+
+		// 获取SSID
+		function getSSId() {
+			$mico.getSSId(function(ret, err) {
+				alert("WIFI = "+ret);
+			});
+		}
+		
+		// startEasyLink
+		function startEasyLink() {
+			var wifiname = "gg";
+			var wifipsw = "22222222";
+			$mico.startEasyLink(wifiname, wifipsw, function(ret, err) {
+				alert("EasyLink = "+ret);
+			});
+		}	
+			
+		// Stop EasyLink
+		function stopEasyLink() {
+			$mico.stopEasyLink(function(ret, err) {
+				alert("EasyLink = "+ret);
+			});
+		}
+	</script>
+
+</head>
+<body>
+	<br/><br/>
+	<input type="button" onclick="openmDNS()" value="搜索设备"/>
+	<br/><br/>
+	<input type="button" onclick="stopmDNS()" value="停止搜索"/>
+	<br/><br/>
+	<input type="button" onclick="getSSId()" value="获取当前SSID"/>
+	<br/><br/>
+	<input type="button" onclick="startEasyLink()" value="开始EasyLink"/>
+	<br/><br/>
+	<input type="button" onclick="stopEasyLink()" value="停止EasyLink"/>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<properties>
+
+    <features>
+        <feature
+            name="micoBind"
+            value="io.mxchip.mico.MiCO_Bind" />
+    </features>
+
+</properties>
