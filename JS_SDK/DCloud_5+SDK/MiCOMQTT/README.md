@@ -7,7 +7,7 @@
         <feature
             name="micoMqtt"
             value="io.mxchip.mico.MiCO_MQTT" />
-	3、在自建的appid（HTML文件目录）下添加js文件夹，并拷贝mico-bind-dc-0.1.js到此目录
+	3、在自建的appid（HTML文件目录）下添加js文件夹，并拷贝mico-mqtt-dc-0.1.js到此目录
 	4、需要调用接口的HTML文件中引用js，如
 		<script type="text/javascript" src="./js/mico-mqtt-dc-0.1.js"></script>
 	5、接口调用方式如下，具体参考index.html文件
