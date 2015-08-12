@@ -1,0 +1,9 @@
+<properties>
+
+    <features>
+        <feature
+            name="micoMqtt"
+            value="io.mxchip.mico.MiCO_MQTT" />
+    </features>
+
+</properties>
