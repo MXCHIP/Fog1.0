@@ -3,14 +3,20 @@
 #**DCloud_5+SDK**
 ##使用手册
 	1、导入jar包到工程的libs目录下
-	2、修改assets/data/properties.xml,在features项中添加一个feature，如
+	2、必须打开的权限有
+		<uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+    	<!-- 访问wifi网络信息,wifi信息可用于进行网络定位 -->
+    	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    	<!-- 获取wifi的获取权限,wifi信息可用来进行网络定位 -->
+    	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+	3、修改assets/data/properties.xml,在features项中添加一个feature，如
 		<feature
             name="micoBind"
             value="io.mxchip.mico.MiCO_Bind" />
-	3、在自建的appid（HTML文件目录）下添加js文件夹，并拷贝mico-bind-dc-0.1.js到此目录
-	4、需要调用接口的HTML文件中引用js，如
+	4、在自建的appid（HTML文件目录）下添加js文件夹，并拷贝mico-bind-dc-0.1.js到此目录
+	5、需要调用接口的HTML文件中引用js，如
 		<script type="text/javascript" src="./js/mico-bind-dc-0.1.js"></script>
-	5、接口调用方式如下，具体参考index.html文件
+	6、接口调用方式如下，具体参考index.html文件
 
 ```js
 		// 打开MDNS

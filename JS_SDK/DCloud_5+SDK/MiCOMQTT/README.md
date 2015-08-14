@@ -3,14 +3,21 @@
 #**DCloud_5+SDK**
 ##使用手册
 	1、导入jar包到工程的libs目录下
-	2、修改assets/data/properties.xml,在features项中添加一个feature，如
+	2、必须打开的权限有Internet
+	    <!-- 访问网络 -->
+    	<uses-permission android:name="android.permission.INTERNET" />
+	    <service
+            android:name="net.ugen.sdevice.mqtt.service.MqttService"
+            android:process=":MqttSubProcess" >
+        </service>
+	3、修改assets/data/properties.xml,在features项中添加一个feature，如
         <feature
             name="micoMqtt"
             value="io.mxchip.mico.MiCO_MQTT" />
-	3、在自建的appid（HTML文件目录）下添加js文件夹，并拷贝mico-mqtt-dc-0.1.js到此目录
-	4、需要调用接口的HTML文件中引用js，如
+	4、在自建的appid（HTML文件目录）下添加js文件夹，并拷贝mico-mqtt-dc-0.1.js到此目录
+	5、需要调用接口的HTML文件中引用js，如
 		<script type="text/javascript" src="./js/mico-mqtt-dc-0.1.js"></script>
-	5、接口调用方式如下，具体参考index.html文件
+	6、接口调用方式如下，具体参考index.html文件
 
 ```js
 
