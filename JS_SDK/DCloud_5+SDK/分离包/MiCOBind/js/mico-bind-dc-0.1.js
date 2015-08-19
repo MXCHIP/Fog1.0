@@ -68,7 +68,7 @@
 		var sucm;
 		var errm;
 		plus.micoPlugin.openmDNS(serviceName,function(ret) {
-			callback(ret, errm);
+			callback(JSON.parse(ret), errm);
 		});
 	};
 	//ClosemDNS
@@ -76,7 +76,7 @@
 		var sucm;
 		var errm;
 		plus.micoPlugin.stopmDNS(function(ret) {
-			callback(ret, errm);
+			callback(JSON.parse(ret), errm);
 		});
 	};
 	//Get ssid
@@ -84,7 +84,7 @@
 		var sucm;
 		var errm;
 		plus.micoPlugin.getSSId(function(ret) {
-			callback(ret, errm);
+			callback(JSON.parse(ret), errm);
 		});
 	};
 	//start easylink
@@ -92,7 +92,7 @@
 		var sucm;
 		var errm;
 		plus.micoPlugin.startEasyLink(wifissid, wifipsw, function(ret) {
-			callback(ret, errm);
+			callback(JSON.parse(ret), errm);
 		});
 	};
 	//stop Easylink
@@ -100,7 +100,7 @@
 		var sucm;
 		var errm;
 		plus.micoPlugin.stopEasyLink(function(ret) {
-			callback(ret, errm);
+			callback(JSON.parse(ret), errm);
 		});
 	};
 

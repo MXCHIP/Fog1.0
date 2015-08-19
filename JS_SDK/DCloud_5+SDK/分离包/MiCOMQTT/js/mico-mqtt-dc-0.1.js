@@ -68,7 +68,7 @@
 		var sucm;
 		var errm;
 		plus.micoPlugin.startMqtt(host,username,password,clientID,topic, function(ret) {
-			callback(ret, errm);
+			callback(JSON.parse(ret), errm);
 		});
 	};
 	//start receive message
@@ -76,7 +76,7 @@
 		var sucm;
 		var errm;
 		plus.micoPlugin.recvMqttMsg(function(ret) {
-			callback(ret, errm);
+			callback(JSON.parse(ret), errm);
 		});
 	};
 	//send command to mqtt service
@@ -84,7 +84,7 @@
 		var sucm;
 		var errm;
 		plus.micoPlugin.publishCommand(topic,command,function(ret) {
-			callback(ret, errm);
+			callback(JSON.parse(ret), errm);
 		});
 	};
 	//stop reveice mqtt message
@@ -92,7 +92,7 @@
 		var sucm;
 		var errm;
 		plus.micoPlugin.stopRecvMqttMsg(function(ret) {
-			callback(ret, errm);
+			callback(JSON.parse(ret), errm);
 		});
 	};
 	//stop mqtt server
@@ -100,7 +100,7 @@
 		var sucm;
 		var errm;
 		plus.micoPlugin.stopMqtt(function(ret) {
-			callback(ret, errm);
+			callback(JSON.parse(ret), errm);
 		});
 	};
 

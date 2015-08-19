@@ -59,7 +59,7 @@
  				callbackID = B.callbackId(success, fail);
  				return B.exec(_MiCOBIND, "stopEasyLink", [callbackID]);
  			},
- 			startMqtt : function (Argus1, Argus2, Argus3, Argus4, Argus5, Argus6, successCallback, errorCallback ){
+ 			startMqtt : function (Argus1, Argus2, Argus3, Argus4, Argus5, successCallback, errorCallback ){
  				var success = typeof successCallback !== 'function' ? null : function(args){
  					successCallback(args);
  				},
@@ -67,7 +67,7 @@
  					errorCallback(code);
  				};
  				callbackID = B.callbackId(success, fail);
- 				return B.exec(_MiCOMQTT, "startMqtt", [callbackID, Argus1, Argus2, Argus3, Argus4, Argus5, Argus6]);
+ 				return B.exec(_MiCOMQTT, "startMqtt", [callbackID, Argus1, Argus2, Argus3, Argus4, Argus5]);
  			},
  			recvMqttMsg : function (successCallback, errorCallback ){
  				var success = typeof successCallback !== 'function' ? null : function(args){
@@ -79,7 +79,7 @@
  				callbackID = B.callbackId(success, fail);
  				return B.exec(_MiCOMQTT, "recvMqttMsg", [callbackID]);
  			},
- 			publishCommand : function (Argus1, Argus2, Argus3, successCallback, errorCallback ){
+ 			publishCommand : function (Argus1, Argus2,successCallback, errorCallback ){
  				var success = typeof successCallback !== 'function' ? null : function(args){
  					successCallback(args);
  				},
@@ -87,7 +87,7 @@
  					errorCallback(code);
  				};
  				callbackID = B.callbackId(success, fail);
- 				return B.exec(_MiCOMQTT, "publishCommand", [callbackID, Argus1, Argus2, Argus3]);
+ 				return B.exec(_MiCOMQTT, "publishCommand", [callbackID, Argus1, Argus2]);
  			},
  			stopRecvMqttMsg : function (successCallback, errorCallback ){
  				var success = typeof successCallback !== 'function' ? null : function(args){
@@ -118,7 +118,7 @@
 		var sucm;
 		var errm;
 		plus.micoPlugin.openmDNS(serviceName,function(ret) {
-			callback(ret, errm);
+			callback(JSON.parse(ret), errm);
 		});
 	};
 	//ClosemDNS
@@ -126,7 +126,7 @@
 		var sucm;
 		var errm;
 		plus.micoPlugin.stopmDNS(function(ret) {
-			callback(ret, errm);
+			callback(JSON.parse(ret), errm);
 		});
 	};
 	//Get ssid
@@ -134,7 +134,7 @@
 		var sucm;
 		var errm;
 		plus.micoPlugin.getSSId(function(ret) {
-			callback(ret, errm);
+			callback(JSON.parse(ret), errm);
 		});
 	};
 	//start easylink
@@ -142,7 +142,7 @@
 		var sucm;
 		var errm;
 		plus.micoPlugin.startEasyLink(wifissid, wifipsw, function(ret) {
-			callback(ret, errm);
+			callback(JSON.parse(ret), errm);
 		});
 	};
 	//stop Easylink
@@ -150,7 +150,7 @@
 		var sucm;
 		var errm;
 		plus.micoPlugin.stopEasyLink(function(ret) {
-			callback(ret, errm);
+			callback(JSON.parse(ret), errm);
 		});
 	};
 	//open mqtt server
@@ -158,7 +158,7 @@
 		var sucm;
 		var errm;
 		plus.micoPlugin.startMqtt(host,username,password,clientID,topic, function(ret) {
-			callback(ret, errm);
+			callback(JSON.parse(ret), errm);
 		});
 	};
 	//start receive message
@@ -166,7 +166,7 @@
 		var sucm;
 		var errm;
 		plus.micoPlugin.recvMqttMsg(function(ret) {
-			callback(ret, errm);
+			callback(JSON.parse(ret), errm);
 		});
 	};
 	//send command to mqtt service
@@ -174,7 +174,7 @@
 		var sucm;
 		var errm;
 		plus.micoPlugin.publishCommand(topic,command,function(ret) {
-			callback(ret, errm);
+			callback(JSON.parse(ret), errm);
 		});
 	};
 	//stop reveice mqtt message
@@ -182,7 +182,7 @@
 		var sucm;
 		var errm;
 		plus.micoPlugin.stopRecvMqttMsg(function(ret) {
-			callback(ret, errm);
+			callback(JSON.parse(ret), errm);
 		});
 	};
 	//stop mqtt server
@@ -190,7 +190,7 @@
 		var sucm;
 		var errm;
 		plus.micoPlugin.stopMqtt(function(ret) {
-			callback(ret, errm);
+			callback(JSON.parse(ret), errm);
 		});
 	};
 	
