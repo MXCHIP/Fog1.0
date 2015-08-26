@@ -1,0 +1,516 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E19039201B607C8800285F98 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E190391F1B607C8800285F98 /* main.m */; };
+		E19039231B607C8800285F98 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E19039221B607C8800285F98 /* AppDelegate.m */; };
+		E19039261B607C8800285F98 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E19039251B607C8800285F98 /* ViewController.m */; };
+		E19039291B607C8800285F98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E19039271B607C8800285F98 /* Main.storyboard */; };
+		E190392B1B607C8800285F98 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E190392A1B607C8800285F98 /* Images.xcassets */; };
+		E190392E1B607C8800285F98 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E190392C1B607C8800285F98 /* LaunchScreen.xib */; };
+		E190393A1B607C8900285F98 /* TestEasyLinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E19039391B607C8900285F98 /* TestEasyLinkTests.m */; };
+		E19039521B607F2C00285F98 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E190394E1B607F2C00285F98 /* Reachability.m */; };
+		E19039581B607F4000285F98 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = E19039551B607F4000285F98 /* AsyncSocket.m */; };
+		E19039591B607F4000285F98 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = E19039571B607F4000285F98 /* AsyncUdpSocket.m */; };
+		E1B8B5A71B705C6700297622 /* libEasyLink_Debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B8B5A61B705C6700297622 /* libEasyLink_Debug.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E19039341B607C8900285F98 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E19039121B607C8800285F98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E19039191B607C8800285F98;
+			remoteInfo = TestEasyLink;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E190391A1B607C8800285F98 /* TestEasyLink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestEasyLink.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E190391E1B607C8800285F98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E190391F1B607C8800285F98 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E19039211B607C8800285F98 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E19039221B607C8800285F98 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E19039241B607C8800285F98 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E19039251B607C8800285F98 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E19039281B607C8800285F98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E190392A1B607C8800285F98 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E190392D1B607C8800285F98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		E19039331B607C8900285F98 /* TestEasyLinkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestEasyLinkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E19039381B607C8900285F98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E19039391B607C8900285F98 /* TestEasyLinkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestEasyLinkTests.m; sourceTree = "<group>"; };
+		E19039461B607F2C00285F98 /* EASYLINK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EASYLINK.h; sourceTree = "<group>"; };
+		E19039481B607F2C00285F98 /* EMWHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMWHeader.h; sourceTree = "<group>"; };
+		E190394B1B607F2C00285F98 /* route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = route.h; sourceTree = "<group>"; };
+		E190394D1B607F2C00285F98 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		E190394E1B607F2C00285F98 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		E19039541B607F4000285F98 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
+		E19039551B607F4000285F98 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
+		E19039561B607F4000285F98 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncUdpSocket.h; sourceTree = "<group>"; };
+		E19039571B607F4000285F98 /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncUdpSocket.m; sourceTree = "<group>"; };
+		E1B8B5A61B705C6700297622 /* libEasyLink_Debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEasyLink_Debug.a; path = "../../../../360云盘/mxchip/iOS/TestEasyLink 完整版/EasyLink/Common/libEasyLink_Debug.a"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E19039171B607C8800285F98 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1B8B5A71B705C6700297622 /* libEasyLink_Debug.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E19039301B607C8900285F98 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E19039111B607C8800285F98 = {
+			isa = PBXGroup;
+			children = (
+				E190391C1B607C8800285F98 /* TestEasyLink */,
+				E19039361B607C8900285F98 /* TestEasyLinkTests */,
+				E190391B1B607C8800285F98 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E190391B1B607C8800285F98 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E190391A1B607C8800285F98 /* TestEasyLink.app */,
+				E19039331B607C8900285F98 /* TestEasyLinkTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E190391C1B607C8800285F98 /* TestEasyLink */ = {
+			isa = PBXGroup;
+			children = (
+				E19039441B607F1800285F98 /* CocoaAsyncSocket-7.3.3 */,
+				E19039431B607F0000285F98 /* EasyLink */,
+				E19039211B607C8800285F98 /* AppDelegate.h */,
+				E19039221B607C8800285F98 /* AppDelegate.m */,
+				E19039241B607C8800285F98 /* ViewController.h */,
+				E19039251B607C8800285F98 /* ViewController.m */,
+				E19039271B607C8800285F98 /* Main.storyboard */,
+				E190392A1B607C8800285F98 /* Images.xcassets */,
+				E190392C1B607C8800285F98 /* LaunchScreen.xib */,
+				E190391D1B607C8800285F98 /* Supporting Files */,
+			);
+			path = TestEasyLink;
+			sourceTree = "<group>";
+		};
+		E190391D1B607C8800285F98 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E190391E1B607C8800285F98 /* Info.plist */,
+				E190391F1B607C8800285F98 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E19039361B607C8900285F98 /* TestEasyLinkTests */ = {
+			isa = PBXGroup;
+			children = (
+				E19039391B607C8900285F98 /* TestEasyLinkTests.m */,
+				E19039371B607C8900285F98 /* Supporting Files */,
+			);
+			path = TestEasyLinkTests;
+			sourceTree = "<group>";
+		};
+		E19039371B607C8900285F98 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E19039381B607C8900285F98 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E19039431B607F0000285F98 /* EasyLink */ = {
+			isa = PBXGroup;
+			children = (
+				E19039451B607F2C00285F98 /* Common */,
+				E190394C1B607F2C00285F98 /* Reachability */,
+			);
+			name = EasyLink;
+			sourceTree = "<group>";
+		};
+		E19039441B607F1800285F98 /* CocoaAsyncSocket-7.3.3 */ = {
+			isa = PBXGroup;
+			children = (
+				E19039531B607F4000285F98 /* RunLoop */,
+			);
+			name = "CocoaAsyncSocket-7.3.3";
+			sourceTree = "<group>";
+		};
+		E19039451B607F2C00285F98 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E1B8B5A61B705C6700297622 /* libEasyLink_Debug.a */,
+				E19039461B607F2C00285F98 /* EASYLINK.h */,
+				E19039481B607F2C00285F98 /* EMWHeader.h */,
+				E190394B1B607F2C00285F98 /* route.h */,
+			);
+			name = Common;
+			path = EasyLink/Common;
+			sourceTree = SOURCE_ROOT;
+		};
+		E190394C1B607F2C00285F98 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				E190394D1B607F2C00285F98 /* Reachability.h */,
+				E190394E1B607F2C00285F98 /* Reachability.m */,
+			);
+			name = Reachability;
+			path = EasyLink/Reachability;
+			sourceTree = SOURCE_ROOT;
+		};
+		E19039531B607F4000285F98 /* RunLoop */ = {
+			isa = PBXGroup;
+			children = (
+				E19039541B607F4000285F98 /* AsyncSocket.h */,
+				E19039551B607F4000285F98 /* AsyncSocket.m */,
+				E19039561B607F4000285F98 /* AsyncUdpSocket.h */,
+				E19039571B607F4000285F98 /* AsyncUdpSocket.m */,
+			);
+			name = RunLoop;
+			path = "CocoaAsyncSocket-7.3.3/RunLoop";
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E19039191B607C8800285F98 /* TestEasyLink */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E190393D1B607C8900285F98 /* Build configuration list for PBXNativeTarget "TestEasyLink" */;
+			buildPhases = (
+				E19039161B607C8800285F98 /* Sources */,
+				E19039171B607C8800285F98 /* Frameworks */,
+				E19039181B607C8800285F98 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TestEasyLink;
+			productName = TestEasyLink;
+			productReference = E190391A1B607C8800285F98 /* TestEasyLink.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E19039321B607C8900285F98 /* TestEasyLinkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E19039401B607C8900285F98 /* Build configuration list for PBXNativeTarget "TestEasyLinkTests" */;
+			buildPhases = (
+				E190392F1B607C8900285F98 /* Sources */,
+				E19039301B607C8900285F98 /* Frameworks */,
+				E19039311B607C8900285F98 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E19039351B607C8900285F98 /* PBXTargetDependency */,
+			);
+			name = TestEasyLinkTests;
+			productName = TestEasyLinkTests;
+			productReference = E19039331B607C8900285F98 /* TestEasyLinkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E19039121B607C8800285F98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = mxchip;
+				TargetAttributes = {
+					E19039191B607C8800285F98 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					E19039321B607C8900285F98 = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = E19039191B607C8800285F98;
+					};
+				};
+			};
+			buildConfigurationList = E19039151B607C8800285F98 /* Build configuration list for PBXProject "TestEasyLink" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E19039111B607C8800285F98;
+			productRefGroup = E190391B1B607C8800285F98 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E19039191B607C8800285F98 /* TestEasyLink */,
+				E19039321B607C8900285F98 /* TestEasyLinkTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E19039181B607C8800285F98 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E19039291B607C8800285F98 /* Main.storyboard in Resources */,
+				E190392E1B607C8800285F98 /* LaunchScreen.xib in Resources */,
+				E190392B1B607C8800285F98 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E19039311B607C8900285F98 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E19039161B607C8800285F98 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E19039261B607C8800285F98 /* ViewController.m in Sources */,
+				E19039231B607C8800285F98 /* AppDelegate.m in Sources */,
+				E19039581B607F4000285F98 /* AsyncSocket.m in Sources */,
+				E19039201B607C8800285F98 /* main.m in Sources */,
+				E19039521B607F2C00285F98 /* Reachability.m in Sources */,
+				E19039591B607F4000285F98 /* AsyncUdpSocket.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E190392F1B607C8900285F98 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E190393A1B607C8900285F98 /* TestEasyLinkTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E19039351B607C8900285F98 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E19039191B607C8800285F98 /* TestEasyLink */;
+			targetProxy = E19039341B607C8900285F98 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E19039271B607C8800285F98 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E19039281B607C8800285F98 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E190392C1B607C8800285F98 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E190392D1B607C8800285F98 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E190393B1B607C8900285F98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E190393C1B607C8900285F98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E190393E1B607C8900285F98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TestEasyLink/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EasyLink/Common",
+					"/Users/zfw/360云盘/mxchip/iOS/TestEasyLink",
+					"完整版/EasyLink/Common",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E190393F1B607C8900285F98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TestEasyLink/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EasyLink/Common",
+					"/Users/zfw/360云盘/mxchip/iOS/TestEasyLink",
+					"完整版/EasyLink/Common",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E19039411B607C8900285F98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = TestEasyLinkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestEasyLink.app/TestEasyLink";
+			};
+			name = Debug;
+		};
+		E19039421B607C8900285F98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = TestEasyLinkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestEasyLink.app/TestEasyLink";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E19039151B607C8800285F98 /* Build configuration list for PBXProject "TestEasyLink" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E190393B1B607C8900285F98 /* Debug */,
+				E190393C1B607C8900285F98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E190393D1B607C8900285F98 /* Build configuration list for PBXNativeTarget "TestEasyLink" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E190393E1B607C8900285F98 /* Debug */,
+				E190393F1B607C8900285F98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E19039401B607C8900285F98 /* Build configuration list for PBXNativeTarget "TestEasyLinkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E19039411B607C8900285F98 /* Debug */,
+				E19039421B607C8900285F98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E19039121B607C8800285F98 /* Project object */;
+}
