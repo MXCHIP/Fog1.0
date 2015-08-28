@@ -1,0 +1,54 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/startmqtt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="启动MQTT" />
+
+    <Button
+        android:id="@+id/stopmqtt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="停止MQTT" />
+
+    <Button
+        android:id="@+id/revmsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="接受消息" />
+
+    <Button
+        android:id="@+id/stoprecv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="停止接受" />
+
+    <Button
+        android:id="@+id/publish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="发送指令" />
+
+    <Button
+        android:id="@+id/addsubscrib"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="增加订阅" />
+
+    <Button
+        android:id="@+id/unsubscrib"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="减少订阅" />
+
+    <TextView
+        android:id="@+id/logview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="呵呵" />
+
+</LinearLayout>
