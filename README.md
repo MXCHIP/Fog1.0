@@ -8,3 +8,6 @@
 	* JS接口，纯js调用，不依赖操作系统
 	* ApiCLoud自定义模块，需要基于ApiCloud开发应用
 	* DCloud_5+SDK，DCloud的5+SDK，需要在eclipse软件中使用
+
+##APP开发教程
+	请参考 Android_SD目录下的《MiCO智能设备_APP开发向导V1.0 0828.pdf》，此版本目前只更新了Android开发的部分。
