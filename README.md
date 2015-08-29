@@ -10,4 +10,4 @@
 	* DCloud_5+SDK，DCloud的5+SDK，需要在eclipse软件中使用
 
 ##APP开发教程
-	请参考 Android_SD目录下的《MiCO智能设备_APP开发向导V1.0 0828.pdf》，此版本目前只更新了Android开发的部分。
+	请参考 Android_SDK目录下的《MiCO智能设备_APP开发向导V1.0 0828.pdf》，此版本目前只更新了Android开发的部分。
