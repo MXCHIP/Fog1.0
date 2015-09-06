@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>title</title>
+		<script type="text/javascript" src="../script/api.js"></script>
+		<script type="text/javascript" src="../script/config.js"></script>
+		<script type="text/javascript" src="../script/jquery-2.1.3.js"></script>
+		<script type="text/javascript" src="../script/av-0.5.0.min.js"></script>
+		<script type="text/javascript" src="../script/mico-ac-0.2.js"></script>
+		<script type="text/javascript" src="../script/jquery.md5.js"></script>
+		<style>
+			body {
+				font-size: 15px;
+				color: green;
+				font-family: '黑体';
+			}
+			input {
+				width: 100px;
+				height: 20px;
+				border: 1px solid #99D3F5;
+				border-radius: 4px;
+			}
+			.ipbutton {
+				width: 100px;
+				height: 25px;
+				background: #D0EEFF;
+				border: 1px solid #99D3F5;
+				border-radius: 4px;
+				color: #B7197C;
+			}
+			.title {
+				font-weight: bolder;
+				color: #D23434;
+			}
+		</style>
+	</head>
+	<body>
+		<br/>
+		<br/>
+		<a href="./userManage.html">返回用户管理</a>
+		<br/>
+		<br/>
+		首先我得先有个设备
+		<br/>
+		<span class="title">(一)添加设备需要这样几步：</span>
+		<br/>
+		1、点击
+		<input  class="ipbutton" type="button" onclick="getSSID()" value="获取WIFI名称"/>
+		拿到WIFI的名称为
+		<input type="text" id="wifiSsid" value=""/>
+		<br/>
+		2、然后输入WIFI的密码
+		<input type="text" id="password" value=""/>
+		点击
+		<input  class="ipbutton" type="button" onclick="startEasyLink()" value="开始配网"/>
+		，现在APP在发数据包（SSID和WIFI密码）
+		<br/>
+		3、设备收到WIFI密码后，会自动连上路由器，并回连到手机，返回设备的IP地址，我们可以点击
+		<input  class="ipbutton" type="button" onclick="bindingDev()" value="绑定设备"/>
+		，这样设备和我就关联起来了。
+		<br/>
+		4、好了，赶紧点击
+		<input  class="ipbutton" type="button" onclick="stopEasyLink()" value="停止配网"/>
+		，否则网络要阻塞了。
+		<br/>
+		这样，我们就有设备了。接下来看看怎么玩他。
+		<br/>
+		<br/>
+		<span class="title">(二)设备的管理功能非常多：</span>
+		<br/>
+		1、我们先点击
+		<input class="ipbutton" type="button" onclick="getDevlist()" value="获取设备列表"/>
+		，看看我手上有多少设备了。
+		<br/>
+		2、好像名字不好听，我输入
+		<input type="text" id="devname" value=""/>
+		然后点击
+		<input  class="ipbutton" type="button" onclick="editDevName()" value="修改设备名称"/>
+		，哈哈，好名字。
+		<br/>
+		3、隔壁老王经常来我家，我想显摆下，我输入老王手机号
+		<input type="text" id="owners" value=""/>
+		，然后点击
+		<input  class="ipbutton" type="button" onclick="authDev()" value="授权设备"/>
+		，嗯，他也能用我家的冰箱了。
+		<br/>
+		4、虽然我能控制很多设备，但是有些是别人的，我看看我自己到底有哪些家电，点击
+		<input  class="ipbutton" type="button" onclick="getAuthDevList()" value="获取有权限设备"/>
+		，哦，原来他们都是我的。
+		<br/>
+		5、那么现在哪些人能用我的空调呢？我点击
+		<input  class="ipbutton" type="button" onclick="queryDevUser()" value="获取设备的用户"/>
+		，哇，这么多人啊。
+		<br/>
+		6、我不想让小明用，我输入他手机号
+		<input type="text" id="ones" value=""/>
+		，点击
+		<input  class="ipbutton" type="button" onclick="deleteOneUser()" value="取消授权"/>
+		。哼
+		<br/>
+		7、我也不想用小明家的灯，我点击。
+		<input  class="ipbutton" type="button" onclick="unBindingDev()" value="解绑设备"/>
+		<br/>
+		<br/>
+		<a href="./deviceCtrl.html">不是说可以远程控制吗？</a>
+		<br/>
+	</body>
+	<script type="text/javascript">
+		apiready = function() {
+		};
+		function getSSID() {
+			$micojs.getssid(function(ret, err) {
+				if (ret)
+					$("#wifiSsid").val(ret);
+			});
+		}
+
+		var devip;
+		function startEasyLink() {
+			var ssid = $("#wifiSsid").val();
+			var psw = $("#password").val();
+			$micojs.startEasyLink(ssid, psw, function(ret, err) {
+				if (ret) {
+					devip = ret;
+					alert("ip = " + ret);
+				}
+			});
+		}
+
+		function stopEasyLink() {
+			$micojs.stopEasyLink();
+		}
+
+		var userToken;
+		if ($micojs.islogin()) {
+			userToken = $micojs.getUserToken();
+		}
+		var bindKey;
+		function bindingDev() {
+			bindKey = $.md5(devip + userToken);
+			alert(bindKey);
+			$micojs.bindingDev(devip, "8001", bindKey, function(ret, err) {
+				alert(JSON.stringify(ret));
+				if (ret) {
+					var devid = ret.device_id;
+					bindtocloud(devid);
+				}
+			});
+		}
+
+		function bindtocloud() {
+			$micojs.bindDevCloud(userToken, bindKey, function(ret, err) {
+				alert(JSON.stringify(ret));
+			});
+		}
+
+		function getDevlist() {
+			var userToken = $micojs.getUserToken();
+			$micojs.getDevList(userToken, function(ret) {
+				alert(JSON.stringify(ret));
+			});
+		}
+
+		function editDevName() {
+			var devname = $("#devname").val();
+			var devid = "d64f517c/c8934691818b";
+			$micojs.editDevName(userToken, devname, devid, function(ret, err) {
+				alert(JSON.stringify(ret));
+			});
+		}
+
+		function authDev() {
+			var phone = $("#owners").val();
+			var userType = "share";
+			var devid = "d64f517c/c8934691818b";
+			$micojs.authDev(userToken, phone, userType, devid, function(ret, err) {
+				alert(JSON.stringify(ret));
+			});
+		}
+
+		function getAuthDevList() {
+			$micojs.getAuthDevList(userToken, function(ret, err) {
+				alert(JSON.stringify(ret));
+			});
+		}
+
+		function deleteOneUser() {
+			var userID = "82af2473-9766-4d29-9508-ae99f49df5f9";
+			var devid = "d64f517c/c8934691818b";
+			$micojs.removeOneUser(userToken, userID, devid, function(ret, err) {
+				alert(JSON.stringify(ret));
+			});
+		}
+
+		function queryDevUser() {
+			var devid = "d64f517c/c8934691818b";
+			$micojs.queryDevUser(userToken, devid, function(ret, err) {
+				alert(JSON.stringify(ret));
+			});
+		}
+
+		function unBindingDev() {
+			var devid = "d64f517c/c8934691818b";
+			$micojs.unBindingDev(userToken, devid, function(ret, err) {
+				alert(JSON.stringify(ret));
+			});
+		}
+	</script>
+</html>
