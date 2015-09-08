@@ -50,7 +50,7 @@ public class MainActivity extends Activity {
 					public void onJmdnsFind(JSONArray deviceJson) {
 						if (!deviceJson.equals("")) {
 							Log.e("------OK------", deviceJson.toString());
-							showdev.append(deviceJson.toString()+"\r\n");
+							//showdev.append(deviceJson.toString()+"\r\n");
 						}
 					}
 				});
