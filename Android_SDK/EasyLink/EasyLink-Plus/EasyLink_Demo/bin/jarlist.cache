@@ -1,9 +1,0 @@
-# cache for current jar dependency. DO NOT EDIT.
-# format is <lastModified> <length> <SHA-1> <path>
-# Encoding is UTF-8
-1429686662423 1508920 031206f56391700d43543cb5e7ad5e52d375097e D:\MXCHIP\dev\MXApiSDK\EasyLink_Demo\libs\jetty-8.1.15.jar
-1429686662423 1508920 031206f56391700d43543cb5e7ad5e52d375097e D:\MXCHIP\dev\MXApiSDK\EasyLink_FTC_Out\libs\jetty-8.1.15.jar
-1435546574564 627582 cb6883d96005bc85b3e868f204507ea5b4fa9bbf D:\MXCHIP\dev\MXApiSDK\EasyLink_FTC_Out\libs\android-support-v4.jar
-1435544809190 627582 cb6883d96005bc85b3e868f204507ea5b4fa9bbf D:\MXCHIP\dev\MXApiSDK\EasyLink_Demo\libs\android-support-v4.jar
-1413977538000 61320 f20e82467afa621db623c8e33be18783a57af1c4 D:\MXCHIP\dev\MXApiSDK\EasyLink_FTC_Out\libs\dd-plist.jar
-1413977538000 61320 f20e82467afa621db623c8e33be18783a57af1c4 D:\MXCHIP\dev\MXApiSDK\EasyLink_Demo\libs\dd-plist.jar

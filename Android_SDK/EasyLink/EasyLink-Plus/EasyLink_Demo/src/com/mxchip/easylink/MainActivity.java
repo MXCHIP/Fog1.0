@@ -12,9 +12,9 @@ import android.widget.EditText;
 import com.mxchip.wifiman.EasyLinkWifiManager;
 
 /**
- * 搜索EasyLink配网V2+V3 项目名称：EasyLinkDemo 创建人：Rocke 创建时间：2015年6月29日 上午10:43:39
  * 
- * @version 1.0
+ * @author Rocke
+ *
  */
 public class MainActivity extends Activity {
 	private Button startsearch;
@@ -45,7 +45,7 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				elapi.startFTC(wifissid.getText().toString().trim(),
+				elapi.startEasyLink_FTC(ctx, wifissid.getText().toString().trim(),
 						wifipsw.getText().toString(), new FTCListener() {
 							@Override
 							public void onFTCfinished(String ip,
