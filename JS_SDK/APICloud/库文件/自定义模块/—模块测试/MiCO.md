@@ -6,20 +6,20 @@ MiCO封装了物联网中最重要的接口，如果你使用的是庆科的WIFI
 3、通过MQTT控制远程设备<br/>
 开发时候，按照以下接口的顺序开发即可，或者直接[参考开源项目](http://git.oschina.net/bringmehome/MiCOSDK)项目里也包含完整的开发手册，如果您没有智能硬件，也可以[申请硬件设备](http://mico.io/)。
 <br/><br/>
-首先，我们需要通过<span style="color:red">getSSID</span>获取设备的SSID，然后将ssid和wifi的密码通过<span style="color:red">startEasyLink</span>发送给设备，如果需要发现局域网的设备我们可以使用<span style="color:red">startMDNS</span>，当设备连上网络，并与自己绑定上时，我们就可以通过<span style="color:red">startMqtt</span>开启mqtt通道，并通过<span style="color:red">publishCommand</span>将指令发送给设备。
+首先，我们需要通过___getSSID___获取设备的SSID，然后将ssid和wifi的密码通过__startEasyLink__发送给设备，如果需要发现局域网的设备我们可以使用___startMDNS___，当设备连上网络，并与自己绑定上时，我们就可以通过___startMqtt___开启mqtt通道，并通过___publishCommand___将指令发送给设备。
 <br/><br/>接口清单如下：<br/><br/>
-<span style="color:green;font-size:25px;">EasyLink配网</span>
+___EasyLink配网___
 
 * [getSSID](#1)
 * [startEasyLink](#2)
 * [stopEasyLink](#3)
 
-<span style="color:green;font-size:25px;">mDNS发现设备</span>
+___mDNS发现设备___
 
 * [startMDNS](#4)
 * [stopMDNS](#5)
 
-<span style="color:green;font-size:25px;">MQTT控制设备</span>
+___MQTT控制设备___
 
 
 * [startMqtt](#6)
@@ -30,7 +30,7 @@ MiCO封装了物联网中最重要的接口，如果你使用的是庆科的WIFI
 * [addSubscribe](#11)
 * [rmSubscribe](#12)
 
-<span style="color:green;font-size:25px;">错误返回码说明</span>
+___错误返回码说明___
 
 * [错误码](#13)
 
@@ -192,7 +192,7 @@ iOS系统，Android系统
 
 #**startMDNS**<div id="4"></div>
 
-通过mDNS来搜索设备，需要传入服务的名称
+通过mDNS来搜索局域网设备，需要传入服务的名称
 
 startMDNS({params}, callback(ret, err))
 
@@ -226,7 +226,7 @@ err：
 
 ```js
 {
-    error:""      //错误码
+    error:0      //错误码
 }
 ```
 
@@ -240,10 +240,6 @@ micoobj.startMDNS({
 });
 ```
 
-##补充说明
-
-无
-
 ##可用性
 
 iOS系统，Android系统
@@ -252,7 +248,7 @@ iOS系统，Android系统
 
 #**stopMDNS**<div id="5"></div>
 
-获取用户信息
+停止mDNS，不再搜索局域网设备
 
 stopMDNS(callback(ret, err))
 
@@ -266,7 +262,7 @@ ret：
 
 ```js
 {
- 	 status:Stop      //操作成功
+    status:Stop      //操作成功
 }
 ```
 
@@ -278,7 +274,7 @@ err：
 
 ```js
 {
-    error:""      //错误码
+    error:0      //错误码
 }
 ```
 
@@ -289,10 +285,6 @@ micoobj.stopMDNS(function(ret, err) {
 });
 ```
 
-##补充说明
-
-无
-
 ##可用性
 
 iOS系统，Android系统
@@ -301,7 +293,7 @@ iOS系统，Android系统
 
 #**startMqtt**<div id="6"></div>
 
-开启MQTT订阅服务
+开启MQTT通道，同时订阅一个主题
 
 startMqtt({params}, callback(ret, err))
 
@@ -341,7 +333,7 @@ topic：
 
 - 类型：字符串
 - 默认值：无
-- 描述：订阅的topic地址
+- 描述：订阅的主题
 
 ##callback(ret, err)
 
@@ -353,8 +345,8 @@ ret：
 
 ```js
 {
-    status:    		//操作成功状态值，布尔类型
-    token：         //登录成功获取的token值，字符串类型，有效期30天
+    status:    		//操作成功状态洗洗脑
+    payload：{}         //服务器返回的消息
 }
 ```
 
@@ -366,7 +358,7 @@ err：
 
 ```js
 {
-    msg:""      //错误描述
+    error:0      //错误码
 }
 ```
 
@@ -443,7 +435,7 @@ iOS系统，Android系统
 
 #**recvMqttMsg**<div id="8"></div>
 
-开启MQTT订阅服务
+开始接收服务器push的消息，startMQTT的时候会自动启用，所以startMQTT之后不需要再次执行此方法，只有在_stopRecvMqttMsg_之后，想再次接收时，才需要再次启用
 
 recvMqttMsg(callback(ret, err))
 
@@ -485,7 +477,7 @@ iOS系统，Android系统
 可提供的1.0.0及更高版本
 #**stopRecvMqttMsg**<div id="9"></div>
 
-开启MQTT订阅服务
+停止接收服务器push的信息
 
 stopRecvMqttMsg(callback(ret, err))
 
@@ -527,7 +519,7 @@ iOS系统，Android系统
 可提供的1.0.0及更高版本
 #**publishCommand**<div id="10"></div>
 
-开启MQTT订阅服务
+发送指令控制设备
 
 publishCommand({params}, callback(ret, err))
 
@@ -543,19 +535,19 @@ command：
 
 - 类型：字符串
 - 默认值：无
-- 描述：指令，json样子的字符串，不能为空
+- 描述：指令，json类型的字符串，不能为空
 
 qos：
 
 - 类型：字符串
 - 默认值：无
-- 描述：qos，0
+- 描述：消息发布服务质量，0
 
 retained：
 
 - 类型：字符串
 - 默认值：无
-- 描述：retained，false
+- 描述：false=实时，false
 
 ##callback(ret, err)
 
@@ -606,7 +598,7 @@ iOS系统，Android系统
 可提供的1.0.0及更高版本
 #**addSubscribe**<div id="11"></div>
 
-开启MQTT订阅服务
+增加MQTT订阅主题
 
 addSubscribe({params}, callback(ret, err))
 
@@ -669,7 +661,7 @@ iOS系统，Android系统
 可提供的1.0.0及更高版本
 #**rmSubscribe**<div id="12"></div>
 
-开启MQTT订阅服务
+移除一个MQTT订阅主题
 
 rmSubscribe({params}, callback(ret, err))
 
@@ -722,3 +714,18 @@ micoobj.rmSubscribe({
 iOS系统，Android系统
 
 可提供的1.0.0及更高版本
+
+#**错误返回码说明**<div id="13"></div>
+
+**90000** 手机未联网<br/>
+**90001** 参数不能为空<br/>
+**90002** EasyLink服务已经开启<br/>
+**90003** EasyLink服务尚未打开<br/>
+**90004** MQTT服务已经开启<br/>
+**90005** MQTT服务尚未打开<br/>
+**90006** 已经在接收MQTT消息了<br/>
+**90007** 尚未开始接收MQTT消息<br/>
+**90008** MQTT服务已经开启<br/>
+**90009** MQTT服务尚未打开<br/>
+
+
