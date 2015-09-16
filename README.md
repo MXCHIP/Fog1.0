@@ -1,6 +1,6 @@
 ```javascript
-亲，有问题联系xuyx@mxchip.com，
-如果你完成开发了或者觉得此文档有用，请加个星，3Q。
+"亲，有问题联系xuyx@mxchip.com，"
+"如果你完成开发了或者觉得此文档有用，请加个星，3Q。"
 ```
 
 #**MiCOSDK**
