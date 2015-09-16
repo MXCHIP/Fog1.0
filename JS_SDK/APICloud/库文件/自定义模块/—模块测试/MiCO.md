@@ -6,7 +6,7 @@ MiCO封装了物联网中最重要的接口，如果你使用的是庆科的WIFI
 3、通过MQTT控制远程设备<br/>
 开发时候，按照以下接口的顺序开发即可，或者直接[参考开源项目](http://git.oschina.net/bringmehome/MiCOSDK)项目里也包含完整的开发手册，如果您没有智能硬件，也可以[申请硬件设备](http://mico.io/)。
 <br/><br/>
-首先，我们需要通过*_getSSID_获取设备的SSID，然后将ssid和wifi的密码通过__startEasyLink__发送给设备，如果需要发现局域网的设备我们可以使用___startMDNS___，当设备连上网络，并与自己绑定上时，我们就可以通过___startMqtt___开启mqtt通道，并通过___publishCommand___将指令发送给设备。
+首先，我们需要通过___getSSID___获取设备的SSID，然后将ssid和wifi的密码通过__startEasyLink__发送给设备，如果需要发现局域网的设备我们可以使用___startMDNS___，当设备连上网络，并与自己绑定上时，我们就可以通过___startMqtt___开启mqtt通道，并通过___publishCommand___将指令发送给设备。
 <br/><br/>接口清单如下：<br/><br/>
 ___EasyLink配网___
 
