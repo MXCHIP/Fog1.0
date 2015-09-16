@@ -1,7 +1,5 @@
-```javascript
-"亲，有问题联系xuyx@mxchip.com，"
-"如果你完成开发了或者觉得此文档有用，请加个星，3Q。"
-```
+
+![](http://ac-rkb3roqq.clouddn.com/3995aae8ef870506.png)
 
 #**MiCOSDK**
 ##包含三个部分内容
