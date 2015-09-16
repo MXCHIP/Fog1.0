@@ -1,4 +1,4 @@
-﻿亲，加个星吧。
+﻿<div style="font-size:15px;color:red;">__亲，有问题联系xuyx@mxchip.com，如果你完成开发了或者觉得此文档有用，请加个星，3Q。__</div>
 
 #**MiCOSDK**
 ##包含三个部分内容
