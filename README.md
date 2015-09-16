@@ -1,5 +1,6 @@
 ```javascript
-<div style="font-size:20px;color:red;">亲，有问题联系xuyx@mxchip.com，如果你完成开发了或者觉得此文档有用，请加个星，3Q。</div>
+"亲，有问题联系xuyx@mxchip.com，
+如果你完成开发了或者觉得此文档有用，请加个星，3Q。"
 ```
 
 #**MiCOSDK**
