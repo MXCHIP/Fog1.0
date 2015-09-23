@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>title</title>
+		<script type="text/javascript" src="./js/FG-0.0.1.min.js"></script>
+		<style>
+			body {
+				font-size: 15px;
+				color: green;
+				font-family: '黑体';
+			}
+			input {
+				width: 150px;
+				height: 20px;
+				border: 1px solid #99D3F5;
+				border-radius: 4px;
+			}
+			.ipbutton {
+				width: 150px;
+				height: 25px;
+				background: #D0EEFF;
+				border: 1px solid #99D3F5;
+				border-radius: 4px;
+				color: #0D4A09;
+				margin-top: 10px;
+			}
+			.title {
+				font-weight: bolder;
+				color: #D23434;
+			}
+			.contentcls {
+				font-size: 15px;
+				color: #0E14D2;
+			}
+		</style>
+	</head>
+	<body>
+		<br/>
+		<div style="width: 100%; text-align: left">
+			<a href="./index.html">返回玩设备</a>
+		</div>
+		<br/>
+		<span class="title">用户管理</span>
+		<br/>
+		<input class="ipbutton" type="button" onclick="usersEmail_verification_code()" value="获取验证码" />
+		<input class="ipbutton" type="button" onclick="users()" value="注册" />
+		<input class="ipbutton" type="button" onclick="login()" value="登录" />
+		<input class="ipbutton" type="button" onclick="usersPassword()" value="修改密码" />
+		<input class="ipbutton" type="button" onclick="usersPasswordReset()" value="重置密码" />
+		<input class="ipbutton" type="button" onclick="getUserInfo()" value="获取用户的各种信息" />
+		<input class="ipbutton" type="button" onclick="putUserInfo()" value="修改用户信息" />
+		<input class="ipbutton" type="button" onclick="usersTokens()" value="获取用户tokens" />
+		<br/>
+		<br/>
+		<span class="title">设备管理</span>
+		<br/>
+		<input class="ipbutton" type="button" onclick="getDeviceList()" value="获取设备列表"/>
+		<input class="ipbutton" type="button" onclick="devicesModify()" value="修改设备名称"/>
+		<input class="ipbutton" type="button" onclick="usersDeviceUnbind()" value="解绑我的设备"/>
+		<br/>
+		<br/>
+		<span class="title">授权管理</span>
+		<br/>
+		<input class="ipbutton" type="button" onclick="authorizationDevices()" value="查询可以授权的设备" />
+		<input class="ipbutton" type="button" onclick="authorizationDevicesManage()" value="授权设备给别人" />
+		<input class="ipbutton" type="button" onclick="devicesUsers()" value="设备的用户" />
+		<input class="ipbutton" type="button" onclick="deleteDevicesUsers()" value="设备解绑某个用户"/>
+		<br/>
+		<br/>
+		<span class="title">[日志展示]</span>
+		<br/>
+		<p class="contentcls" id="content">
+			将展示后台返回的信息
+		</p>
+	</body>
+	<script type="text/javascript">
+		var contentid = document.getElementById("content");
+
+		var userToken = "";
+		var userID = "";
+		var appid = "0edfd64c-0f9a-4472-a8bc-b06b75c3909a";
+		var appSecret = "63b9c58fe0bd9fa397c205bdd4eb6db1";
+		FG.init(appid, appSecret);
+		/**
+		 * [usersEmail_verification_code 通过邮箱获取验证码]
+		 * @return {[type]} [description]
+		 * {"result":"success"}
+		 */
+		function usersEmail_verification_code() {
+			var par = {
+				"username" : "bringmehome@vip.qq.com"
+			};
+			FG.usersEmail_verification_code(par).then(function(ret) {
+				console.log("success");
+				console.log(ret);
+				contentid.innerHTML = JSON.stringify(ret);
+			}, function(err) {
+				console.log("err");
+				console.log(err);
+			});
+		}
+
+		/**
+		 * [users 验证验证码注册用户]
+		 * @return {[type]} [description]
+		 * {"token":"29613c7e-7106-4864-9b76-283149beef14"}
+		 */
+		function users() {
+			var par = {
+				"username" : "bringmehome@vip.qq.com",
+				"password" : "123456",
+				"verification_code" : "450024"
+			};
+			FG.users(par).then(function(ret) {
+				console.log("success");
+				console.log(ret);
+				contentid.innerHTML = JSON.stringify(ret);
+			}, function(err) {
+				console.log("err");
+				console.log(err);
+			});
+		}
+
+		/**
+		 * [login 用户登录]
+		 * @return {[type]} [description]
+		 * Object {user_token: "29613c7e-7106-4864-9b76-283149beef14", user_id: "1c427cb3-79f1-4e36-8bf5-6c5d94b3017a"}
+		 */
+		function login() {
+			// var par = {"login_id":"13524467545","password":"123456"};//v1
+			var par = {
+				"username" : "13524467545",
+				"password" : "123456"
+			};
+			//v2
+			FG.login(par).then(function(ret) {
+				console.log("success");
+				console.log(ret);
+				contentid.innerHTML = JSON.stringify(ret);
+			}, function(err) {
+				console.log("err");
+				console.log(err);
+			});
+		}
+
+		/**
+		 * [usersPassword 修改密码]
+		 * @return {[type]} [description]
+		 * {"result":"success"}
+		 */
+		function usersPassword() {
+			var par = {
+				"username" : "bringmehome@vip.qq.com",
+				"password" : "123456",
+				"new_password" : "123456",
+			};
+			FG.usersPassword(par).then(function(ret) {
+				console.log("success");
+				console.log(ret);
+				contentid.innerHTML = JSON.stringify(ret);
+			}, function(err) {
+				console.log("err");
+				console.log(err);
+			});
+		}
+
+		/**
+		 * [usersPasswordReset 找回密码，找回前先通过邮箱验证，获取验证码，这里要用到]
+		 * @return {[type]} [description]
+		 * {"result":"success"}
+		 */
+		function usersPasswordReset() {
+			var par = {
+				"username" : "bringmehome@vip.qq.com",
+				"password" : "123456",
+				"verification_code" : "416190",
+			};
+			FG.usersPasswordReset(par).then(function(ret) {
+				console.log("success");
+				console.log(ret);
+				contentid.innerHTML = JSON.stringify(ret);
+			}, function(err) {
+				console.log("err");
+				console.log(err);
+			});
+		}
+
+		/**
+		 * [getDeviceList 获取设备列表]
+		 * @return {[type]} [description]
+		 * [{"id":"d64f517c/c8934691813c","serial":null,"MAC":"c8934691813c","created":"2015-09-15 16:28:28","alias":"MY地设备","online":"1","ip":"101.81.17.126:46263","ssid":null}]
+		 */
+		function getDeviceList() {
+			// FG.deviceDevices().then(function(ret){//v1
+			FG.devicesGet().then(function(ret) {//v2
+				console.log("success");
+				console.log(ret);
+				contentid.innerHTML = JSON.stringify(ret);
+			}, function(err) {
+				console.log("err");
+				console.log(err);
+			});
+		}
+
+		/**
+		 * [devicesUsers 获取设备的用户]
+		 * @return {[type]} [description]
+		 * [{"user_id":"4db835d4-ae95-429e-b3d6-30503735a3f5","username":"xuyx@mxchip.com","role":"owner"}]
+		 */
+		function devicesUsers() {
+			var par = {
+				"device_id" : "d64f517c/c8934691813c",
+				"product_id" : "d64f517c",
+				"MAC" : "c8934691813c"
+			};
+			FG.devicesUsers(par).then(function(ret) {
+				console.log("success");
+				console.log(ret);
+				contentid.innerHTML = JSON.stringify(ret);
+			}, function(err) {
+				console.log("err");
+				console.log(err);
+			});
+		}
+
+		/**
+		 * [devicesModify 修改设备名称]
+		 * @return {[type]} [description]
+		 * {"result":"success"}
+		 */
+		function devicesModify() {
+			var par = {
+				"device_id" : "d64f517c/c8934691813c",
+				"alias" : "我的设备"
+			};
+			// FG.deviceModify(par).then(function(ret){//v1
+			FG.devicesModify(par).then(function(ret) {//v2
+				console.log("success");
+				console.log(ret);
+				contentid.innerHTML = JSON.stringify(ret);
+			}, function(err) {
+				console.log("err");
+				console.log(err);
+			});
+		}
+
+		/**
+		 * [usersDeviceUnbind 解绑自己的某个设备]
+		 * @return {[type]} [description]
+		 * {"result":"success"}
+		 */
+		function usersDeviceUnbind() {
+			var par = {
+				"device_id" : "d64f517c/c8934691813c"
+			};
+			FG.usersDeviceUnbind(par).then(function(ret) {
+				console.log("success");
+				console.log(ret);
+				contentid.innerHTML = JSON.stringify(ret);
+			}, function(err) {
+				console.log("err");
+				console.log(err);
+			});
+		}
+
+		/**
+		 * [authorizationDevicesManage 授权设备给某人]
+		 * owner_type 为share或者owner
+		 * @return {[type]} [description]
+		 * {"result":"af672971-a8a8-474b-b2fa-c28ccd55a7d5"}
+		 */
+		function authorizationDevicesManage() {
+			var par = {
+				"username" : "bringmehome@vip.qq.com",
+				"owner_type" : "share",
+				"device_id" : "d64f517c/c8934691813c"
+			};
+			FG.authorizationDevicesManage(par).then(function(ret) {
+				console.log("success");
+				console.log(ret);
+				contentid.innerHTML = JSON.stringify(ret);
+			}, function(err) {
+				console.log("err");
+				console.log(err);
+			});
+		}
+
+		/**
+		 * [deleteDevicesUsers 取消授权]
+		 * @return {[type]} [description]
+		 * {"result":"success"}
+		 */
+		function deleteDevicesUsers() {
+			var par = {
+				"user_id" : "1c427cb3-79f1-4e36-8bf5-6c5d94b3017a",
+				"device_id" : "d64f517c/c8934691813c"
+			};
+			FG.deleteDevicesUsers(par).then(function(ret) {
+				console.log("success");
+				console.log(ret);
+				contentid.innerHTML = JSON.stringify(ret);
+			}, function(err) {
+				console.log("err");
+				console.log(err);
+			});
+		}
+
+		/**
+		 * [authorizationDevices 我能授权给别人的设备列表]
+		 * @return {[type]} [description]
+		 * [{"id":"d64f517c/c8934691813c","serial":null,"bssid":"c8934691813c","created":"2015-09-15 16:28:28","alias":"我的设备","online":"1","power_time":null,"ip":"101.81.17.126:46263","ssid":null,"online_time":"2015-09-16 16:33:35","offline_time":"2015-09-15 13:32:00"}]
+		 */
+		function authorizationDevices() {
+			FG.authorizationDevices().then(function(ret) {
+				console.log("success");
+				console.log(ret);
+				contentid.innerHTML = JSON.stringify(ret);
+			}, function(err) {
+				console.log("err");
+				console.log(err);
+			});
+		}
+
+		/**
+		 * [usersTokens 获取我的关键信息]
+		 * @return {[type]} [description]
+		 * {"info":[{"user_id":"e485e8e2-2536-459b-9b6c-68bc3c4a08cc","username":"13524467545","token_id":"ec8aed67-e8f8-449f-a897-27a5148b353c","resource_type":"user","role":"owner","resource_id":"e485e8e2-2536-459b-9b6c-68bc3c4a08cc","created":"2015-09-01 17:06:56"}],"resources":[{"token_id":"9e559a9b-2e1e-4aa1-8cfe-02c4a67ca3c5","resource_type":"device","role":"owner","resource_id":"d64f517c/c8934691813c","created":"2015-09-17 10:35:20"}]}
+		 */
+		function usersTokens() {
+			FG.usersTokens().then(function(ret) {
+				console.log("success");
+				console.log(ret);
+				contentid.innerHTML = JSON.stringify(ret);
+			}, function(err) {
+				console.log("err");
+				console.log(err);
+			});
+		}
+
+		/**
+		 * [getUserInfo 获取我的基本信息]
+		 * @return {[type]} [description]
+		 * {"nickname":"NULL","sex":null,"faceimg":null,"website":"www.baidu.com","location":null,"company":null,"email":"qq@baidu.com","address":null,"birthday":null}
+		 */
+		function getUserInfo() {
+			FG.getUserInfo().then(function(ret) {
+				console.log("success");
+				console.log(ret);
+				contentid.innerHTML = JSON.stringify(ret);
+			}, function(err) {
+				console.log("err");
+				console.log(err);
+			});
+		}
+
+		/**
+		 * [putUserInfo 修改我的基本信息]
+		 * @return {[type]} [description]
+		 * {"result":"success"}
+		 */
+		function putUserInfo() {
+			var par = {
+				"nickname" : "NULL",
+				"website" : "www.baidu.com",
+				"email" : "qq@baidu.com"
+			};
+			FG.putUserInfo(par).then(function(ret) {
+				console.log("success");
+				console.log(ret);
+				contentid.innerHTML = JSON.stringify(ret);
+			}, function(err) {
+				console.log("err");
+				console.log(err);
+			});
+		}
+	</script>
+</html>

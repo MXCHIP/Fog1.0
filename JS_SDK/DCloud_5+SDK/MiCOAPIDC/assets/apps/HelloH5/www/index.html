@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="Generator" content="EditPlus®">
+		<meta name="Author" content="">
+		<meta name="Keywords" content="">
+		<meta name="Description" content="">
+		<title>Document</title>
+		<script type="text/javascript" src="./js/mico-dc-0.1.min.js"></script>
+		<style>
+			body {
+				font-size: 15px;
+				color: green;
+				font-family: '黑体';
+			}
+			input {
+				width: 150px;
+				height: 20px;
+				border: 1px solid #99D3F5;
+				border-radius: 4px;
+			}
+			.ipbutton {
+				width: 150px;
+				height: 25px;
+				background: #D0EEFF;
+				border: 1px solid #99D3F5;
+				border-radius: 4px;
+				color: #0D4A09;
+				margin-top: 10px;
+			}
+			.title {
+				font-weight: bolder;
+				color: #D23434;
+			}
+			.contentcls{
+				font-size: 15px;
+				color: #0E14D2;
+			}
+		</style>
+	</head>
+	<body>
+		<br/>
+		<div style="width: 100%; text-align: right"><a href="./apitest.html">用户管理</a></div>
+		<br/><span class="title">设备配网</span>
+		<br/>
+		<input class="ipbutton" type="button" onclick="getSSId()" value="获取当前SSID"/>
+		<input class="ipbutton" type="button" onclick="startEasyLink()" value="开始EasyLink"/>
+		<input class="ipbutton" type="button" onclick="stopEasyLink()" value="停止EasyLink"/>
+		<br/>
+		<br/><span class="title">搜索设备</span>
+		<br/>
+		<input class="ipbutton" type="button" onclick="openmDNS()" value="搜索设备"/>
+		<input class="ipbutton" type="button" onclick="stopmDNS()" value="停止搜索"/>
+		<br/>
+		<br/><span class="title">控制设备</span>
+		<br/>
+		<input class="ipbutton" type="button" onclick="startMqtt()" value="打开MQTT"/>
+		<input class="ipbutton" type="button" onclick="recvMqttMsg()" value="接收消息"/>
+		<input class="ipbutton" type="button" onclick="stopRecvMqttMsg()" value="停止接收消息"/>
+		<input class="ipbutton" type="button" onclick="stopMqtt()" value="关闭MQTT"/>
+		<input class="ipbutton" type="button" onclick="publishCommand(1)" value="开灯"/>
+		<input class="ipbutton" type="button" onclick="publishCommand(0)" value="关灯"/>
+		<br/>
+		<br/>
+		<span class="title">日志展示</span>
+		<br/>
+		<p class="contentcls" id="content">将展示后台返回的信息</p>
+	</body>
+	<script>
+	
+		var contentid = document.getElementById("content");
+		// 打开matt服务
+		function startMqtt() {
+			var host = "api.easylink.io";
+			var username = "";
+			var password = "";
+			var clientID = "clientId-abcdedf";
+			var topic = "d64f517c/c8934691813c/#";
+			MiCO.startMqtt(host, username, password, clientID, topic, function(ret, err) {
+				contentid.innerHTML = JSON.stringify(ret);
+			});
+		}
+
+		// 开始接受消息
+		function recvMqttMsg() {
+			MiCO.recvMqttMsg(function(ret, err) {
+				contentid.innerHTML = JSON.stringify(ret);
+			});
+		}
+
+		// 发送指令
+		function publishCommand(type) {
+			var topic = "d64f517c/c8934691813c/in/write/app1";
+			var command;
+			if (1 == type) {
+				command = '{"4":true,"5":0, "6":100, "7":100}';
+
+			} else {
+				command = '{"4":false,"5":0, "6":100, "7":100}';
+
+			}
+			MiCO.publishCommand(topic, command, function(ret, err) {
+				contentid.innerHTML = JSON.stringify(ret);
+			});
+		}
+
+		// 停止接受信息
+		function stopRecvMqttMsg() {
+			MiCO.stopRecvMqttMsg(function(ret, err) {
+				contentid.innerHTML = JSON.stringify(ret);
+			});
+		}
+
+		// 关闭mqtt服务
+		function stopMqtt() {
+			MiCO.stopMqtt(function(ret, err) {
+				contentid.innerHTML = JSON.stringify(ret);
+			});
+		}
+
+		// 打开MDNS
+		function openmDNS() {
+			var servName = "_easylink._tcp.local.";
+			MiCO.startmDNS(servName, function(ret, err) {
+				contentid.innerHTML = JSON.stringify(ret);
+			});
+		}
+
+		// 关闭MDNS
+		function stopmDNS() {
+			MiCO.stopmDNS(function(ret, err) {
+				contentid.innerHTML = JSON.stringify(ret);
+			});
+		}
+
+		// 获取SSID
+		function getSSId() {
+			MiCO.getSSId(function(ret, err) {
+				contentid.innerHTML = JSON.stringify(ret);
+			});
+		}
+
+		// startEasyLink
+		function startEasyLink() {
+			var wifiname = "mxchip";
+			var wifipsw = "88888888";
+			MiCO.startEasyLink(wifiname, wifipsw, function(ret, err) {
+				contentid.innerHTML = JSON.stringify(ret);
+			});
+		}
+
+		// Stop EasyLink
+		function stopEasyLink() {
+			MiCO.stopEasyLink(function(ret, err) {
+				contentid.innerHTML = JSON.stringify(ret);
+			});
+		}
+	</script>
+</html>
