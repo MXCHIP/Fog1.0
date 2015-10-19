@@ -63,8 +63,9 @@
 	<script type="text/javascript">
 		apiready = function() {
 		};
+		
 		function startMqttService() {
-			var userToken = $micojs.getUserToken();
+			var userToken = MiCO.getUserToken();
 			var device_id = "d64f517c/c8934691813c";
 			var host = "api.easylink.io";
 			var username = "admin";
@@ -72,13 +73,13 @@
 			//clientID，需要按照此标准来定义：v1-app-[token	版本号-app-userToken(前12位)
 			var clientID = "v1-app-" + userToken.substring(0, 12);
 			var topic = device_id + '/out/#';
-			$micojs.startMqttService(host, username, password, topic, clientID, function(ret, err) {
+			MiCO.startMqttService(host, username, password, topic, clientID, function(ret, err) {
 				$("#devsay").text(JSON.stringify(ret));
 			});
 		}
 
 		function stopMqttService() {
-			$micojs.stopMqttService();
+			MiCO.stopMqttService();
 		}
 
 		function publishCommand(type) {
@@ -90,7 +91,7 @@
 				command = '{"4":false}';
 			}
 			var topic = device_id + "/in/write";
-			$micojs.publishCommand(topic, command, function(ret, err) {
+			MiCO.publishCommand(topic, command, function(ret, err) {
 				$("#devsay").text(JSON.stringify(ret));
 			});
 		}

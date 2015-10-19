@@ -572,6 +572,6 @@
 	/*---------------------MQTT------------------------end*/
 
 	/*end*/
-	window.$micojs = m;
+	window.MiCO = m;
 
 })(window);

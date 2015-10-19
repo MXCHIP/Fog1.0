@@ -64,7 +64,7 @@
 		创建成功了后，我想看看这个账号是不是能登录：
 		<br/>
 		1、试着输入手机号
-		<input type="text" id="myphonelogin" value=""/>
+		<input type="text" id="myphonelogin" value="18030303620"/>
 		和密码
 		<input type="text" id="password1" value="123456"/>
 		，点击
@@ -102,13 +102,12 @@
 		};
 		function getSMS() {
 			var phone = $("#myphone").val();
-			;
 			var template = "micodeveloper";
 			var username = "MM";
 			var name = '我的世界';
 			var appname = 'MiCO开发者';
 			var ttl = 10;
-			$micojs.getSmsCode(phone, template, username, name, appname, ttl, function(ret) {
+			MiCO.getSmsCode(phone, template, username, name, appname, ttl, function(ret) {
 				alert(JSON.stringify(ret));
 			});
 		}
@@ -116,7 +115,7 @@
 		function checkcode() {
 			var phone = $("#myphone").val();
 			var smscode = $("#smscode").val();
-			$micojs.checkSmsCode(phone, smscode, function(ret, err) {
+			MiCO.checkSmsCode(phone, smscode, function(ret, err) {
 				alert(JSON.stringify(ret));
 			});
 		}
@@ -124,7 +123,7 @@
 		function setpassword() {
 			var phone = $("#myphone").val();
 			var password = $("#password").val();
-			$micojs.setInitPwd(phone, password, function(ret, err) {
+			MiCO.setInitPwd(phone, password, function(ret, err) {
 				alert(JSON.stringify(ret));
 			});
 		}
@@ -132,7 +131,7 @@
 		function login() {
 			var phone = $("#myphonelogin").val();
 			var password = $("#password1").val();
-			$micojs.loginWithPhone(phone, password, function(ret, err) {
+			MiCO.loginWithPhone(phone, password, function(ret, err) {
 				if (ret)
 					alert(JSON.stringify(ret));
 				else
@@ -142,7 +141,7 @@
 
 		function resetPassword() {
 			var password = $("#password2").val();
-			$micojs.resetPassword(password, function(ret, err) {
+			MiCO.resetPassword(password, function(ret, err) {
 				if (ret)
 					alert(JSON.stringify(ret));
 				else
@@ -153,7 +152,7 @@
 		function updatePassword() {
 			var oldpsw = $("#password3").val();
 			var password = $("#password4").val();
-			$micojs.updatePassword(oldpsw, password, function(ret, err) {
+			MiCO.updatePassword(oldpsw, password, function(ret, err) {
 				if (ret)
 					alert(JSON.stringify(ret));
 				else

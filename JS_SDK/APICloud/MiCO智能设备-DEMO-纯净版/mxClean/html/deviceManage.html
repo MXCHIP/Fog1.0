@@ -111,7 +111,7 @@
 		apiready = function() {
 		};
 		function getSSID() {
-			$micojs.getssid(function(ret, err) {
+			MiCO.getssid(function(ret, err) {
 				if (ret)
 					$("#wifiSsid").val(ret);
 			});
@@ -121,7 +121,7 @@
 		function startEasyLink() {
 			var ssid = $("#wifiSsid").val();
 			var psw = $("#password").val();
-			$micojs.startEasyLink(ssid, psw, function(ret, err) {
+			MiCO.startEasyLink(ssid, psw, function(ret, err) {
 				if (ret) {
 					devip = ret;
 					alert("ip = " + ret);
@@ -130,18 +130,18 @@
 		}
 
 		function stopEasyLink() {
-			$micojs.stopEasyLink();
+			MiCO.stopEasyLink();
 		}
 
 		var userToken;
-		if ($micojs.islogin()) {
-			userToken = $micojs.getUserToken();
+		if (MiCO.islogin()) {
+			userToken = MiCO.getUserToken();
 		}
 		var bindKey;
 		function bindingDev() {
 			bindKey = $.md5(devip + userToken);
 			alert(bindKey);
-			$micojs.bindingDev(devip, "8001", bindKey, function(ret, err) {
+			MiCO.bindingDev(devip, "8001", bindKey, function(ret, err) {
 				alert(JSON.stringify(ret));
 				if (ret) {
 					var devid = ret.device_id;
@@ -151,14 +151,14 @@
 		}
 
 		function bindtocloud() {
-			$micojs.bindDevCloud(userToken, bindKey, function(ret, err) {
+			MiCO.bindDevCloud(userToken, bindKey, function(ret, err) {
 				alert(JSON.stringify(ret));
 			});
 		}
 
 		function getDevlist() {
-			var userToken = $micojs.getUserToken();
-			$micojs.getDevList(userToken, function(ret) {
+			var userToken = MiCO.getUserToken();
+			MiCO.getDevList(userToken, function(ret) {
 				alert(JSON.stringify(ret));
 			});
 		}
@@ -166,7 +166,7 @@
 		function editDevName() {
 			var devname = $("#devname").val();
 			var devid = "d64f517c/c8934691818b";
-			$micojs.editDevName(userToken, devname, devid, function(ret, err) {
+			MiCO.editDevName(userToken, devname, devid, function(ret, err) {
 				alert(JSON.stringify(ret));
 			});
 		}
@@ -175,13 +175,13 @@
 			var phone = $("#owners").val();
 			var userType = "share";
 			var devid = "d64f517c/c8934691818b";
-			$micojs.authDev(userToken, phone, userType, devid, function(ret, err) {
+			MiCO.authDev(userToken, phone, userType, devid, function(ret, err) {
 				alert(JSON.stringify(ret));
 			});
 		}
 
 		function getAuthDevList() {
-			$micojs.getAuthDevList(userToken, function(ret, err) {
+			MiCO.getAuthDevList(userToken, function(ret, err) {
 				alert(JSON.stringify(ret));
 			});
 		}
@@ -189,21 +189,21 @@
 		function deleteOneUser() {
 			var userID = "82af2473-9766-4d29-9508-ae99f49df5f9";
 			var devid = "d64f517c/c8934691818b";
-			$micojs.removeOneUser(userToken, userID, devid, function(ret, err) {
+			MiCO.removeOneUser(userToken, userID, devid, function(ret, err) {
 				alert(JSON.stringify(ret));
 			});
 		}
 
 		function queryDevUser() {
 			var devid = "d64f517c/c8934691818b";
-			$micojs.queryDevUser(userToken, devid, function(ret, err) {
+			MiCO.queryDevUser(userToken, devid, function(ret, err) {
 				alert(JSON.stringify(ret));
 			});
 		}
 
 		function unBindingDev() {
 			var devid = "d64f517c/c8934691818b";
-			$micojs.unBindingDev(userToken, devid, function(ret, err) {
+			MiCO.unBindingDev(userToken, devid, function(ret, err) {
 				alert(JSON.stringify(ret));
 			});
 		}
