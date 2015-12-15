@@ -124,13 +124,15 @@ return：
 
    发送控制设备的指令，需要传入topic和command
 
+```java
    /**
      * @param topic 发送指令的通道
      * @param command 发送的指令
      * @param qos 服务质量：0
      * @param retained 是否在服务保存消息：false
      */
-    public void publishCommand(String topic, String command, int qos, boolean retained)
+    public void publishCommand(String topic, String command, int qos, boolean retained){}
+```
 
 ##示例代码
 
