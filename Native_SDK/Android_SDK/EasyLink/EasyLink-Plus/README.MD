@@ -8,6 +8,8 @@
 
 * [stopEasyLink](#3)
 
+* [stopFTC](#4)
+
 ##**概述**
 
 配网流程：
@@ -20,6 +22,7 @@
 
 
 首先需要导入一个库：
+
 	1、	easylink_ftc_out.jar
 
 	2、	jetty-8.1.15.jar
@@ -51,6 +54,8 @@ String Ssid = mWifiManager.getCurrentSSID();
 
 #**startEasyLink_FTC**<div id="2"></div>
 
+#**stopEasyLink**<div id="3"></div>
+
     1、传入SSID和PSW，模块处理完成后会回调FTC的onFTCfinished并返回模块的IP和设备的信息。
 
     2、开启FTC的时候会自动调用EasyLink模块，所以不需要另外开启。
@@ -81,7 +86,7 @@ elapi.startEasyLink_FTC(context,wifissid,  wifipsw, new FTCListener() {
 });
 ```
 
-#**stopFTC**<div id="3"></div>
+#**stopFTC**<div id="4"></div>
 
     关闭FTC的端口，此功能不能在一收到模块反馈信息时候就关，否是模块会因为网络提早断开而报错重启。
     可以在前端接收到接口的反馈或者处理完成后调用。
