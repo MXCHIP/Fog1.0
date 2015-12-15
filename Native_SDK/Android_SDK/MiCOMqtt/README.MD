@@ -34,6 +34,7 @@
 
     设置初始订阅的通道，开启MQTT，并实现消息接受的listener
 
+```java
     /**
     * @param host 如api.easylink.io 
      * @param port 如1883
@@ -46,6 +47,7 @@
         String clientID, String topic,MqttServiceListener mqttServiceListener){}
 
     注：参数不能为空
+```
 
 ##MqttServiceListener return
 
@@ -53,14 +55,14 @@ return：
 
 - 类型：Json 具体内容视不同项目的协议而定
 
-```js
+```java
     {"onoff_power":"1"}
 ```
 
 
 ##示例代码
 
-```js
+```java
     private static MqttServiceAPI mapi;
     private Context ctx;
 
@@ -92,7 +94,7 @@ return：
 
 ##示例代码
 
-```js
+```java
     mapi.stopMqttService();
 ```
 
@@ -104,7 +106,7 @@ return：
 
 ##示例代码
 
-```js
+```java
     mapi.recvMessage();
 ```
 
@@ -116,7 +118,7 @@ return：
 
 ##示例代码
 
-```js
+```java
    mapi.stopRecvMessage();  
 ```
 
@@ -136,7 +138,7 @@ return：
 
 ##示例代码
 
-```js
+```java
     String topic = "b674706a/c8934691/in.json";
     String command = "{}";
     mapi.publishCommand(topic, command, 0, false);
@@ -146,15 +148,16 @@ return：
 #**subscribe**<div id="6"></div>
 
    增加新的订阅通道
-
+```java
    /** @param topic 需要添加订阅的通道
     * @param qos 通道质量 0
     */
     public void subscribe(String topic, int qos)
+```
 
 ##示例代码
 
-```js
+```java
     String topic = "b674706a/c8934691/in.json";
     mapi.subscribe(topic, 0);
 ```
@@ -167,7 +170,7 @@ return：
 
 ##示例代码
 
-```js
+```java
     String topic = "b674706a/c8934691/in.json";
     mapi.unsubscribe(topic);
 ```
