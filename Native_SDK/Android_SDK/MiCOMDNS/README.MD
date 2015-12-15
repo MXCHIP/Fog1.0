@@ -24,7 +24,7 @@
 
     public void startMdnsService(final String serviceInfo, final JmdnsListener mJmdnsListener) {}
 
-##return
+##JmdnsListener return
 
 return：
 
@@ -44,7 +44,7 @@ return：
 ```
 
 ```js
-    allInfo信息会比较多，每个产品返回的值有可能不一样，这样举例：
+    allInfo信息会比较多，每个产品返回的值有可能不一样，eg：
     \u0015MAC=00:50:43:02:FE:01(
     Firmware Rev=MK3288_1@1508061104
     \u0015Hardware Rev=MK3288_1
@@ -54,6 +54,8 @@ return：
     \u0018Manufacturer=MXCHIP Inc.
     \u0006Seed=4
     \u0000
+
+    如上**\u0000**类似的字符需要自行处理
 ```
 
 
