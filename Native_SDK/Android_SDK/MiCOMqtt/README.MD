@@ -16,7 +16,7 @@
 
 * [unsubscribe](#7)
 
-* [错误码](#8)
+* [状态类型](#8)
 
 ##**概述**
 
@@ -42,7 +42,8 @@
      * @param clientID v1-app-[MAC] 版本号-app-手机MAC(12位)
      * @param topics 
      */
-    public void startMqttService(String host, String port, String userName, String passWord, String clientID, String topic,MqttServiceListener mqttServiceListener){}
+    public void startMqttService(String host, String port, String userName, String passWord, 
+        String clientID, String topic,MqttServiceListener mqttServiceListener){}
 
     注：参数不能为空
 
@@ -129,7 +130,6 @@ return：
      * @param qos 服务质量：0
      * @param retained 是否在服务保存消息：false
      */
-    
     public void publishCommand(String topic, String command, int qos, boolean retained)
 
 ##示例代码
@@ -148,7 +148,6 @@ return：
    /** @param topic 需要添加订阅的通道
     * @param qos 通道质量 0
     */
-    
     public void subscribe(String topic, int qos)
 
 ##示例代码
@@ -171,7 +170,7 @@ return：
     mapi.unsubscribe(topic);
 ```
 
-#**错误码**<div id="8"></div>
+#**状态类型**<div id="8"></div>
 
     StartMqttService的时候就已经开启了消息接受的通道，即实现MqttServiceListener的接口，
     返回的消息均为String格式的字符串，其中msgType为消息类型，目前有两种类型，status和payload
