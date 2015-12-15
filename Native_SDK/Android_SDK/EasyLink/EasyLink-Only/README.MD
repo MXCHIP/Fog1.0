@@ -13,7 +13,10 @@
 配网流程：
 
     1、通过“startEasyLink”发送配网数据包，同时开启mDNS（接口startMdnsService），发现局域网设备，发现后关闭EasyLink
-    注意：发现设备时候，如果局域网有多台设备同时在配网，那么会发现多台设备，一般解决方案，开启mDNS之前，通过扫描二维码或者其他方式得到需要配网设备的mac地址，mDNS搜索到设备时候进行mac匹配，如果一致则说明之前的EasyLink工作完成，关闭EasyLink
+    
+    注意：发现设备时候，如果局域网有多台设备同时在配网，那么会发现多台设备，一般解决方案，开启mDNS之前，
+    通过扫描二维码或者其他方式得到需要配网设备的mac地址，mDNS搜索到设备时候进行mac匹配，如果一致则说明之
+    前的EasyLink工作完成，关闭EasyLink
 
 首先需要导入一个库：easylink_only.jar
 
@@ -56,6 +59,7 @@ private Context ctx = null;
 ctx = MainActivity.this;
 elapi.startEasyLink_FTC(context,wifissid,  wifipsw);
 ```
+
 #**stopEasyLink**<div id="3"></div>
 
     停止EasyLink，一般情况会等mDNS搜到需要配网的设备时候停止或者添加一个60s超时来停止
