@@ -32,7 +32,7 @@
 
 #**startMdnsService**<div id="1"></div>
 
-    设置初始订阅的通道，开启MQTT，并实现消息接受的listener
+    设置初始订阅的通道，开启MQTT，并实现消息接受的listener, 且以下所有的MQTT操作的消息都是从这个MqttServiceListener返回。
 
 ```java
     /**
