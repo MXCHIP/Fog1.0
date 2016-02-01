@@ -178,3 +178,107 @@ micoUser.verifyPhoneSMSCode(userName, vercode, appid, new UserCallBack() {
 ##可用性
 
     Android系统4.0+
+
+<div id="register"></div>
+#**register**
+
+    验证码验证成功后，输入密码注册新用户
+
+    register(String phone, String password, String appid, UserCallBack usercb)
+
+##params
+
+phone
+- 类型：String, 不可为空
+- 描述：手机号码
+
+password
+- 类型：String, 不可为空
+- 描述：用户密码
+
+appid
+- 类型：String, 不可为空
+- 描述：在Fogcloud平台注册的APP的id
+
+##callback
+
+usercb
+- 类型：UserCallBack
+- 描述：接口调用成功后的回调函数
+
+##示例代码
+
+```java
+MiCOUser micoUser = new MiCOUser();
+String userName = "13122222222";
+String password = "123456";
+String appid = "81d79316-bb5a-11e5-a739-00163e0204c0";
+micoUser.register(userName, password, appid, new UserCallBack() {
+                        
+    @Override
+    public void onSuccess(String message) {
+        Log.d(TAG, message);
+    }
+    
+    @Override
+    public void onFailure(int code, String message) {
+        Log.d(TAG, code + " " + message);
+    }
+});
+```
+
+##可用性
+
+    Android系统4.0+
+
+<div id="login"></div>
+#**login**
+
+    用户登录
+
+    login(String phone, String password, String appid, UserCallBack usercb)
+
+##params
+
+phone
+- 类型：String, 不可为空
+- 描述：手机号码
+
+password
+- 类型：String, 不可为空
+- 描述：用户密码
+
+appid
+- 类型：String, 不可为空
+- 描述：在Fogcloud平台注册的APP的id
+
+##callback
+
+usercb
+- 类型：UserCallBack
+- 描述：接口调用成功后的回调函数
+
+##示例代码
+
+```java
+MiCOUser micoUser = new MiCOUser();
+String userName = "13122222222";
+String password = "123456";
+String appid = "81d79316-bb5a-11e5-a739-00163e0204c0";
+micoUser.login(userName, password, appid, new UserCallBack() {
+
+    @Override
+    public void onSuccess(String message) {
+        Log.d(TAG, message);
+    }
+
+    @Override
+    public void onFailure(int code, String message) {
+        Log.d(TAG, code + " " + message);
+    }
+});
+```
+
+##可用性
+
+    Android系统4.0+
