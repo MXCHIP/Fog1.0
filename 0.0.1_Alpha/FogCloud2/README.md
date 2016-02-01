@@ -1,4 +1,4 @@
-##Description: MiCOSDK开发指南
+##MiCOSDK开发指南
 
 ##**概述**
 
@@ -102,6 +102,7 @@ appid
 usercb
 - 类型：UserCallBack
 - 内部：
+
 ```java
 interface UserCallBack {
     onSuccess(String message);
