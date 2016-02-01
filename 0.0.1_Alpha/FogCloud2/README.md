@@ -25,7 +25,7 @@
 
 * [refreshToken](#refreshToken)
 
-<!--* [verifyToken](#verifyToken) -->
+~~* [verifyToken](#verifyToken)~~
 
 <div id="MiCODevice"></div>
 ##**MiCODevice** 设备管理
@@ -325,7 +325,7 @@ micoUser.refreshToken(userToken, new UserCallBack() {
 
     Android系统4.0+
 
-<!--
+~~
 <div id="verifyToken"></div>
 #**verifyToken**
 
@@ -368,4 +368,4 @@ micoUser.verifyToken(userToken, new UserCallBack() {
 
     Android系统4.0+
 
--->
+~~
