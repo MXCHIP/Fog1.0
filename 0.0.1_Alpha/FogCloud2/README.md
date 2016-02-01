@@ -392,12 +392,12 @@ micodev.startEasyLink(ssidStr, passwordStr, runs, new EasyLinkCallBack() {
 
     @Override
     public void onSuccess(String message) {
-        Log.d("---EasyLink---", message);
+        Log.d(TAG, message);
     }
 
     @Override
     public void onFailure(int code, String message) {
-        Log.d("---EasyLink---", code + " " + message);
+        Log.d(TAG, code + " " + message);
     }
 });
 ```
@@ -427,12 +427,12 @@ micodev.stopEasyLink(new EasyLinkCallBack() {
 
     @Override
     public void onSuccess(String message) {
-        Log.d("---EasyLink---", message);
+        Log.d(TAG, message);
     }
 
     @Override
     public void onFailure(int code, String message) {
-        Log.d("---EasyLink---", code + " " + message);
+        Log.d(TAG, code + " " + message);
     }
 });
 ```
@@ -471,18 +471,18 @@ micodev.startSearchDevices(serviceName, new SearchDeviceCallBack() {
 
     @Override
     public void onSuccess(String message) {
-        Log.d("------startSearchDevices------", message);
+        Log.d(TAG, message);
     }
 
     @Override
     public void onFailure(int code, String message) {
-        Log.d("------startSearchDevices------", message);
+        Log.d(TAG, message);
     }
 
     @Override
     public void onDevicesFind(JSONArray deviceStatus) {
         if (!deviceStatus.equals("")) {
-            Log.d("------startSearchDevices------", deviceStatus.toString());
+            Log.d(TAG, deviceStatus.toString());
         }
     }
 });
@@ -513,12 +513,12 @@ micodev.stopSearchDevices(new SearchDeviceCallBack() {
 
     @Override
     public void onSuccess(String message) {
-        Log.d("---stopSearchDevices---", message);
+        Log.d(TAG, message);
     }
 
     @Override
     public void onFailure(int code, String message) {
-        Log.d("---stopSearchDevices---", code + " " + message);
+        Log.d(TAG, code + " " + message);
     }
 
     @Override
@@ -573,7 +573,7 @@ micodev.bindDevice(ip, deviceid, new ManageDeviceCallBack() {
 
     @Override
     public void onFailure(int code, String message) {
-        Log.d("---bindDevice---", code + " " + message);
+        Log.d(TAG, code + " " + message);
     }
 }, jwt);
 ```
