@@ -85,9 +85,7 @@ __ControlLocalDevice__
 
     获取手机验证码，填入的内容需要为手机号码
 
-```java
     getPhoneSMSCode(String phone, String appid, UserCallBack usercb)
-```
 
 ##params
 
@@ -115,16 +113,64 @@ micoUser.getPhoneSMSCode(userName, appid, new UserCallBack() {
 
     @Override
     public void onSuccess(String message) {
-        Log.d(TAG, message.toString());
-        fh.setToast(CheckVerCodeActivity.this,
-                message.toString());
+        Log.d(TAG, message);
     }
 
     @Override
     public void onFailure(int code, String message) {
-        Log.d(TAG, message.toString());
-        fh.setToast(CheckVerCodeActivity.this,
-                message.toString());
+        Log.d(TAG, code + " " + message);
+    }
+});
+```
+
+##可用性
+
+    Android系统4.0+
+
+<div id="verifyPhoneSMSCode"></div>
+#**verifyPhoneSMSCode**
+
+    验证获取到的手机验证码
+
+    verifyPhoneSMSCode(String phone, String vercode, String appid, UserCallBack usercb)
+
+##params
+
+phone
+- 类型：String, 不可为空
+- 描述：手机号码
+
+vercode
+- 类型：String, 不可为空
+- 描述：手机收到的验证码
+
+appid
+- 类型：String, 不可为空
+- 描述：在Fogcloud平台注册的APP的id
+
+##callback
+
+usercb
+- 类型：UserCallBack
+- 描述：接口调用成功后的回调函数
+
+##示例代码
+
+```java
+MiCOUser micoUser = new MiCOUser();
+String userName = "13122222222";
+String vercode = "556897";
+String appid = "81d79316-bb5a-11e5-a739-00163e0204c0";
+micoUser.verifyPhoneSMSCode(userName, vercode, appid, new UserCallBack() {
+
+    @Override
+    public void onSuccess(String message) {
+        Log.d(TAG, message);
+    }
+
+    @Override
+    public void onFailure(int code, String message) {
+        Log.d(TAG, code + " " + message);
     }
 });
 ```
