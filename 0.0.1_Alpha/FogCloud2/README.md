@@ -440,3 +440,185 @@ micodev.stopEasyLink(new EasyLinkCallBack() {
 ##可用性
 
     Android系统4.0+
+
+<div id="startSearchDevices"></div>
+#**startSearchDevices**
+
+    设备连上WIFI路由器后，我就可以通过这个接口来发现他，
+
+    当然，前提是手机和设备必须在同一个网段
+
+    startSearchDevices(String serviceName, SearchDeviceCallBack searchdevcb)
+
+##params
+
+serviceName
+- 类型：String, 不可为空, "_easylink._tcp.local."
+- 描述：只要你使用的是庆科的模块，这个名字是不会变的
+
+##callback
+
+searchdevcb
+- SearchDeviceCallBack
+- 描述：接口调用成功后的回调函数
+
+##示例代码
+
+```java
+MiCODevice micodev = new MiCODevice(MainActivity.this);
+String serviceName = "_easylink._tcp.local.";
+micodev.startSearchDevices(serviceName, new SearchDeviceCallBack() {
+
+    @Override
+    public void onSuccess(String message) {
+        Log.d("------startSearchDevices------", message);
+    }
+
+    @Override
+    public void onFailure(int code, String message) {
+        Log.d("------startSearchDevices------", message);
+    }
+
+    @Override
+    public void onDevicesFind(JSONArray deviceStatus) {
+        if (!deviceStatus.equals("")) {
+            Log.d("------startSearchDevices------", deviceStatus.toString());
+        }
+    }
+});
+```
+
+##可用性
+
+    Android系统4.0+
+
+<div id="stopSearchDevices"></div>
+#**stopSearchDevices**
+
+    停止发现设备，发现了需要激活的设备，主动调用此接口
+
+    stopSearchDevices(SearchDeviceCallBack searchdevcb)
+
+##callback
+
+searchdevcb
+- SearchDeviceCallBack
+- 描述：接口调用成功后的回调函数
+
+##示例代码
+
+```java
+MiCODevice micodev = new MiCODevice(MainActivity.this);
+micodev.stopSearchDevices(new SearchDeviceCallBack() {
+
+    @Override
+    public void onSuccess(String message) {
+        Log.d("---stopSearchDevices---", message);
+    }
+
+    @Override
+    public void onFailure(int code, String message) {
+        Log.d("---stopSearchDevices---", code + " " + message);
+    }
+
+    @Override
+    public void onDevicesFind(JSONArray deviceStatus) {}
+});
+```
+
+##可用性
+
+    Android系统4.0+
+
+<div id="bindDevice"></div>
+#**bindDevice**
+
+    通过startSearchDevices获取准备绑定设备的信息，从中提取出IP地址，和deviceid，再通过此接口绑定设备
+
+    bindDevice(String ip, String deviceid, ManageDeviceCallBack managedevcb, String jwt)
+
+##params
+
+ip
+- 类型：String, 不可为空
+- 描述：即将绑定的设备的IP
+
+deviceid
+- 类型：String, 不可为空
+- 描述：即将绑定的设备的deviceid
+
+jwt
+- 类型：String, 不可为空
+- 描述：用户登录后获取的token
+
+##callback
+
+managedevcb
+- ManageDeviceCallBack
+- 描述：接口调用成功后的回调函数
+
+##示例代码
+
+```java
+MiCODevice micodev = new MiCODevice(MainActivity.this);
+String ip = "192.168.1.123";
+String deviceid = "f71246d8-b9db-11e5-a739-00163e0204c0";
+String jwt = "xxx...";
+micodev.bindDevice(ip, deviceid, new ManageDeviceCallBack() {
+
+    @Override
+    public void onSuccess(String message) {
+        Log.d(TAG, message);
+    }
+
+    @Override
+    public void onFailure(int code, String message) {
+        Log.d("---bindDevice---", code + " " + message);
+    }
+}, jwt);
+```
+
+##可用性
+
+    Android系统4.0+
+
+<div id="unBindDevice"></div>
+#**unBindDevice**
+
+    用户不准备使用此设备时候，调用此接口解绑设备，
+
+    1）如果是普通用户或者普通管理员，解绑只会解绑自己和设备的绑定关系
+
+    2）如果是超级管理员，那么解绑后，所有人均不能控制这个设备了
+
+    ~~unBindDevice(String ip, String deviceid, ManageDeviceCallBack managedevcb, String jwt)~~
+
+##params
+
+deviceid
+- 类型：String, 不可为空
+- 描述：即将绑定的设备的IP
+
+jwt
+- 类型：String, 不可为空
+- 描述：用户登录后获取的token
+
+##callback
+
+managedevcb
+- ManageDeviceCallBack
+- 描述：接口调用成功后的回调函数
+
+##示例代码
+
+```java
+待定
+~~MiCODevice micodev = new MiCODevice(MainActivity.this);~~
+~~String deviceid = "f71246d8-b9db-11e5-a739-00163e0204c0";~~
+~~String jwt = "xxx...";~~
+~~micodev.unbindDevice();~~
+```
+
+##可用性
+
+    Android系统4.0+
