@@ -12,29 +12,31 @@
 
 <br/>
 <br/>
-##**MiCOUser**<div id="MiCOUser"></div>用户管理
+<div id="MiCOUser"></div>
+##**MiCOUser** 用户管理
 
-* [getPhoneSMSCode](#getPhoneSMSCode) 获取验证码
+* [getPhoneSMSCode](#getPhoneSMSCode)
 
-* [verifyPhoneSMSCode](#verifyPhoneSMSCode) 验证验证码
+* [verifyPhoneSMSCode](#verifyPhoneSMSCode)
 
-* [register](#register) 用户注册
+* [register](#register)
 
-* [login](#login) 用户登录
+* [login](#login)
 
-* [refreshToken](#refreshToken) 刷新token
+* [refreshToken](#refreshToken)
 
-* [verifyToken](#verifyToken) 验证token
+* [verifyToken](#verifyToken)
 
-##**MiCODevice**<div id="MiCODevice"></div> 设备管理
+<div id="MiCODevice"></div>
+##**MiCODevice** 设备管理
 
-__EasyLink__ 配网部分
+__EasyLink__
 
-* [getSSID](#getSSID) 获取ssid
+* [getSSID](#getSSID)
 
-* [startEasyLink](#startEasyLink) 发送配网数据包
+* [startEasyLink](#startEasyLink)
 
-* [stopEasyLink](#stopEasyLink) 停止发送配网数据包
+* [stopEasyLink](#stopEasyLink)
 
 __SearchDevice__
 
