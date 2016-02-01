@@ -101,14 +101,7 @@ appid
 
 usercb
 - 类型：UserCallBack
-- 内部：
-
-```java
-interface UserCallBack {
-    onSuccess(String message);
-    onFailure(int code, String message);
-}
-```
+- 描述：接口调用成功后的回调函数
 
 ##示例代码
 
@@ -136,4 +129,4 @@ micoUser.getPhoneSMSCode(userName, appid, new UserCallBack() {
 
 ##可用性
 
-    Android系统
+    Android系统4.0+
