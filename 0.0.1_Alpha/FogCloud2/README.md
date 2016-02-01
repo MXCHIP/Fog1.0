@@ -78,25 +78,37 @@ __ControlLocalDevice__
 
 * [disconnectLocalDevice](#disconnectLocalDevice)
 
+<br/>
+<br/>
+<div id="getPhoneSMSCode"></div>
+#**getPhoneSMSCode**
 
-#**openDebug**<div id="1"></div>
+    获取手机验证码，填入的内容需要为手机号码
 
-    打开chrome调试HTML5页面的开关。
+    public void getPhoneSMSCode(String phone, String appid, UserCallBack usercb)
 
-    openDebug(callback(ret))
+##params
+phone
+- 类型：String, 不可为空
+- 描述：手机号码
 
-##callback(ret)
+appid
 
-ret：
+- 类型：String, 不可为空
+- 描述：在Fogcloud平台注册的APP的id
 
-- 类型：JSON对象
+##callback
 
-内部字段：
+usercb
 
-```js
-{
-    result:"success"     //是否成功，布尔类型
-    code : 1000 //打开成功
+- 类型：UserCallBack
+
+- 内部：
+
+```java
+interface UserCallBack {
+    onSuccess(String message);
+    onFailure(int code, String message);
 }
 ```
 
