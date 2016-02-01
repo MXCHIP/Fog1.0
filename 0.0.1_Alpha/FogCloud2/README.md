@@ -591,13 +591,42 @@ micodev.bindDevice(ip, deviceid, new ManageDeviceCallBack() {
 
     2）如果是超级管理员，那么解绑后，所有人均不能控制这个设备了
 
-    ~~unBindDevice(String ip, String deviceid, ManageDeviceCallBack managedevcb, String jwt)~~
+    待定
+
+##params
+
+none
+- 类型：String, 不可为空
+- 描述：
+
+##callback
+
+managedevcb
+- ManageDeviceCallBack
+- 描述：接口调用成功后的回调函数
+
+##示例代码
+
+```java
+待定
+```
+
+##可用性
+
+    Android系统4.0+
+
+<div id="getShareVerCode"></div>
+#**getShareVerCode**
+
+    我是超级管理员或者普通管理员，那么我就能把我名下的设备分享给别人，首先需要获取分享码
+
+    getShareVerCode(String deviceid, ManageDeviceCallBack managedevcb, String jwt)
 
 ##params
 
 deviceid
 - 类型：String, 不可为空
-- 描述：即将绑定的设备的IP
+- 描述：即将绑定的设备的deviceid
 
 jwt
 - 类型：String, 不可为空
@@ -612,13 +641,86 @@ managedevcb
 ##示例代码
 
 ```java
-待定
-~~MiCODevice micodev = new MiCODevice(MainActivity.this);~~
-~~String deviceid = "f71246d8-b9db-11e5-a739-00163e0204c0";~~
-~~String jwt = "xxx...";~~
-~~micodev.unbindDevice();~~
+MiCODevice micodev = new MiCODevice(MainActivity.this);
+String deviceid = "f71246d8-b9db-11e5-a739-00163e0204c0";
+String jwt = "xxx...";
+getShareVerCode(deviceid, new ManageDeviceCallBack() {
+
+    @Override
+    public void onSuccess(String message) {
+        Log.d(TAG, message);
+    }
+
+    @Override
+    public void onFailure(int code, String message) {
+        Log.d(TAG, code + " " + message);
+    }
+}, jwt);
 ```
 
 ##可用性
 
     Android系统4.0+
+
+<div id="creatQrCode"></div>
+#**creatQrCode**
+
+    将分享码和绑定的关系转成二维码，让别人通过手机扫描二维码绑定
+
+    Bitmap creatQrCode(String message, int height, int width)
+
+##params
+
+message
+- 类型：String, 不可为空
+- 描述：需要生成二维码的信息
+
+height
+- 类型：int, 不可为空
+- 描述：二维码的高度
+
+width
+- 类型：int, 不可为空
+- 描述：二维码的宽度
+
+vercode
+- String, 不可为空
+- 描述：getShareVerCode接口获取的vercode
+
+role
+- 类型：int, 不可为空
+- 描述：1超级用户 3普通用户 2管理员
+
+bindingtype
+- 类型：String, 不可为空
+- 描述：绑定类型 sa 超级用户 home 家庭用户 guest 访客 other 其他
+
+iscallback
+- boolean, 不可为空
+- 描述：是否返回绑定状态，此版本请都设置为false
+
+##callback
+
+Bitmap
+- 类型：Bitmap
+- 描述：可以直接将BitMap放入ImageView里，如下
+
+##示例代码
+
+```java
+MiCODevice micodev = new MiCODevice(MainActivity.this);
+ImageView qrcodeimg = (ImageView) findViewById(R.id.qrcodeimg);
+
+String vercode = "xxx...";
+int role = 3;
+String bindingtype = "home";
+boolean iscallback = false;
+
+String message = "{\"vercode\":"+ vercode +",\"role\":"+ role +",\"bindingtype\":"+ bindingtype +",\"iscallback\":"+ iscallback + "}";
+qrcodeimg.setImageBitmap(micoDev.creatQrCode(message, 220, 220));
+```
+
+##可用性
+
+    Android系统4.0+
+
