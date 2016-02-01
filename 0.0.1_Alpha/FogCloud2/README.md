@@ -771,9 +771,9 @@ managedevcb
 MiCODevice micodev = new MiCODevice(MainActivity.this);
 
 ShareDeviceParams sdevp = new ShareDeviceParams();
-sdevp.bindvercode = vercode;
-sdevp.role = role;
-sdevp.bindingtype = bindingtype;
+sdevp.bindvercode = "xxx...";
+sdevp.role = 3;
+sdevp.bindingtype = "home";
 sdevp.iscallback = false;
 
 String jwt = "xxx...";
@@ -790,6 +790,355 @@ micoDev.addDeviceByVerCode(sdevp, new ManageDeviceCallBack() {
         Log.d(TAG, code + " " + message);
     }
 }, jwt);
+```
+
+##可用性
+
+    Android系统4.0+
+
+<div id="startListenDevice"></div>
+#**startListenDevice**
+
+    远程监听设备，获取设备上报的数据
+
+    startListenDevice(ListenDeviceParams listendevparams, ControlDeviceCallBack ctrldevcb)
+
+##params
+
+listendevparams
+- 类型：ListenDeviceParams, 不可为空
+- 描述：ListenDeviceParams至少包含以下的信息
+
+deviceid
+- 类型：String, 不可为空
+- 描述：设备的deviceid
+
+host
+- 类型：String, 不可为空
+- 描述：云端的host地址，默认为"iot.mxchip.com"
+
+port
+- 类型：String, 不可为空
+- 描述：云端的port，默认为"1883"
+
+userName
+- 类型：String, 不可为空
+- 描述：用户名
+
+passWord
+- 类型：String, 不可为空
+- 描述：用户密码
+
+clientID
+- 类型：String, 不可为空
+- 描述：用户的clientid，即用户登录后获取的token
+
+##callback
+
+ctrldevcb
+- 类型：ControlDeviceCallBack
+- 描述：接口调用成功后的回调函数
+
+##示例代码
+
+```java
+MiCODevice micodev = new MiCODevice(MainActivity.this);
+
+ListenDeviceParams listendevparams = new ListenDeviceParams();
+listendevparams.deviceid = "f71246d8-b9db-11e5-a739-00163e0204c0";
+listendevparams.host = "1883";
+listendevparams.port = "home";
+listendevparams.userName = "admin";
+listendevparams.passWord = "admin";
+listendevparams.clientID = "xxx...";
+
+micoDev.startListenDevice(listendevparams, new ControlDeviceCallBack() {
+    
+    @Override
+    public void onSuccess(String message) {
+        Log.d(TAG, message);
+    }
+    
+    @Override
+    public void onFailure(int code, String message) {
+        Log.d(TAG, code + " " + message);
+    }    
+
+    @Override
+    public void onDeviceStatusReceived(String msgType, String messages) {
+        Log.d(TAG, msgType + " " + message);
+    }
+});
+```
+
+##可用性
+
+    Android系统4.0+
+
+<div id="sendCommand"></div>
+#**sendCommand**
+
+    sendCommand
+
+##params
+
+none
+- 类型：none, 不可为空
+- 描述：none
+
+##callback
+
+ctrldevcb
+- 类型：ControlDeviceCallBack
+- 描述：接口调用成功后的回调函数
+
+##示例代码
+
+```java
+待定
+```
+
+##可用性
+
+    Android系统4.0+
+
+<div id="addDeviceListener"></div>
+#**addDeviceListener**
+
+    addDeviceListener
+
+##params
+
+none
+- 类型：none, 不可为空
+- 描述：none
+
+##callback
+
+ctrldevcb
+- 类型：ControlDeviceCallBack
+- 描述：接口调用成功后的回调函数
+
+##示例代码
+
+```java
+待定
+```
+
+##可用性
+
+    Android系统4.0+
+
+<div id="removeDeviceListener"></div>
+#**removeDeviceListener**
+
+    removeDeviceListener
+
+##params
+
+none
+- 类型：none, 不可为空
+- 描述：none
+
+##callback
+
+ctrldevcb
+- 类型：ControlDeviceCallBack
+- 描述：接口调用成功后的回调函数
+
+##示例代码
+
+```java
+待定
+```
+
+##可用性
+
+    Android系统4.0+
+
+<div id="stopListenDevice"></div>
+#**stopListenDevice**
+
+    stopListenDevice
+
+##params
+
+none
+- 类型：none, 不可为空
+- 描述：none
+
+##callback
+
+ctrldevcb
+- 类型：ControlDeviceCallBack
+- 描述：接口调用成功后的回调函数
+
+##示例代码
+
+```java
+待定
+```
+
+##可用性
+
+    Android系统4.0+
+
+<div id="connectLocalDevice"></div>
+#**connectLocalDevice**
+
+    连接本地局域网的设备
+
+    connectLocalDevice(SinSocketParams sspara, SinSocketCallBack sscb)
+
+##params
+
+sspara
+- 类型：SinSocketParams, 不可为空
+- 描述：SinSocketParams至少包含以下的信息
+
+ip
+- 类型：String, 不可为空
+- 描述：设备的ip，通过startSearchDevices发现设备
+
+port
+- 类型：int, 可为空
+- 描述：本地设备的port，默认为8002
+
+overTime
+- 类型：int, 可为空, 单位ms
+- 描述：连接设备时候的超时时间，默认为60秒
+
+heartBeatTime
+- 类型：int, 可为空, 单位ms
+- 描述：每个心跳包的间隔时间，默认为20秒
+
+autoConnectNo
+- 类型：int, 可为空
+- 描述：socket连接丢失后，自动重连的次数，默认1000次
+
+##callback
+
+sscb
+- 类型：SinSocketCallBack
+- 描述：接口调用成功后的回调函数
+
+##示例代码
+
+```java
+MiCODevice micodev = new MiCODevice(MainActivity.this);
+
+SinSocketParams sspara = new SinSocketParams();
+sspara.ip = "192.168.1.20";
+sspara.port = 8002;
+sspara.heartBeatTime = 5000;
+sspara.overTime = 10000;
+sspara.autoConnectNo = 5;
+
+SinSocketCallBack sscb = new SinSocketCallBack() {
+    @Override
+    public void onMessageRead(String message) { //消息到达后会执行此方法
+        Log.d(TAG, "connect-->"+message);
+    }
+    @Override
+    public void onLost() {  //连接丢失后会执行此方法
+        Log.d(TAG, "connect-->"+"lost");
+    }
+    
+    @Override
+    public void onSuccess(String message) { //连接成功后会执行此方法
+        Log.d(TAG, "connect-->"+"success");
+        
+        //连接成功后，需要立即发送登录指令，否则设备会在5秒内把你踢掉，sendLocalCommand的指令下面会介绍
+        micodev.sendLocalCommand("{\"applocallogin\":\"admin\"}", null);
+    }
+    
+    @Override
+    public void onFailure(int code, String message) { //连接失败后会执行此方法
+        Log.d(TAG, "connect-->"+code+" "+message);
+    }
+};
+
+micodev.connectLocalDevice(sspara, sscb);
+```
+
+##可用性
+
+    Android系统4.0+
+
+<div id="sendLocalCommand"></div>
+#**sendLocalCommand**
+
+    发送本地的控制指令
+
+    sendLocalCommand(String command, SinSocketCallBack sscb)
+
+##params
+
+command
+- 类型：String, 不可为空，虽然是String型，但是必须是json的样子
+- 描述：否则模块会死掉，格式如下"{\"applocallogin\":\"admin\"}"
+
+##callback
+
+sscb
+- 类型：SinSocketCallBack
+- 描述：接口调用成功后的回调函数
+
+##示例代码
+
+```java
+MiCODevice micodev = new MiCODevice(MainActivity.this);
+
+String command = "{\"applocallogin\":\"admin\"}";
+
+micodev.sendLocalCommand(command, new SinSocketCallBack() {
+
+    @Override
+    public void onSuccess(String message) { //这里的发送成功只是write成功，并不能保证设备已经接受到了
+        Log.d(TAG, "Command-->"+message);
+    }
+    
+    @Override
+    public void onFailure(int code, String message) {
+        Log.d(TAG, "Command-->"+code + " " + message);
+    }
+});
+```
+
+##可用性
+
+    Android系统4.0+
+
+<div id="disconnectLocalDevice"></div>
+#**disconnectLocalDevice**
+
+    断开与本地设备的连接
+
+    disconnectLocalDevice(SinSocketCallBack sscb)
+
+##callback
+
+sscb
+- 类型：SinSocketCallBack
+- 描述：接口调用成功后的回调函数
+
+##示例代码
+
+```java
+MiCODevice micodev = new MiCODevice(MainActivity.this);
+
+micodev.disconnectLocalDevice(new SinSocketCallBack() {
+
+    @Override
+    public void onSuccess(String message) {
+        Log.d(TAG, "disconnect-->"+message);
+    }
+    
+    @Override
+    public void onFailure(int code, String message) {
+        Log.d(TAG, "disconnect-->"+code + " " + message);
+    }
+});
 ```
 
 ##可用性
