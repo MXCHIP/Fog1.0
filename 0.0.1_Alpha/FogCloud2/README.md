@@ -649,6 +649,8 @@ getShareVerCode(deviceid, new ManageDeviceCallBack() {
     @Override
     public void onSuccess(String message) {
         Log.d(TAG, message);
+        String sharcode = new JSONObject(message).getString("data");
+        sharcode = new JSONObject(sharcode).getString("vercode");
     }
 
     @Override
@@ -685,7 +687,7 @@ width
 
 vercode
 - String, 不可为空
-- 描述：getShareVerCode接口获取的vercode
+- 描述：getShareVerCode接口获取的sharcode
 
 role
 - 类型：int, 不可为空
@@ -716,7 +718,7 @@ int role = 3;
 String bindingtype = "home";
 boolean iscallback = false;
 
-String message = "{\"vercode\":"+ vercode +",\"role\":"+ role +",\"bindingtype\":"+ bindingtype +",\"iscallback\":"+ iscallback + "}";
+String message = "{\"vercode\":\""+ vercode +"\",\"role\":"+ role +",\"bindingtype\":\""+ bindingtype +"\",\"iscallback\":"+ iscallback + "}";
 qrcodeimg.setImageBitmap(micoDev.creatQrCode(message, 220, 220));
 ```
 
@@ -724,3 +726,72 @@ qrcodeimg.setImageBitmap(micoDev.creatQrCode(message, 220, 220));
 
     Android系统4.0+
 
+<div id="addDeviceByVerCode"></div>
+#**addDeviceByVerCode**
+
+    解析出二维码里的内容，并通过此接口绑定被授权的设备
+
+    addDeviceByVerCode(ShareDeviceParams sdevp, ManageDeviceCallBack managedevcb, String jwt)
+
+##params
+
+sdevp
+- 类型：ShareDeviceParams, 不可为空
+- 描述：ShareDeviceParams至少包含以下的信息
+
+bindvercode
+- 类型：int, 不可为空
+- 描述：二维码的高度
+
+role
+- 类型：int, 不可为空
+- 描述：1超级用户 3普通用户 2管理员
+
+bindingtype
+- 类型：String, 不可为空
+- 描述：绑定类型 sa 超级用户 home 家庭用户 guest 访客 other 其他
+
+iscallback
+- boolean, 不可为空
+- 描述：是否返回绑定状态，此版本请都设置为false
+
+jwt
+- 类型：String, 不可为空
+- 描述：用户登录后获取的token
+
+##callback
+
+managedevcb
+- 类型：ManageDeviceCallBack
+- 描述：接口调用成功后的回调函数
+
+##示例代码
+
+```java
+MiCODevice micodev = new MiCODevice(MainActivity.this);
+
+ShareDeviceParams sdevp = new ShareDeviceParams();
+sdevp.bindvercode = vercode;
+sdevp.role = role;
+sdevp.bindingtype = bindingtype;
+sdevp.iscallback = false;
+
+String jwt = "xxx...";
+
+micoDev.addDeviceByVerCode(sdevp, new ManageDeviceCallBack() {
+    
+    @Override
+    public void onSuccess(String message) {
+        Log.d(TAG, message);
+    }
+    
+    @Override
+    public void onFailure(int code, String message) {
+        Log.d(TAG, code + " " + message);
+    }
+}, jwt);
+```
+
+##可用性
+
+    Android系统4.0+
