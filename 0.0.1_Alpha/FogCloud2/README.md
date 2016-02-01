@@ -282,3 +282,87 @@ micoUser.login(userName, password, appid, new UserCallBack() {
 ##可用性
 
     Android系统4.0+
+
+<div id="refreshToken"></div>
+#**refreshToken**
+
+    刷新用户的token，服务器端默认7天内生效，刷新后可以后延7天，失效了就需要重新登录
+
+    refreshToken(String token, UserCallBack usercb)
+
+##params
+
+token
+- 类型：String, 不可为空
+- 描述：用户登录后服务器端返回的JWT值，一般保存在localstorege里，以便下一次获取使用
+
+##callback
+
+usercb
+- 类型：UserCallBack
+- 描述：接口调用成功后的回调函数
+
+##示例代码
+
+```java
+MiCOUser micoUser = new MiCOUser();
+String userToken = "XXX...";
+micoUser.refreshToken(userToken, new UserCallBack() {
+
+    @Override
+    public void onSuccess(String message) {
+        Log.d(TAG, message);
+    }
+
+    @Override
+    public void onFailure(int code, String message) {
+        Log.d(TAG, code + " " + message);
+    }
+});
+```
+
+##可用性
+
+    Android系统4.0+
+
+<div id="verifyToken"></div>
+#**verifyToken**
+
+    确认用户的token是否合法
+
+    verifyToken(String token, UserCallBack usercb)
+
+##params
+
+token
+- 类型：String, 不可为空
+- 描述：用户登录后服务器端返回的JWT值，一般保存在localstorege里，以便下一次获取使用
+
+##callback
+
+usercb
+- 类型：UserCallBack
+- 描述：接口调用成功后的回调函数
+
+##示例代码
+
+```java
+MiCOUser micoUser = new MiCOUser();
+String userToken = "XXX...";
+micoUser.verifyToken(userToken, new UserCallBack() {
+
+    @Override
+    public void onSuccess(String message) {
+        Log.d(TAG, message);
+    }
+
+    @Override
+    public void onFailure(int code, String message) {
+        Log.d(TAG, code + " " + message);
+    }
+});
+```
+
+##可用性
+
+    Android系统4.0+
