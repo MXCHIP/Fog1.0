@@ -10,6 +10,10 @@
 
 3、注册完成后，我还没有一个可以控制的设备，我需要绑定一个设备，绑定之前需要先让设备连上WIFI路由器，让设备连上路由器(EasyLink)，连上以后找到这个设备的IP(SearchDevice)，并绑定她，这些都在[MiCODevice](#MiCODevice)部分
 
+4、我可以将我名下的设备分享给别人使用，这些在[ShareDevice](#ShareDevice)部分
+
+5、控制设备分云端远程控制[ControlRemoteDevice](#ControlRemoteDevice)和局域网内本地控制[ControlLocalDevice](#ControlLocalDevice)
+
 <br/>
 <br/>
 <div id="MiCOUser"></div>
@@ -48,6 +52,7 @@ __BindDevice__
 
 * [unBindDevice](#unBindDevice)
 
+<div id="ShareDevice"></div>
 __ShareDevice__
 
 * [getShareVerCode](#getShareVerCode)
@@ -56,6 +61,7 @@ __ShareDevice__
 
 * [addDeviceByVerCode](#addDeviceByVerCode)
 
+<div id="ControlRemoteDevice"></div>
 __ControlRemoteDevice__
 
 * [startListenDevice](#startListenDevice)
@@ -68,6 +74,7 @@ __ControlRemoteDevice__
 
 * [stopListenDevice](#stopListenDevice)
 
+<div id="ControlLocalDevice"></div>
 __ControlLocalDevice__
 
 * [connectLocalDevice](#connectLocalDevice)
