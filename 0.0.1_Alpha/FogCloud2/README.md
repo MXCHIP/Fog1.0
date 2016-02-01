@@ -378,7 +378,7 @@ runSecond
 ##callback
 
 easylinkcb
-- EasyLinkCallBack
+- 类型：EasyLinkCallBack
 - 描述：接口调用成功后的回调函数
 
 ##示例代码
@@ -416,7 +416,7 @@ micodev.startEasyLink(ssidStr, passwordStr, runs, new EasyLinkCallBack() {
 ##callback
 
 easylinkcb
-- EasyLinkCallBack
+- 类型：EasyLinkCallBack
 - 描述：接口调用成功后的回调函数
 
 ##示例代码
@@ -459,7 +459,7 @@ serviceName
 ##callback
 
 searchdevcb
-- SearchDeviceCallBack
+- 类型：SearchDeviceCallBack
 - 描述：接口调用成功后的回调函数
 
 ##示例代码
@@ -502,7 +502,7 @@ micodev.startSearchDevices(serviceName, new SearchDeviceCallBack() {
 ##callback
 
 searchdevcb
-- SearchDeviceCallBack
+- 类型：SearchDeviceCallBack
 - 描述：接口调用成功后的回调函数
 
 ##示例代码
@@ -554,7 +554,7 @@ jwt
 ##callback
 
 managedevcb
-- ManageDeviceCallBack
+- 类型：ManageDeviceCallBack
 - 描述：接口调用成功后的回调函数
 
 ##示例代码
@@ -602,7 +602,7 @@ none
 ##callback
 
 managedevcb
-- ManageDeviceCallBack
+- 类型：ManageDeviceCallBack
 - 描述：接口调用成功后的回调函数
 
 ##示例代码
@@ -635,7 +635,7 @@ jwt
 ##callback
 
 managedevcb
-- ManageDeviceCallBack
+- 类型：ManageDeviceCallBack
 - 描述：接口调用成功后的回调函数
 
 ##示例代码
@@ -1144,3 +1144,6 @@ micodev.disconnectLocalDevice(new SinSocketCallBack() {
 ##可用性
 
     Android系统4.0+
+
+
+(完)
