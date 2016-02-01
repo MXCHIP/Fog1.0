@@ -322,3 +322,114 @@ micoUser.refreshToken(userToken, new UserCallBack() {
 ##可用性
 
     Android系统4.0+
+
+<div id="getSSID"></div>
+#**getSSID**
+
+    获取当前手机连接的WIFI的名称，即ssid
+
+    String getSSID()
+
+##callback
+
+ssid
+- 类型：String
+- 描述：当前WIFI的名称
+
+##示例代码
+
+```java
+MiCODevice micodev = new MiCODevice(MainActivity.this);
+Log.d(TAG, micodev.getSSID());
+```
+
+##可用性
+
+    Android系统4.0+
+
+<div id="startEasyLink"></div>
+#**startEasyLink**
+
+    发送数据包(包含ssid和password)给设备，每10ms发一次，连续发10s，再停止10s，继续发，如此反复
+
+    startEasyLink(String ssid, String password, int runSecond, EasyLinkCallBack easylinkcb)
+
+##params
+
+ssid
+- 类型：String, 不可为空
+- 描述：准备发送的ssid
+
+password
+- 类型：String, 不可为空
+- 描述：ssid对应的WIFI密码
+
+runSecond
+- 类型：int, 不可为空，单位ms
+- 描述：发送持续的时间，到点了就停止发送
+
+##callback
+
+easylinkcb
+- EasyLinkCallBack
+- 描述：接口调用成功后的回调函数
+
+##示例代码
+
+```java
+MiCODevice micodev = new MiCODevice(MainActivity.this);
+String ssidStr = "mxchip";
+String passwordStr = "123456";
+int runs = 10000; //发送10秒即关闭
+micodev.startEasyLink(ssidStr, passwordStr, runs, new EasyLinkCallBack() {
+
+    @Override
+    public void onSuccess(String message) {
+        Log.d("---EasyLink---", message);
+    }
+
+    @Override
+    public void onFailure(int code, String message) {
+        Log.d("---EasyLink---", code + " " + message);
+    }
+});
+```
+
+##可用性
+
+    Android系统4.0+
+
+<div id="stopEasyLink"></div>
+#**stopEasyLink**
+
+    停止发送数据包
+
+    stopEasyLink(EasyLinkCallBack easylinkcb)
+
+##callback
+
+easylinkcb
+- EasyLinkCallBack
+- 描述：接口调用成功后的回调函数
+
+##示例代码
+
+```java
+MiCODevice micodev = new MiCODevice(MainActivity.this);
+micodev.stopEasyLink(new EasyLinkCallBack() {
+
+    @Override
+    public void onSuccess(String message) {
+        Log.d("---EasyLink---", message);
+    }
+
+    @Override
+    public void onFailure(int code, String message) {
+        Log.d("---EasyLink---", code + " " + message);
+    }
+});
+```
+
+##可用性
+
+    Android系统4.0+
