@@ -25,8 +25,6 @@
 
 * [refreshToken](#refreshToken)
 
-~~* [verifyToken](#verifyToken)~~
-
 <div id="MiCODevice"></div>
 ##**MiCODevice** 设备管理
 
@@ -324,48 +322,3 @@ micoUser.refreshToken(userToken, new UserCallBack() {
 ##可用性
 
     Android系统4.0+
-
-~~
-<div id="verifyToken"></div>
-#**verifyToken**
-
-    确认用户的token是否合法
-
-    verifyToken(String token, UserCallBack usercb)
-
-##params
-
-token
-- 类型：String, 不可为空
-- 描述：用户登录后服务器端返回的JWT值，一般保存在localstorege里，以便下一次获取使用
-
-##callback
-
-usercb
-- 类型：UserCallBack
-- 描述：接口调用成功后的回调函数
-
-##示例代码
-
-```java
-MiCOUser micoUser = new MiCOUser();
-String userToken = "XXX...";
-micoUser.verifyToken(userToken, new UserCallBack() {
-
-    @Override
-    public void onSuccess(String message) {
-        Log.d(TAG, message);
-    }
-
-    @Override
-    public void onFailure(int code, String message) {
-        Log.d(TAG, code + " " + message);
-    }
-});
-```
-
-##可用性
-
-    Android系统4.0+
-
-~~
