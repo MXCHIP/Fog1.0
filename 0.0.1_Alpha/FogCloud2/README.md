@@ -85,7 +85,9 @@ __ControlLocalDevice__
 
     获取手机验证码，填入的内容需要为手机号码
 
+```java
     getPhoneSMSCode(String phone, String appid, UserCallBack usercb)
+```
 
 ##params
 
