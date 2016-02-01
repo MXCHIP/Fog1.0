@@ -85,26 +85,23 @@ __ControlLocalDevice__
 
     获取手机验证码，填入的内容需要为手机号码
 
-    public void getPhoneSMSCode(String phone, String appid, UserCallBack usercb)
+    getPhoneSMSCode(String phone, String appid, UserCallBack usercb)
 
 ##params
+
 phone
 - 类型：String, 不可为空
 - 描述：手机号码
 
 appid
-
 - 类型：String, 不可为空
 - 描述：在Fogcloud平台注册的APP的id
 
 ##callback
 
 usercb
-
 - 类型：UserCallBack
-
 - 内部：
-
 ```java
 interface UserCallBack {
     onSuccess(String message);
@@ -114,76 +111,28 @@ interface UserCallBack {
 
 ##示例代码
 
-```js
-var chromeDebug = api.require('chromeDebug');
-chromeDebug.openDebug(function(ret, err) {
-    if (212 == ret.code) {
-        alert(JSON.stringify(ret));
-    } else {
-        console.log(ret);
+```java
+MiCOUser micoUser = new MiCOUser();
+String userName = "13122222222";
+String appid = "81d79316-bb5a-11e5-a739-00163e0204c0";
+micoUser.getPhoneSMSCode(userName, appid, new UserCallBack() {
+
+    @Override
+    public void onSuccess(String message) {
+        Log.d(TAG, message.toString());
+        fh.setToast(CheckVerCodeActivity.this,
+                message.toString());
+    }
+
+    @Override
+    public void onFailure(int code, String message) {
+        Log.d(TAG, message.toString());
+        fh.setToast(CheckVerCodeActivity.this,
+                message.toString());
     }
 });
 ```
 
-##补充说明
-
-    无
-
 ##可用性
 
     Android系统
-
-    可提供的1.0.0及更高版本
-
-
-#**closeDebug**<div id="2"></div>
-
-    关闭chrome调试HTML5页面的开关，虽然一般也用不到。
-
-    closeDebug(callback(ret))
-
-##callback(ret)
-
-ret：
-
-- 类型：JSON对象
-
-内部字段：
-
-```js
-{
-    result:"success"     //是否成功，布尔类型
-    code : 1000 //打开成功
-}
-```
-
-##示例代码
-
-```js
-var chromeDebug = api.require('chromeDebug');
-chromeDebug.closeDebug(function(ret, err) {
-    if (212 == ret.code) {
-        alert(JSON.stringify(ret));
-    } else {
-        console.log(ret);
-    }
-});
-```
-
-##补充说明
-
-    无
-
-##可用性
-
-    Android系统
-
-    可提供的1.0.0及更高版本
-
-
-
-#**错误码**<div id="3"></div>
-
-1. 1000 请求成功
-
-2. 212 手机的Android版本低于4.4，不支持此功能
