@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.mxchip.wifiman.EasyLinkWifiManager;
 
@@ -20,6 +21,8 @@ public class MainActivity extends Activity {
 	private Button stopsearch;
 	private EditText wifissid;
 	private EditText wifipsw;
+	private TextView logmessage;
+	
 	public EasyLinkAPI elapi;
 	private Context ctx = null;
 	private EasyLinkWifiManager mWifiManager = null;
@@ -33,6 +36,7 @@ public class MainActivity extends Activity {
 		wifipsw = (EditText) findViewById(R.id.wifipsw);
 		startsearch = (Button) findViewById(R.id.startsearch);
 		stopsearch = (Button) findViewById(R.id.stopsearch);
+		logmessage = (TextView)findViewById(R.id.logmessage);
 
 		ctx = MainActivity.this;
 		elapi = new EasyLinkAPI(ctx);
@@ -44,22 +48,9 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				elapi.startEasyLink(ctx, wifissid.getText().toString()
-						.trim(), wifipsw.getText().toString());
-				// elapi.startEasyLink_FTC(ctx,
-				// wifissid.getText().toString().trim(),
-				// wifipsw.getText().toString(), new FTCListener() {
-				// @Override
-				// public void onFTCfinished(String ip,
-				// String jsonString) {
-				// Log.d("FTCEnd", ip + " " + jsonString);
-				// elapi.stopEasyLink();
-				// }
-				//
-				// @Override
-				// public void isSmallMTU(int MTU) {
-				// }
-				// });
+				elapi.startEasyLink(ctx, wifissid.getText().toString().trim(),
+						wifipsw.getText().toString());
+				logmessage.setText("¿ªÊ¼ÅäÍø");
 			}
 		});
 
@@ -67,8 +58,8 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				// elapi.stopFTC();
 				elapi.stopEasyLink();
+				logmessage.setText("Í£Ö¹ÅäÍø");
 			}
 		});
 	}
