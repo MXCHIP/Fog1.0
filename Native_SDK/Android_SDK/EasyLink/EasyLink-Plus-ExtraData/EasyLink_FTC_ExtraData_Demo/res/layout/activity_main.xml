@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/wifissid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="WIFI-SSID" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/wifipsw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="WIFI-PSW" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" >
+
+        <Button
+            android:id="@+id/startsearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="开始搜索" />
+
+        <Button
+            android:id="@+id/stopsearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="停止搜索" />
+    </LinearLayout>
+
+</LinearLayout>
