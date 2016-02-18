@@ -2,7 +2,7 @@
 
     2015年06月29日
 
-* [getCurrentSSID](#1)
+* [getSSID](#1)
 
 * [startEasyLink_FTC](#2)
 
@@ -23,7 +23,7 @@
 
 首先需要导入一个库：easylink_ftc_extradata.jar
 
-#**getCurrentSSID**<div id="1"></div>
+#**getSSID**<div id="1"></div>
 
     获取WIFI的名称SSID
 
@@ -43,7 +43,7 @@ private Context ctx = null;
 
 ctx = MainActivity.this;
 elapi = new EasyLinkAPI(ctx);
-String Ssid = elapi.getSSID()
+String Ssid = elapi.getSSID();
 ```
 
 #**startEasyLink_FTC**<div id="2"></div>
