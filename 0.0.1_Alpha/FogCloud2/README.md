@@ -19,9 +19,9 @@
 <div id="MiCOUser"></div>
 ##**MiCOUser** 用户管理
 
-* [getPhoneSMSCode](#getPhoneSMSCode)
+* [getVerifyCode](#getVerifyCode)
 
-* [verifyPhoneSMSCode](#verifyPhoneSMSCode)
+* [checkVerifyCode](#checkVerifyCode)
 
 * [register](#register)
 
@@ -85,12 +85,12 @@ __ControlLocalDevice__
 
 <br/>
 <br/>
-<div id="getPhoneSMSCode"></div>
-#**getPhoneSMSCode**
+<div id="getVerifyCode"></div>
+#**getVerifyCode**
 
     获取手机验证码，填入的内容需要为手机号码
 
-    getPhoneSMSCode(String phone, String appid, UserCallBack usercb)
+    getVerifyCode(String phone, String appid, UserCallBack usercb)
 
 ##params
 
@@ -114,7 +114,7 @@ usercb
 MiCOUser micoUser = new MiCOUser();
 String userName = "13122222222";
 String appid = "81d79316-bb5a-11e5-a739-00163e0204c0";
-micoUser.getPhoneSMSCode(userName, appid, new UserCallBack() {
+micoUser.getVerifyCode(userName, appid, new UserCallBack() {
 
     @Override
     public void onSuccess(String message) {
@@ -132,12 +132,12 @@ micoUser.getPhoneSMSCode(userName, appid, new UserCallBack() {
 
     Android系统4.0+
 
-<div id="verifyPhoneSMSCode"></div>
-#**verifyPhoneSMSCode**
+<div id="checkVerifyCode"></div>
+#**checkVerifyCode**
 
     验证获取到的手机验证码
 
-    verifyPhoneSMSCode(String phone, String vercode, String appid, UserCallBack usercb)
+    checkVerifyCode(String phone, String vercode, String appid, UserCallBack usercb)
 
 ##params
 
@@ -166,7 +166,7 @@ MiCOUser micoUser = new MiCOUser();
 String userName = "13122222222";
 String vercode = "556897";
 String appid = "81d79316-bb5a-11e5-a739-00163e0204c0";
-micoUser.verifyPhoneSMSCode(userName, vercode, appid, new UserCallBack() {
+micoUser.checkVerifyCode(userName, vercode, appid, new UserCallBack() {
 
     @Override
     public void onSuccess(String message) {
