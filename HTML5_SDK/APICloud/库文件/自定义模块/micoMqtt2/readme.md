@@ -92,7 +92,6 @@ var password = "";
 var clientID = "aca213caec5c";
 var topic = "d64f517c/out/read/#";
 micoMqtt.startMqtt({
-	micoMqtt : micoMqtt,
 	host : host,
 	username : username,
 	password : password,
