@@ -1,0 +1,5 @@
+ {
+    "name":"micoMdns",
+    "class":"micoMdnsModule",
+    "methods":["startMdns","stopMdns"]
+ }
