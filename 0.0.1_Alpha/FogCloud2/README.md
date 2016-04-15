@@ -421,6 +421,18 @@ usercb
 - 类型：UserCallBack
 - 描述：接口调用成功后的回调函数
 
+```js
+{
+  "meta": {
+    "message": "用户解除成功",
+    "code": 0
+  },
+  "data": {
+    "enduserid": "xxx-fbc5-11e5-a739-00163e0204c0"
+  }
+}
+```
+
 ##示例代码
 
 ```java
@@ -583,6 +595,22 @@ searchdevcb
 - 类型：SearchDeviceCallBack
 - 描述：接口调用成功后的回调函数
 
+[
+  {
+    "deviceName": "MiCOKit 3165#0C2EB6",
+    "deviceMac": "D0:BA:E4:0C:2E:B6",
+    "deviceIP": "172.16.112.6",
+    "deviceMacbind": "0",
+    "hardwareID": "0",
+    "fogProductID": "6486b2d1-0ee9-4647-baa3-78b9cbc778f7",
+    "isEasyLinkOK": "false",
+    "isHaveSuperUser": "true",
+    "remainingUserNumber": "0",
+    "allInfo": "MAC=D0:BA:E4:0C:2E:B6Firmware ...",
+    "devicePort": "8002"
+  }
+]
+
 ##示例代码
 
 ```java
@@ -671,6 +699,20 @@ managedevcb
 - 类型：ManageDeviceCallBack
 - 描述：接口调用成功后的回调函数
 
+```js
+{
+  "meta": {
+    "message": "设备重新被绑定",
+    "code": 0
+  },
+  "data": {
+    "devicepw": "2665",
+    "deviceid": "e79f0250-ea5e-11e5-a739-00163e0204c0",
+    "devicename": "开心手环"
+  }
+}
+```
+
 ##示例代码
 
 ```java
@@ -722,6 +764,17 @@ token
 managedevcb
 - 类型：ManageDeviceCallBack
 - 描述：接口调用成功后的回调函数
+
+```js
+{
+  "meta": {
+    "message": "超级用户解除成功",
+    "code": 0
+  },
+  "data": {
+  }
+}
+```
 
 ##示例代码
 
