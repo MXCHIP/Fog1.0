@@ -116,6 +116,17 @@ usercb
 - 类型：UserCallBack
 - 描述：接口调用成功后的回调函数
 
+```js
+{
+  "meta": {
+    "message": "验证邮件已发送",
+    "code": 23000
+  },
+  "data": {
+  }
+}
+```
+
 ##示例代码
 
 ```java
@@ -167,6 +178,13 @@ usercb
 - 类型：UserCallBack
 - 描述：接口调用成功后的回调函数
 
+```js
+{
+  "token": "eyJhVlSV8I...",
+  "clientid": "xxx-deaa-11e5-a739-00163e0204c0"
+}
+```
+
 ##示例代码
 
 ```java
@@ -213,17 +231,26 @@ appid
 - 类型：String, 不可为空
 - 描述：在Fogcloud平台注册的APP的id
 
+token
+- 类型：String, 不可为空
+- 描述：验证验证码后返回的token
+
 ##callback
 
 usercb
 - 类型：UserCallBack
 - 描述：接口调用成功后的回调函数
 
-##token
-
-token
-- 类型：String, 不可为空
-- 描述：验证验证码后返回的token
+```js
+{
+  "meta": {
+    "message": "用户密码修改成功",
+    "code": 0
+  },
+  "data": {
+  }
+}
+```
 
 ##示例代码
 
@@ -278,6 +305,13 @@ usercb
 - 类型：UserCallBack
 - 描述：接口调用成功后的回调函数
 
+```js
+{
+  "token": "eyJhbGcMCPNKJI...",
+  "clientid": "xxx-deaa-11e5-a739-00163e0204c0"
+}
+```
+
 ##示例代码
 
 ```java
@@ -321,6 +355,13 @@ token
 usercb
 - 类型：UserCallBack
 - 描述：接口调用成功后的回调函数
+
+```js
+{
+  "token": "eyJhbGcMCPNKJI...",
+  "clientid": "xxx-deaa-11e5-a739-00163e0204c0"
+}
+```
 
 ##示例代码
 
