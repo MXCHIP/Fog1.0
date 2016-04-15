@@ -595,6 +595,7 @@ searchdevcb
 - 类型：SearchDeviceCallBack
 - 描述：接口调用成功后的回调函数
 
+```js
 [
   {
     "deviceName": "MiCOKit 3165#0C2EB6",
@@ -610,6 +611,7 @@ searchdevcb
     "devicePort": "8002"
   }
 ]
+```
 
 ##示例代码
 
