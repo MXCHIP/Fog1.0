@@ -19,6 +19,8 @@
 <div id="MiCOUser"></div>
 ##**MiCOUser** 用户管理
 
+__基础功能__
+
 * [getVerifyCode](#getVerifyCode)
 
 * [checkVerifyCode](#checkVerifyCode)
@@ -28,6 +30,12 @@
 * [login](#login)
 
 * [refreshToken](#refreshToken)
+
+__权限管理__
+
+* [getMemberList](#getMemberList)
+
+* [removeBindRole](#removeBindRole)
 
 <div id="MiCODevice"></div>
 ##**MiCODevice** 设备管理
@@ -336,6 +344,112 @@ micoUser.refreshToken(userToken, new UserCallBack() {
 ##可用性
 
     Android系统4.0+
+
+<div id="getMemberList"></div>
+#**getMemberList**
+
+    获取此设备名下的用户，只能看到自己意外的用户
+
+    getMemberList(String deviceid, UserCallBack usercb, String token)
+
+##params
+
+deviceid
+- 类型：String, 不可为空
+- 描述：设备的deviceid
+
+token
+- 类型：String, 不可为空
+- 描述：用户登录后获取的token
+
+##callback
+
+usercb
+- 类型：UserCallBack
+- 描述：接口调用成功后的回调函数
+
+##示例代码
+
+```java
+MiCOUser micoUser = new MiCOUser();
+String deviceid = "xxx-b9db-11e5-a739-00163e0204c0";
+String token = "xxx...";
+
+micoUser.getMemberList(deviceid, new UserCallBack() {
+
+    @Override
+    public void onSuccess(String message) {
+        Log.d(TAG + "getMemberList", message);
+        setAdapter(message);
+    }
+
+    @Override
+    public void onFailure(int code, String message) {
+        Log.d(TAG, message);
+    }
+}, token);
+```
+
+##可用性
+
+    Android系统4.0+
+
+<div id="removeBindRole"></div>
+#**removeBindRole**
+
+    删除某人的设备管理权限
+
+    removeBindRole(String deviceid, String enduserid, UserCallBack usercb, String token)
+
+##params
+
+deviceid
+- 类型：String, 不可为空
+- 描述：设备的deviceid
+
+enduserid
+- 类型：String, 不可为空
+- 描述：用户的id
+
+token
+- 类型：String, 不可为空
+- 描述：用户登录后获取的token
+
+##callback
+
+usercb
+- 类型：UserCallBack
+- 描述：接口调用成功后的回调函数
+
+##示例代码
+
+```java
+MiCOUser micoUser = new MiCOUser();
+String mdeviceid = "xxx-b9db-11e5-a739-00163e0204c0";
+String menduserid = "xxx11e5-a739-00163e0204c0";
+String token = "xxx...";
+
+micoUser.removeBindRole(mdeviceid, menduserid, new UserCallBack() {
+
+    @Override
+    public void onSuccess(String message) {
+        Log.d(TAG, message);
+    }
+
+    @Override
+    public void onFailure(int code, String message) {
+        Log.d(TAG, message);
+    }
+},token);
+```
+
+##可用性
+
+    Android系统4.0+
+
+
+##**以下是设备管理部分** 
+
 
 <div id="getSSID"></div>
 #**getSSID**
