@@ -10,7 +10,7 @@
 
 3、注册完成后，我还没有一个可以控制的设备，我需要绑定一个设备，绑定之前需要先让设备连上WIFI路由器，让设备连上路由器(EasyLink)，连上以后找到这个设备的IP(SearchDevice)，并绑定她，这些都在[MiCODevice](#MiCODevice)部分
 
-4、我可以将我名下的设备分享给别人使用，这些在[ShareDevice](#ShareDevice)部分
+4、我可以将我名下的设备分享给别人使用，这些在[ManageDevices](#ManageDevices)部分
 
 5、控制设备分云端远程控制[ControlRemoteDevice](#ControlRemoteDevice)和局域网内本地控制[ControlLocalDevice](#ControlLocalDevice)
 
@@ -60,8 +60,12 @@ __BindDevice__
 
 * [unBindDevice](#unBindDevice)
 
-<div id="ShareDevice"></div>
-__ShareDevice__
+<div id="ManageDevices"></div>
+__ManageDevices__
+
+* [getDeviceList](#getDeviceList)
+
+* [getDeviceInfo](#getDeviceInfo)
 
 * [getShareVerCode](#getShareVerCode)
 
@@ -93,6 +97,16 @@ __ControlLocalDevice__
 
 <div id="ClodRecipe"></div>
 __ClodRecipe__
+
+* [getCookBookByType](#getCookBookByType)
+
+* [getCookBookByName](#getCookBookByName)
+
+* [getCookBookInfo](#getCookBookInfo)
+
+* [addCookBookLikeNo](#addCookBookLikeNo)
+
+* [delCookBookLikeNo](#delCookBookLikeNo)
 
 * [createScheduleTask](#createScheduleTask)
 
@@ -842,6 +856,91 @@ micoDev.unBindDevice(deviceid, new ManageDeviceCallBack() {
     @Override
     public void onFailure(int code, String message) {
         Log.d(TAG, message);
+    }
+}, token);
+```
+
+##可用性
+
+    Android系统4.0+
+
+<div id="getDeviceList"></div>
+#**getDeviceList**
+
+    获取本账号名下的所有相关设备
+
+    getDeviceList(UserCallBack usercb, String token)
+
+##callback
+
+usercb
+- 类型：UserCallBack
+- 描述：接口调用成功后的回调函数
+
+##token
+- 类型：String, 不可为空
+- 描述：用户登录后获取的token
+
+##示例代码
+
+```java
+MiCOUser micoUser = new MiCOUser();
+String token = "xxx...";
+micoUser.getDeviceList(new UserCallBack() {
+
+    @Override
+    public void onSuccess(String message) {
+        Log.d(TAG, message);
+    }
+
+    @Override
+    public void onFailure(int code, String message) {
+        Log.d(TAG, code + " " + message);
+    }
+}, token);
+```
+
+##可用性
+
+    Android系统4.0+
+
+<div id="getDeviceInfo"></div>
+#**getDeviceInfo**
+
+    获取设备信息
+
+    getDeviceInfo(String deviceid, UserCallBack usercb, String token)
+
+##deviceid
+- 类型：String, 不可为空
+- 描述：即将绑定的设备的deviceid
+
+##callback
+
+managedevcb
+- 类型：ManageDeviceCallBack
+- 描述：接口调用成功后的回调函数
+
+##token
+- 类型：String, 不可为空
+- 描述：用户登录后获取的token
+
+##示例代码
+
+```java
+MiCOUser micoUser = new MiCOUser();
+String deviceid = "f71246d8-b9db-11e5-a739-00163e0204c0";
+String token = "xxx...";
+micoUser.getDeviceInfo(deviceid, new UserCallBack() {
+
+    @Override
+    public void onSuccess(String message) {
+        Log.d(TAG, message);
+    }
+
+    @Override
+    public void onFailure(int code, String message) {
+        Log.d(TAG, code + " " + message);
     }
 }, token);
 ```
