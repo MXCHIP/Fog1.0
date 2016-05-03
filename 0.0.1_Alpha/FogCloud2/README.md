@@ -11,7 +11,9 @@
 3、注册完成后，我还没有一个可以控制的设备，我需要绑定一个设备，绑定之前需要先让设备连上WIFI路由器，
 
 1)让设备连上路由器(EasyLink)，
+
 2)连上以后找到这个设备的IP(SearchDevice)，
+
 3)绑定她(bindDevice)
 
 这些都在[MiCODevice](#MiCODevice)部分
