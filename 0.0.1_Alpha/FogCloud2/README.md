@@ -878,6 +878,8 @@ usercb
 - 描述：接口调用成功后的回调函数
 
 ##token
+
+token
 - 类型：String, 不可为空
 - 描述：用户登录后获取的token
 
@@ -911,17 +913,21 @@ micoUser.getDeviceList(new UserCallBack() {
 
     getDeviceInfo(String deviceid, UserCallBack usercb, String token)
 
-##deviceid
+##params
+
+deviceid
 - 类型：String, 不可为空
 - 描述：即将绑定的设备的deviceid
 
 ##callback
 
-managedevcb
-- 类型：ManageDeviceCallBack
+usercb
+- 类型：UserCallBack
 - 描述：接口调用成功后的回调函数
 
 ##token
+
+token
 - 类型：String, 不可为空
 - 描述：用户登录后获取的token
 
@@ -1557,6 +1563,195 @@ micodev.disconnectLocalDevice(new SinSocketCallBack() {
 
     Android系统4.0+
 
+<div id="getCookBookByType"></div>
+#**getCookBookByType**
+
+    通过食谱类型查询食谱
+
+    getCookBookByType(int type, String productid, UserCallBack usercb, String token)
+##params
+
+type
+- 类型：int, 不可为空
+- 描述：云菜谱的类型，自己定义(与云端一致)
+
+productid
+- 类型：String, 不可为空
+- 描述：产品ID
+
+##callback
+
+usercb
+- 类型：UserCallBack
+- 描述：接口调用成功后的回调函数
+
+##token
+
+token
+- 类型：String, 不可为空
+- 描述：用户登录后服务器端返回的token
+
+##示例代码
+
+```java
+MiCOUser micoUser = new MiCOUser();
+int type = 1;
+String productid = "6486b2d1-0ee9-4647-XXXX-78b9cbc778f7";
+micoUser.getCookBookByType(type, productid, new UserCallBack() {
+
+    @Override
+    public void onSuccess(String message) {
+        Log.d(TAG, message);
+    }
+    
+    @Override
+    public void onFailure(int code, String message) {
+        Log.d(TAG, code + " " + message);
+    }
+}, token);
+```
+
+##可用性
+
+    Android系统4.0+
+
+<div id="getCookBookByName"></div>
+#**getCookBookByName**
+
+    通过食谱类型查询食谱
+
+    getCookBookByName(String cookbookname, UserCallBack usercb, String token)
+##params
+
+cookbookname
+- 类型：String, 不可为空
+- 描述：云菜谱的名字，支持模糊查询
+
+##callback
+
+usercb
+- 类型：UserCallBack
+- 描述：接口调用成功后的回调函数
+
+##token
+
+token
+- 类型：String, 不可为空
+- 描述：用户登录后服务器端返回的token
+
+##示例代码
+
+```java
+MiCOUser micoUser = new MiCOUser();
+String recipename = "cake";
+miCOUser.getCookBookByName(recipename, new UserCallBack() {
+
+    @Override
+    public void onSuccess(String message) {
+        Log.d(TAG, message);
+    }
+    
+    @Override
+    public void onFailure(int code, String message) {
+        Log.d(TAG, code + " " + message);
+    }
+}, token);
+```
+
+<div id="getCookBookInfo"></div>
+#**getCookBookInfo**
+
+    获取食谱类型详情
+
+    getCookBookInfo(int cookbookid, UserCallBack usercb, String token)
+##params
+
+cookbookid
+- 类型：int, 不可为空
+- 描述：云菜谱的id，可以通过获取食谱列表获得
+
+##callback
+
+usercb
+- 类型：UserCallBack
+- 描述：接口调用成功后的回调函数
+
+##token
+
+token
+- 类型：String, 不可为空
+- 描述：用户登录后服务器端返回的token
+
+##示例代码
+
+```java
+MiCOUser micoUser = new MiCOUser();
+int recipeid = 86;
+micouser.getCookBookInfo(recipeid, new UserCallBack() {
+
+    @Override
+    public void onSuccess(String message) {
+        Log.d(TAG, message);
+    }
+    
+    @Override
+    public void onFailure(int code, String message) {
+        Log.d(TAG, code + " " + message);
+    }
+}, token);
+```
+
+##可用性
+
+    Android系统4.0+
+
+<div id="addCookBookLikeNo"></div>
+#**addCookBookLikeNo**
+
+    给食谱点赞
+
+    addCookBookLikeNo(int cookbookid, UserCallBack usercb, String token)
+##params
+
+cookbookid
+- 类型：int, 不可为空
+- 描述：云菜谱的id，可以通过获取食谱列表获得
+
+##callback
+
+usercb
+- 类型：UserCallBack
+- 描述：接口调用成功后的回调函数
+
+##token
+
+token
+- 类型：String, 不可为空
+- 描述：用户登录后服务器端返回的token
+
+##示例代码
+
+```java
+MiCOUser micoUser = new MiCOUser();
+int recipeid = 86;
+micouser.addCookBookLikeNo(recipeid, new UserCallBack() {
+
+    @Override
+    public void onSuccess(String message) {
+        Log.d(TAG, message);
+    }
+    
+    @Override
+    public void onFailure(int code, String message) {
+        Log.d(TAG, code + " " + message);
+    }
+}, token);
+```
+
+##可用性
+
+    Android系统4.0+
+
 <div id="createScheduleTask"></div>
 #**createScheduleTask**
 
@@ -1607,7 +1802,13 @@ ctrldevcb
 - 类型：ControlDeviceCallBack
 - 描述：接口调用成功后的回调函数
 
+```js
+{"data":"ec49e83a-1103-11e6-a739-00163e0204c0"}
+```
+
 ##token
+
+token
 - 类型：String, 不可为空
 - 描述：用户登录后服务器端返回的token值，一般保存在localstorege里，以便下一次获取使用
 
@@ -1679,9 +1880,15 @@ ctrldevcb
 - 类型：ControlDeviceCallBack
 - 描述：接口调用成功后的回调函数
 
+```js
+{"data":"ec49e83a-1103-11e6-a739-00163e0204c0"}
+```
+
 ##token
+
+token
 - 类型：String, 不可为空
-- 描述：用户登录后服务器端返回的token值，一般保存在localstorege里，以便下一次获取使用
+- 描述：用户登录后服务器端返回的token
 
 ##示例代码
 
