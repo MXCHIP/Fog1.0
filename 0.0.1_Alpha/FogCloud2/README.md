@@ -8,11 +8,19 @@
 
 2、对于一个新用户而言，首先需要注册用户，获取验证码、验证验证码、注册登录等，这些都在[MiCOUser](#MiCOUser)部分
 
-3、注册完成后，我还没有一个可以控制的设备，我需要绑定一个设备，绑定之前需要先让设备连上WIFI路由器，让设备连上路由器(EasyLink)，连上以后找到这个设备的IP(SearchDevice)，并绑定她，这些都在[MiCODevice](#MiCODevice)部分
+3、注册完成后，我还没有一个可以控制的设备，我需要绑定一个设备，绑定之前需要先让设备连上WIFI路由器，
+
+1)让设备连上路由器(EasyLink)，
+2)连上以后找到这个设备的IP(SearchDevice)，
+3)绑定她(bindDevice)
+
+这些都在[MiCODevice](#MiCODevice)部分
 
 4、我可以将我名下的设备分享给别人使用，这些在[ManageDevices](#ManageDevices)部分
 
 5、控制设备分云端远程控制[ControlRemoteDevice](#ControlRemoteDevice)和局域网内本地控制[ControlLocalDevice](#ControlLocalDevice)
+
+6、如果是烤箱或者电饭煲等智能设备，也许需要用到云菜谱[ClodRecipe](#ClodRecipe)
 
 <br/>
 <br/>
@@ -21,96 +29,96 @@
 
 __基础功能__
 
-* [getVerifyCode](#getVerifyCode)
+* [获取验证码](#getVerifyCode)
 
-* [checkVerifyCode](#checkVerifyCode)
+* [验证验证码](#checkVerifyCode)
 
-* [register](#register)
+* [注册](#register)
 
-* [login](#login)
+* [登录](#login)
 
-* [refreshToken](#refreshToken)
+* [刷新Token](#refreshToken)
 
 __权限管理__
 
-* [getMemberList](#getMemberList)
+* [获取用户列表](#getMemberList)
 
-* [removeBindRole](#removeBindRole)
+* [移除用户权限](#removeBindRole)
 
 <div id="MiCODevice"></div>
 ##**MiCODevice** 设备管理
 
 __EasyLink__
 
-* [getSSID](#getSSID)
+* [获取SSID](#getSSID)
 
-* [startEasyLink](#startEasyLink)
+* [开始配网](#startEasyLink)
 
-* [stopEasyLink](#stopEasyLink)
+* [停止配网](#stopEasyLink)
 
 __SearchDevice__
 
-* [startSearchDevices](#startSearchDevices)
+* [开始搜索设备](#startSearchDevices)
 
-* [stopSearchDevices](#stopSearchDevices)
+* [停止搜索设备](#stopSearchDevices)
 
 __BindDevice__
 
-* [bindDevice](#bindDevice)
+* [绑定设备](#bindDevice)
 
-* [unBindDevice](#unBindDevice)
+* [解绑设备](#unBindDevice)
 
 <div id="ManageDevices"></div>
 __ManageDevices__
 
-* [getDeviceList](#getDeviceList)
+* [获取设备列表](#getDeviceList)
 
-* [getDeviceInfo](#getDeviceInfo)
+* [获取设备详情](#getDeviceInfo)
 
-* [getShareVerCode](#getShareVerCode)
+* [获取设备分享码](#getShareVerCode)
 
-* [creatQrCode](#creatQrCode)
+* [生成二维码](#creatQrCode)
 
-* [addDeviceByVerCode](#addDeviceByVerCode)
+* [通过分享码绑定设备](#addDeviceByVerCode)
 
 <div id="ControlRemoteDevice"></div>
 __ControlRemoteDevice__
 
-* [startListenDevice](#startListenDevice)
+* [监听远程设备](#startListenDevice)
 
-* [sendCommand](#sendCommand)
+* [发送指令](#sendCommand)
 
-* [addDeviceListener](#addDeviceListener)
+* [增加订阅通道](#addDeviceListener)
 
-* [removeDeviceListener](#removeDeviceListener)
+* [移除订阅通道](#removeDeviceListener)
 
-* [stopListenDevice](#stopListenDevice)
+* [停止监听设备](#stopListenDevice)
 
 <div id="ControlLocalDevice"></div>
 __ControlLocalDevice__
 
-* [connectLocalDevice](#connectLocalDevice)
+* [连接本地设备](#connectLocalDevice)
 
-* [sendLocalCommand](#sendLocalCommand)
+* [发送本地控制指令](#sendLocalCommand)
 
-* [disconnectLocalDevice](#disconnectLocalDevice)
+* [断开与本地设备的连接](#disconnectLocalDevice)
 
 <div id="ClodRecipe"></div>
 __ClodRecipe__
 
-* [getCookBookByType](#getCookBookByType)
+* [通过类型获取菜谱列表](#getCookBookByType)
 
-* [getCookBookByName](#getCookBookByName)
+* [通过名称获取菜谱列表](#getCookBookByName)
 
-* [getCookBookInfo](#getCookBookInfo)
+* [获取菜谱详情](#getCookBookInfo)
 
-* [addCookBookLikeNo](#addCookBookLikeNo)
+* [给菜谱点赞](#addCookBookLikeNo)
 
-* [delCookBookLikeNo](#delCookBookLikeNo)
+* [取消点赞](#delCookBookLikeNo)
 
-* [createScheduleTask](#createScheduleTask)
+* [创建定时任务](#createScheduleTask)
 
-* [creatDelayTask](#creatDelayTask)
+* [创建延时任务](#creatDelayTask)
 
 <br/>
 <br/>
@@ -1618,7 +1626,7 @@ micoUser.getCookBookByType(type, productid, new UserCallBack() {
 <div id="getCookBookByName"></div>
 #**getCookBookByName**
 
-    通过食谱类型查询食谱
+    通过食谱名称查询食谱
 
     getCookBookByName(String cookbookname, UserCallBack usercb, String token)
 ##params
@@ -1661,7 +1669,7 @@ miCOUser.getCookBookByName(recipename, new UserCallBack() {
 <div id="getCookBookInfo"></div>
 #**getCookBookInfo**
 
-    获取食谱类型详情
+    获取食谱详情
 
     getCookBookInfo(int cookbookid, UserCallBack usercb, String token)
 ##params
