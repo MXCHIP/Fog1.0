@@ -91,6 +91,13 @@ __ControlLocalDevice__
 
 * [disconnectLocalDevice](#disconnectLocalDevice)
 
+<div id="ClodRecipe"></div>
+__ClodRecipe__
+
+* [createScheduleTask](#createScheduleTask)
+
+* [creatDelayTask](#creatDelayTask)
+
 <br/>
 <br/>
 <div id="getVerifyCode"></div>
@@ -1445,6 +1452,162 @@ micodev.disconnectLocalDevice(new SinSocketCallBack() {
         Log.d(TAG, "disconnect-->"+code + " " + message);
     }
 });
+```
+
+##可用性
+
+    Android系统4.0+
+
+<div id="createScheduleTask"></div>
+#**createScheduleTask**
+
+    创建定时任务
+
+    createScheduleTask(ScheduleTaskParam stp, ControlDeviceCallBack ctrldevcb, String token)
+##params
+
+stp
+- 类型：ScheduleTaskParam, 不可为空
+- 描述：ScheduleTaskParam至少包含以下的信息
+
+device_id
+- 类型：String, 不可为空
+- 描述：设备的device id
+
+order
+- 类型：String, 不可为空
+- 描述：控制指令
+
+enable
+- 类型：boolean, 可为空，默认为true
+- 描述：当前task，True 启用 False 暂停
+
+month
+- 类型：String, 可为空
+- 描述：月
+
+day_of_month
+- 类型：String, 可为空
+- 描述：日
+
+day_of_week
+- 类型：String, 可为空
+- 描述：周
+
+hour
+- 类型：String, 可为空
+- 描述：小时
+
+minute
+- 类型：String, 可为空
+- 描述：分
+
+##callback
+
+ctrldevcb
+- 类型：ControlDeviceCallBack
+- 描述：接口调用成功后的回调函数
+
+##token
+- 类型：String, 不可为空
+- 描述：用户登录后服务器端返回的token值，一般保存在localstorege里，以便下一次获取使用
+
+##示例代码
+
+```java
+MiCODevice micodev = new MiCODevice(MainActivity.this);
+ScheduleTaskParam stp = new ScheduleTaskParam();
+
+stp.device_id = "d95366fe-06c0-11e6-a739-00163e0204c0";
+stp.order = "{\"KG_Start\":\"1\",\"WorkMode\":\"1\"}";
+stp.enable = true;
+stp.month = "*";
+stp.day_of_month = "*";
+stp.day_of_week = "*";
+stp.hour = "*";
+stp.minute = "*";
+
+micoDev.createScheduleTask(stp, new ControlDeviceCallBack() {
+
+    @Override
+    public void onSuccess(String message) {
+        Log.d(TAG + "onSuccess", message);
+    }
+
+    @Override
+    public void onFailure(int code, String message) {
+        Log.d(TAG + "onFailure", code + " " + message);
+    }
+
+}, token);
+```
+
+##可用性
+
+    Android系统4.0+
+
+<div id="creatDelayTask"></div>
+#**creatDelayTask**
+
+    创建延时任务
+
+    creatDelayTask(ScheduleTaskParam stp, ControlDeviceCallBack ctrldevcb, String token)
+##params
+
+stp
+- 类型：ScheduleTaskParam, 不可为空
+- 描述：ScheduleTaskParam至少包含以下的信息
+
+device_id
+- 类型：String, 不可为空
+- 描述：设备的device id
+
+order
+- 类型：String, 不可为空
+- 描述：控制指令
+
+enable
+- 类型：boolean, 可为空，默认为true
+- 描述：当前task，True 启用 False 暂停
+
+second
+- 类型：int, 可为空
+- 描述：秒
+
+##callback
+
+ctrldevcb
+- 类型：ControlDeviceCallBack
+- 描述：接口调用成功后的回调函数
+
+##token
+- 类型：String, 不可为空
+- 描述：用户登录后服务器端返回的token值，一般保存在localstorege里，以便下一次获取使用
+
+##示例代码
+
+```java
+MiCODevice micodev = new MiCODevice(MainActivity.this);
+ScheduleTaskParam stp = new ScheduleTaskParam();
+
+stp.device_id = "d95366fe-06c0-11e6-a739-00163e0204c0";
+stp.order = "{\"KG_Start\":\"1\",\"WorkMode\":\"1\"}";
+stp.enable = true;
+stp.second = 100;
+
+micoDev.creatDelayTask(stp, new ControlDeviceCallBack() {
+
+    @Override
+    public void onSuccess(String message) {
+        Log.d(TAG + "onSuccess", message);
+    }
+
+    @Override
+    public void onFailure(int code, String message) {
+        Log.d(TAG + "onFailure", code + " " + message);
+    }
+
+}, token);
 ```
 
 ##可用性
