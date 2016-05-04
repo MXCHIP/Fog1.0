@@ -24,12 +24,15 @@ public class MainActivity extends Activity {
 	private Context context;
 	private JmdnsAPI mdnsApi;
 
+	private boolean startTag = false;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
 		context = MainActivity.this;
+		mdnsApi = new JmdnsAPI(context);
 
 		mdnsserv = (EditText) findViewById(R.id.mdnsserv);
 		startmdns = (Button) findViewById(R.id.startmdns);
@@ -40,28 +43,45 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				String serviceInfo = mdnsserv.getText().toString();
 
-				mdnsApi = new JmdnsAPI(context);
 				// String wifiTagHead = "_easylink._tcp.local.";
-				mdnsApi.startMdnsService(serviceInfo, new JmdnsListener() {
+				// FogProductId
+				// IsEasylinkOK
+				// IsHaveSuperUser
+				// RemainingUserNumber
+				if (!startTag) {
+					String serviceInfo = mdnsserv.getText().toString();
+					startTag = true;
+					showdev.append("\r\n 正在打开mDNS");
+					mdnsApi = new JmdnsAPI(context);
+					mdnsApi.startMdnsService(serviceInfo, new JmdnsListener() {
 
-					@Override
-					public void onJmdnsFind(JSONArray deviceJson) {
-						if (!deviceJson.equals("")) {
-							Log.e("------OK------", deviceJson.toString());
-//							showdev.setText(deviceJson.toString());
-							// showdev.append(deviceJson.toString()+"\r\n");
+						@Override
+						public void onJmdnsFind(JSONArray deviceJson) {
+							if (!deviceJson.equals("")) {
+								Log.d("------OK------", deviceJson.toString());
+								showdev.setText("\r\n 接收数据中\r\n\n"+deviceJson.toString());
+								showdev.append(deviceJson.toString() + "\r\n");
+							}
 						}
-					}
-				});
+					});
+				}else{
+					showdev.append("\r\n mDNS 已经打开");
+				}
 			}
 		});
 		stopmdns.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				mdnsApi.stopMdnsService();
+				if (startTag) {
+					showdev.append("\r\n\n正在关闭mDNS, 保留最后一条记录");
+					mdnsApi.stopMdnsService();
+					mdnsApi = null;
+					startTag = false;
+				}else{
+					showdev.append("\r\nmDNS 已经关闭");
+				}
 			}
 		});
 	}

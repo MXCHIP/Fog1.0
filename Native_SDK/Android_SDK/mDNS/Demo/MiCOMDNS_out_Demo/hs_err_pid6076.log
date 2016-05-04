@@ -1,0 +1,79 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  Internal Error (classFileParser.cpp:3494), pid=6076, tid=1360
+#  Error: ShouldNotReachHere()
+#
+# JRE version: 6.0_43-b01
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (20.14-b01 mixed mode windows-amd64 compressed oops)
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000000000081c000):  JavaThread "Unknown thread" [_thread_in_vm, id=1360, stack(0x0000000002280000,0x0000000002380000)]
+
+Stack: [0x0000000002280000,0x0000000002380000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x000000000081c000 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=1360, stack(0x0000000002280000,0x0000000002380000)]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Dynamic libraries:
+0x0000000000400000 - 0x000000000042f000 	C:\Program Files\Java\jdk1.6.0_43\jre\bin\javaw.exe
+0x00007ffdd7030000 - 0x00007ffdd71f1000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffdd5ec0000 - 0x00007ffdd5f6d000 	C:\WINDOWS\system32\KERNEL32.DLL
+0x00007ffdd4410000 - 0x00007ffdd45ed000 	C:\WINDOWS\system32\KERNELBASE.dll
+0x00007ffdd6510000 - 0x00007ffdd65b6000 	C:\WINDOWS\system32\ADVAPI32.dll
+0x00007ffdd6890000 - 0x00007ffdd692d000 	C:\WINDOWS\system32\msvcrt.dll
+0x00007ffdd6c00000 - 0x00007ffdd6c5b000 	C:\WINDOWS\system32\sechost.dll
+0x00007ffdd6100000 - 0x00007ffdd6226000 	C:\WINDOWS\system32\RPCRT4.dll
+0x00007ffdd66c0000 - 0x00007ffdd680e000 	C:\WINDOWS\system32\USER32.dll
+0x00007ffdd5f70000 - 0x00007ffdd60f6000 	C:\WINDOWS\system32\GDI32.dll
+0x00007ffdd6680000 - 0x00007ffdd66b6000 	C:\WINDOWS\system32\IMM32.DLL
+0x00007ffdd6cc0000 - 0x00007ffdd6e1c000 	C:\WINDOWS\system32\MSCTF.dll
+0x000000006d8c0000 - 0x000000006e07c000 	C:\Program Files\Java\jdk1.6.0_43\jre\bin\server\jvm.dll
+0x00007ffdd2080000 - 0x00007ffdd20a3000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00000000003c0000 - 0x00000000003ec000 	C:\WINDOWS\SYSTEM32\WINMMBASE.dll
+0x00007ffdd45f0000 - 0x00007ffdd4634000 	C:\WINDOWS\system32\cfgmgr32.dll
+0x00007ffdd2330000 - 0x00007ffdd2357000 	C:\WINDOWS\SYSTEM32\DEVOBJ.dll
+0x000000006d830000 - 0x000000006d83e000 	C:\Program Files\Java\jdk1.6.0_43\jre\bin\verify.dll
+0x000000006d450000 - 0x000000006d477000 	C:\Program Files\Java\jdk1.6.0_43\jre\bin\java.dll
+0x000000006d880000 - 0x000000006d892000 	C:\Program Files\Java\jdk1.6.0_43\jre\bin\zip.dll
+0x00007ffdd4980000 - 0x00007ffdd4988000 	C:\WINDOWS\system32\PSAPI.DLL
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF-8 -Xbootclasspath/p:D:\Program Files\adt-bundle-windows-x86_64-20140321\sdk\platforms\android-19\android.jar 
+java_command: com.example.micomdns_demo.ZZDemo
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=
+[error occurred during error reporting (printing environment variables), id 0xc0000005]
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 8 , 64 bit Build 9200 
+
+CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 model 69 stepping 1, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, ht
+
+Memory: 4k page, physical 12463160k(7399620k free), swap 14363704k(8906832k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (20.14-b01) for windows-amd64 JRE (1.6.0_43-b01), built on Mar  1 2013 01:52:33 by "java_re" with MS VC++ 8.0 (VS2005)
+
+time: Fri Jan 15 10:46:40 2016
+elapsed time: 0 seconds
+
