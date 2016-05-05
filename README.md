@@ -2,7 +2,7 @@
 ![](http://ac-rkb3roqq.clouddn.com/3995aae8ef870506.png)
 
 #**MiCOSDK**
-##包含三个部分内容
+##原来名字叫MiCOSDK，现改名为Fog1.0，如果想看Fog2.0请移步[传送门](https://github.com/mxchipSDK/Fog2.0)
 
 >1、Native_SDK，其中包含android和iOS的sdk以及demo，
 
