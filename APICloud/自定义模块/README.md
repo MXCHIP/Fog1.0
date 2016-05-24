@@ -1,3 +1,3 @@
-##此自定义模块的使用需要将模块导入到自己的自定义模块中
+##需要将模块导入到APICloud的自定义模块中
 
 >目前主要包含MiCOBind，MiCOmDNS，MiCOMQTT，这三个版本支持android和iOS系统
