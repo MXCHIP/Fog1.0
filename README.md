@@ -1,6 +1,4 @@
 
-![](http://ac-rkb3roqq.clouddn.com/3995aae8ef870506.png)
-
 #**FOG1.0**
 
 ##原来名字叫MiCOSDK，现改名为Fog1.0，
