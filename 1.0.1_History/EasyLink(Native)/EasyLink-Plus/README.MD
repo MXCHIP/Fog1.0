@@ -96,3 +96,7 @@ elapi.startEasyLink_FTC(context,wifissid,  wifipsw, new FTCListener() {
 elapi.stopFTC();
 elapi.stopEasyLink();
 ```
+
+##无法收到callback
+
+如果发现设备已经成功发送了信息，但是onFTCfinished中仍然没有反馈，那么请咨询固件研发工程师，现在使用的是不是老版本，即2015-08-20之前的固件，如果是，那么请参考老版本的配网项目,[传送门](https://github.com/mxchipSDK/EasyLink3.1)
