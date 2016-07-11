@@ -4,4 +4,4 @@
 
 ##iOS版本正在更新中
 
->暂时请使用这里的DEMO进行开发测试，[传送门](https://github.com/MXCHIP/EasyLink_iOS)
+>暂时请使用这里的DEMO进行开发测试，[传送门](https://github.com/MXCHIP/EasylinkDemo)
