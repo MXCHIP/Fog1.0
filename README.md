@@ -1,6 +1,11 @@
 
-#**FOG1.0 即将停止维护**
+#**Fog1.0 即将停止维护**
 
-<span style="color:red; font-size:60px;">FOG1.0 即将停止维护</span>
 
-##请逐步转移到Fog2.0，[传送门](https://github.com/mxchipSDK/Fog2.0)
+##1、请逐步转移到Fog2.0，[传送门](https://github.com/mxchipSDK/Fog2.0)
+
+
+##2、Fog1.0服务器最迟今年底会关闭，不是停止维护，是关闭哦，我也是惊呆了，真的是关闭
+
+
+##3、打算迁移的同学请联系销售，我们会全力协助迁移。
